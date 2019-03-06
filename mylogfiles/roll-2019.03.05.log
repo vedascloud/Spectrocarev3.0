@@ -1,0 +1,36 @@
+17:44:01.364 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c7e59dfaff59f3b04de7011","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"1097","latitude":"12123122","longitude":"1561231","register_time":"15123652","register_type":"Manual","__v":0} accepted at 2019-03-05T12:14:01.364Z 
+17:44:15.032 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c7e59dfaff59f3b04de7011","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"1097","latitude":"12123122","longitude":"1561231","register_time":"15123652","register_type":"Manual","__v":0} accepted at 2019-03-05T12:14:15.032Z 
+17:44:15.052 INFO  device insertion statusrelationships is not defined
+{}
+ReferenceError: relationships is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:291:65)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-05T12:14:15.052Z 
+17:44:38.545 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c7e59dfaff59f3b04de7011","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"1097","latitude":"12123122","longitude":"1561231","register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-05T12:14:38.545Z 
+17:44:38.552 INFO  device insertion statusrelationships is not defined
+{}
+ReferenceError: relationships is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:291:65)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-05T12:14:38.552Z 
+17:53:10.549 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c7e59dfaff59f3b04de7011","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"1097","latitude":"12123122","longitude":"1561231","register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-05T12:23:10.549Z 
+17:56:05.844 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c7e59dfaff59f3b04de7011","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"1097","latitude":"12123122","longitude":"1561231","register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-05T12:26:05.843Z 
+

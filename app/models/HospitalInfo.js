@@ -1,0 +1,53 @@
+var config = require('../configfiles/config.json');
+
+var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+var Schema = mongoose.Schema;
+
+var HospitalInfoSchema = new Schema({
+
+    username : {
+        type : String,
+        required : true,
+        index : true,
+        unique : true
+    },
+    hospitalId:{
+        type : String,
+        required : true
+    } ,
+    name : {
+        type : String,
+        required : true
+    },
+
+    telephone : {
+        type : String,
+        required : true
+    },
+    fax : {
+        type : String,
+        required : true
+    },
+    contactPerson : {
+        type : String,
+        required : true
+    },
+    address : {
+        type : String,
+        required : true
+    },
+    addedTime:{
+        type:String,
+        required:true
+    },
+    profilePic : {
+        type:String,
+        required:true
+    }
+
+});
+
+mongoose.connect(config.connectionString);
+
+module.exports = mongoose.model('HospitalInfo',HospitalInfoSchema);
