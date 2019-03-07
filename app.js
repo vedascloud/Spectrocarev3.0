@@ -10,8 +10,8 @@ var hospitalInfoRouter = require('./routes/Hospitalinformation');
 var loginRouter = require('./routes/Login');
 var forgetRouter = require('./routes/Forgetpassword');
 var setpassRouter = require('./routes/Setpassword');
-
 var changepasswordRouter = require('./routes/Chnagepassword');
+var singoutRouter = require('./routes/Singout');
 
 var humanRouter = require('./routes/HumanClient');
 
@@ -39,8 +39,8 @@ app.use('/spectrocare/hospitalinfo',hospitalInfoRouter);
 app.use('/spectrocare/login',loginRouter);
 app.use('/spectrocare/forgot',forgetRouter);
 app.use('/spectrocare/newpassword',setpassRouter);
-
 app.use('/spectrocare/changepassword', changepasswordRouter);
+app.use('/spectrocare/logout',singoutRouter);
 
 app.use('/spectrocare/human',humanRouter);
 
