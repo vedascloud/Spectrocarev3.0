@@ -1,9 +1,7 @@
 var Hospital = require('../app/models/Hospital');
 var HospitalInfo = require('../app/models/HospitalInfo');
 var urine = require('../app/models/Urine');
-//var relationships = require('../app/models/relationships');
-//var spectrometer = require('../app/models/spectrometer');
-//var doctor = require('../app/models/doctor');
+
 var validator = require('validator');
 var notify = require('../app/models/Notification');
 
@@ -203,10 +201,6 @@ var Login = {
 
                                                                                     var r = { response: '3',  hospital_data: [pinfo], Test_Results: urineData,  prefer_language: 'English' };
                                                                                     callback(r);
-
-
-
-
 
                                                         })
                                                         .catch((error) => {
@@ -430,19 +424,11 @@ var Login = {
 
                                                                                         var r = {
                                                                                             response: '3',
-
                                                                                             hospital_data: [pinfo],
                                                                                             Test_Results: urineData,
-
                                                                                             prefer_language: 'English'
                                                                                         };
                                                                                         callback(r);
-
-
-
-
-
-
 
 
                                                             })
@@ -452,7 +438,7 @@ var Login = {
                                                             })
 
                                                     } else {
-                                                        var r = { response: '3', members_data: [], personal_data: [], Test_Results: [], deviceinfo: [], doctor: [], prefer_language: 'English' };
+                                                        var r = { response: '3',hospital_data: [], Test_Results: [], deviceinfo: [], prefer_language: 'English' };
                                                         callback(r);
                                                     }
                                                 });
