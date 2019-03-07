@@ -6,179 +6,90 @@ const Busboy = require('busboy');
 
 var Humaninformation={
 
+    insertHumanInfo:function(personalinfo,profilepic,headers,req,callback) {
 
-insertHumanInfo:function(personalinfo,profilepic,headers,req,callback) {
+        function uploadToFolder(file,fields) {
 
-    function uploadToFolder(file,fields) {
+            HospotalDB.findOne({
+                username: new RegExp(fields.username, 'i'),
+                verification_status: true
+            }).exec().then((HospitalFound) => {
 
-        HospotalDB.findOne({
-            username: new RegExp(fields.username, 'i'),
-            verification_status: true
-        }).exec().then((HospitalFound) => {
+                HumanDB.findOne({email: fields.email}).exec().then((HumanFound) => {
 
-            HumanDB.findOne({email: fields.email}).exec().then((HumanFound) => {
+                    console.log('HumanFound..', HumanFound);
+                    if (HumanFound) {
+                        callback({response: '0', message: 'something gone wrong!!!'});
+                    } else {
 
-                console.log('HumanFound..', HumanFound);
-                if (HumanFound) {
-                    callback({response: '0', message: 'something gone wrong!!!'});
-                } else {
-
-                    var clientId = "id_" + Date.now();
+                        var clientId = "id_" + Date.now();
 
 
-                    var text = ""; //random text
-                    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                        var text = ""; //random text
+                        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-                    for (let i = 0; i < 5; i++) {
-                        text += possible.charAt(Math.floor(Math.random() * possible.length));
-                    }
-                    let d = Date.now();
-                    let imagepath = "./public/images/" + text + d + file.name;
-                    file.mv(imagepath, (err, suc) => {
-                        if (err) {
-                            console.log(err);
-                            callback({response: '0', message: 'something gone wrong!!!'});
-                        } else {
-                            console.log(suc);
-                            console.log('form data fields...', fields);
-                            var personDb = new HumanDB({
-                                username: fields.username,
-                                clientId: clientId,
-                                name: fields.name,
-                                email: fields.email,
-                                phone: fields.phone,
-                                birthday: fields.birthday,
-                                gender: fields.gender,
-                                bloodType: fields.bloodType,
-                                height: fields.height,
-                                weight: fields.weight,
-                                note: fields.note,
-                                addedTime: Date.now(),
-                                profilePic: "/images/" + text + d + file.name
-                            });
-
-                            personDb.save((success) => {
-                                console.log(success);
-                                callback({
-                                    response: '3',
-                                    message: 'Your personal information has been successfully stored.'
+                        for (let i = 0; i < 5; i++) {
+                            text += possible.charAt(Math.floor(Math.random() * possible.length));
+                        }
+                        let d = Date.now();
+                        let imagepath = "./public/images/" + text + d + file.name;
+                        file.mv(imagepath, (err, suc) => {
+                            if (err) {
+                                console.log(err);
+                                callback({response: '0', message: 'something gone wrong!!!'});
+                            } else {
+                                console.log(suc);
+                                console.log('form data fields...', fields);
+                                var personDb = new HumanDB({
+                                    username: fields.username,
+                                    clientId: clientId,
+                                    name: fields.name,
+                                    email: fields.email,
+                                    phone: fields.phone,
+                                    birthday: fields.birthday,
+                                    gender: fields.gender,
+                                    bloodType: fields.bloodType,
+                                    height: fields.height,
+                                    weight: fields.weight,
+                                    note: fields.note,
+                                    addedTime: Date.now(),
+                                    profilePic: "/images/" + text + d + file.name
                                 });
-                            });
 
-                        }
-                    });
+                                personDb.save((success) => {
+                                    console.log(success);
+                                    callback({
+                                        response: '3',
+                                        message: 'Your personal information has been successfully stored.'
+                                    });
+                                });
 
-                }
-            });
-
-        }).catch((error) => {
-            console.log(error);
-        })
-    }
-
-    var busboy = new Busboy({ headers: headers });
-
-    // The file upload has completed
-    busboy.on('finish', function() {
-
-        // Grabs your file object from the request.
-        const file = profilepic.profilepic;
-
-        // Begins the upload to the AWS S3
-        uploadToFolder(file,personalinfo);
-
-    });
-
-    req.pipe(busboy);
-},
-
-
-/*var HumanController = {
-
-    addHumanClient :(personalinfo,profilepic,headers,req,callback) => {
-
-        const username = userParam.username;
-
-        if (validator.isEmail(username)) {
-
-                HospotalDB.findOne({username : new RegExp(username, 'i'),verification_status:true}).exec().then((HospitalFound) => {
-
-                    HumanDB.findOne({email : userParam.email}).exec().then((HumanFound) => {
-
-                        console.log('HumanFound..',HumanFound);
-                        if(HumanFound){
-                            callback({response:'0',message:'something gone wrong!!!'});
-                        }else{
-
-                            var clientId = "id_"+Date.now();
-
-
-                            var text = ""; //random text
-                            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
-                            for( let i=0; i < 5; i++ ){
-                                text += possible.charAt(Math.floor(Math.random() * possible.length));
                             }
-                            let d= Date.now();
-                            let imagepath = "./public/images/"+text+d+file.name;
-                            file.mv(imagepath, (err,suc) => {
-                                if(err){
-                                    console.log(err);
-                                    callback({response:'0',message:'something gone wrong!!!'});
-                                }else{
-                                    console.log(suc);
-                                    console.log('form data fields...',fields);
-                                    var personDb = new HumanDB({
-                                        username:fields.username,
-                                        clientId:clientId,
-                                        name:fields.name,
-                                        email:fields.email,
-                                        phone:fields.phone,
-                                        birthday:fields.birthday,
-                                        gender:fields.gender,
-                                        bloodType:fields.bloodType,
-                                        height:fields.height,
-                                        weight:fields.weight,
-                                        note:fields.note,
-                                        addedTime:Date.now(),
-                                        profilePic: "/images/"+text+d+file.name
-                                    });
+                        });
 
-                                    personDb.save((success) => {
-                                        console.log(success);
-                                        callback({response:'3',message:'Your personal information has been successfully stored.'});
-                                    });
-
-                                }
-                            });
-
-                        }
-
-                    }).catch((error) => {
-                        throw error;
-                    });
-
-                }).catch((error) => {
-                    throw error;
+                    }
                 });
 
-        } else {
-            callback({ response: '0', message: 'please pass a valid email address' });
+            }).catch((error) => {
+                console.log(error);
+            })
         }
+
+        var busboy = new Busboy({ headers: headers });
+
+        // The file upload has completed
+        busboy.on('finish', function() {
+
+            // Grabs your file object from the request.
+            const file = profilepic.profilepic;
+
+            // Begins the upload to the AWS S3
+            uploadToFolder(file,personalinfo);
+
+        });
+
+        req.pipe(busboy);
     },
-
-    updateHumanClient : (userParam,callback) => {
-
-    },
-
-    fetchHumanClient : (userParam,callback) => {
-
-    },
-
-    deleteHumanClient : (userParam,callback) => {
-
-    }*/
-
 
     updateHumanInfo : (personalinfo,profilepic,headers,req,callback) => {
 
@@ -265,6 +176,8 @@ insertHumanInfo:function(personalinfo,profilepic,headers,req,callback) {
         req.pipe(busboy);
 
     }
+
+
 
 
 }
