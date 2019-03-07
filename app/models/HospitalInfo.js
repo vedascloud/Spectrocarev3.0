@@ -1,7 +1,5 @@
-var config = require('../configfiles/config.json');
-
 var mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
+
 var Schema = mongoose.Schema;
 
 var HospitalInfoSchema = new Schema({
@@ -47,7 +45,5 @@ var HospitalInfoSchema = new Schema({
     }
 
 });
-
-mongoose.connect(config.connectionString);
 
 module.exports = mongoose.model('HospitalInfo',HospitalInfoSchema);

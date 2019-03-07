@@ -11,3 +11,4 @@ ValidationError: Mobile validation failed: devices.mobile.0.deviceid: Path `devi
     at _combinedTickCallback (internal/process/next_tick.js:131:7)
     at process._tickCallback (internal/process/next_tick.js:180:9) accepted at 2019-03-06T04:01:07.230Z 
 09:49:20.807 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c7f45ca6c79f92d08150724","username":"vedas@gmail.com","password":"111111","otp":"3507","latitude":"12123122","longitude":"1561231","register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-06T04:19:20.807Z 
+

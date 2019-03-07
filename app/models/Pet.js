@@ -57,4 +57,4 @@ var PetSchema = new Schema({
 
 });
 
-module.exports = mongoose.model('Human',HumanSchema);
+module.exports = mongoose.model('Pet',PetSchema);

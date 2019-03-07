@@ -113,7 +113,7 @@ var Personalinformation={
                                 .then((profileUpdate) => {
                                     if(profileUpdate){
 
-                                        fs.unlink('./public'+userFound.profilepic, (err) => {
+                                        fs.unlink('./public'+userFound.profilePic, (err) => {
                                             if (err) throw err;
                                             console.log('path file was deleted');
                                           });
