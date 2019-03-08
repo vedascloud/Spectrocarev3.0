@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var profile = require('../models/HumanClient');
+var profile = require('../models/Human');
 const fileUpload = require('express-fileupload');
 
 router.use(fileUpload({
@@ -34,6 +34,25 @@ router.put('/',(req,res) => {
 
         })
     }
-})
+});
+
+router.post('/fetch',(req,res) => {
+
+    profile.fetchHumanInfo(req.body,(result) => {
+        console.log(result);
+        res.json(result);
+    })
+});
+
+router.delete('/',(req,res) => {
+    if(typeof req.body.clientId === 'undefined'){
+        res.json({result:'error',message:'no content found'});
+    }else {
+        profile.deleteHumanInfo(req.body,(result) => {
+            console.log('result...',result);
+            res.json(result);
+        })
+    }
+});
 
 module.exports=router;

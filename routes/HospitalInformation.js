@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var profile = require('../models/Hospitalinformation');
+var profile = require('../models/HospitalInformation');
 const fileUpload = require('express-fileupload');
 
 router.use(fileUpload({
@@ -13,7 +13,7 @@ router.post('/',(req,res) => {
         res.json({response:'0',message:'No content found to process your request'});
     }else {
        
-        profile.insertPersonalinfo(req.body, req.files, req.headers, req, (result) => {
+        profile.insertHospitalInfo(req.body, req.files, req.headers, req, (result) => {
 
             res.send(result);
 
@@ -28,12 +28,31 @@ router.put('/',(req,res) => {
         res.json({response:'0',message:'No content found to process your request'});
     }else {
         
-        profile.updateProfileInformation(req.body, req.files, req.headers, req, (result) => {
+        profile.updateHospitalInfo(req.body, req.files, req.headers, req, (result) => {
 
             res.send(result);
 
         })
     }
-})
+});
+
+router.post('/fetch',(req,res) => {
+
+    profile.fetchHospitalInfo(req.body,(result) => {
+        console.log(result);
+        res.json(result);
+    })
+});
+
+router.delete('/',(req,res) => {
+    if(typeof req.body.hospitalId === 'undefined'){
+        res.json({result:'error',message:'no content found'});
+    }else {
+        profile.deleteHospitalInfo(req.body,(result) => {
+            console.log('result...',result);
+            res.json(result);
+        })
+    }
+});
 
 module.exports=router;

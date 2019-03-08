@@ -6,14 +6,14 @@ var logger = require('morgan');
 
 var registerRouter = require('./routes/Register');
 var verifyRouter = require('./routes/Verify');
-var hospitalInfoRouter = require('./routes/Hospitalinformation');
+var hospitalInfoRouter = require('./routes/HospitalInformation');
 var loginRouter = require('./routes/Login');
 var forgetRouter = require('./routes/Forgetpassword');
 var setpassRouter = require('./routes/Setpassword');
 var changepasswordRouter = require('./routes/Chnagepassword');
 var singoutRouter = require('./routes/Singout');
 
-var humanRouter = require('./routes/HumanClient');
+var humanRouter = require('./routes/Human');
 
 var app = express();
 var server = require('http').Server(app);

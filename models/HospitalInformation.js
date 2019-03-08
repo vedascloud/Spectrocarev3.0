@@ -1,10 +1,11 @@
 const Busboy = require('busboy');
+var HospitalDb = require('../app/models/Hospital');
 var HospitalInfoDb = require('../app/models/HospitalInfo');
 var fs = require('fs');
 var Personalinformation={
 
 
-    insertPersonalinfo:function(personalinfo,profilepic,headers,req,callback) {
+    insertHospitalInfo:function(personalinfo,profilepic,headers,req,callback) {
 
        function uploadToFolder(file,fields) {
 
@@ -75,7 +76,7 @@ var Personalinformation={
     },
 
 
-    updateProfileInformation : (personalinfo,profilepic,headers,req,callback) => {
+    updateHospitalInfo : (personalinfo,profilepic,headers,req,callback) => {
 
         function uploadToFolder(file,fields) {
 
@@ -155,7 +156,60 @@ var Personalinformation={
 
         req.pipe(busboy);
         
+    },
+
+    //Fetch Hospital
+    fetchHospitalInfo : (user,callback) => {
+        HospitalDb.findOne({username:user.username},{_id:0,__v:0}).exec().then((results)=> {
+                // console.log(results);
+                if (results) {
+                    HospitalInfoDb.find({}, {_id: false, __v: false}).exec().then( (res) => {
+                        callback({response: '3', Hospital: res});
+                    }) .catch((err) => {
+                        console.log(err);
+                    })
+                }
+                else {
+                    callback({response: '0', message: 'user dont have account'});
+                }
+            }
+        ).catch((error) => {
+            console.log(error);
+        })
+    },
+
+    //Delete Hospital
+    deleteHospitalInfo : (data,callback) => {
+
+        HospitalInfoDb.findOne({hospitalId:data.hospitalId}).exec().then((fileFound)=>{
+
+            if(fileFound){
+
+                HospitalInfoDb.deleteOne({hospitalId: data.hospitalId}).exec().then((res) => {
+                    if(res){
+                        console.log('path of a profilePic..', fileFound.profilePic);
+                        fs.unlink('./public'+fileFound.profilePic , (er, sc) => {
+                            if (er) {
+                                console.log('error found,', er);
+                            }else {
+                                console.log(sc);
+                            }
+                            callback({result: '3', message: 'successfully deleted'});
+                        });
+                    }
+                }).catch((error) => {
+                    console.log(error);
+                })
+
+            }else
+            {
+                callback({result: '0', message: 'no Hospital found'});
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
     }
+
 };
 
 module.exports=Personalinformation;
