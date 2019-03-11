@@ -12,7 +12,7 @@ var forgetRouter = require('./routes/Forgetpassword');
 var setpassRouter = require('./routes/Setpassword');
 var changepasswordRouter = require('./routes/Chnagepassword');
 var singoutRouter = require('./routes/Singout');
-
+var contactusRouter = require('./routes/Contactus');
 var humanRouter = require('./routes/Human');
 
 var app = express();
@@ -41,7 +41,7 @@ app.use('/spectrocare/forgot',forgetRouter);
 app.use('/spectrocare/newpassword',setpassRouter);
 app.use('/spectrocare/changepassword', changepasswordRouter);
 app.use('/spectrocare/logout',singoutRouter);
-
+app.use('/spectrocare/feedback',contactusRouter);
 app.use('/spectrocare/human',humanRouter);
 
 // catch 404 and forward to error handler
