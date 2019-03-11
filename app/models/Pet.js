@@ -3,6 +3,10 @@ var Schema = mongoose.Schema;
 
 var PetSchema = new Schema({
 
+    username : {
+        type : String,
+        required : true
+    },
 
     clientId : {
         type : String,
@@ -11,6 +15,10 @@ var PetSchema = new Schema({
         unique : true
     },
     ownerName : {
+        type : String,
+        required : true
+    },
+    email : {
         type : String,
         required : true
     },
@@ -53,6 +61,14 @@ var PetSchema = new Schema({
     note : {
         type : String,
         required : true
+    },
+    addedTime : {
+        type:String,
+        required:true
+    },
+    profilePic:{
+        type:String,
+        required:true
     }
 
 });

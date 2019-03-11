@@ -17,7 +17,7 @@ var Humaninformation={
 
                 if (HospitalFound) {
 
-                    HumanDB.findOne({email: fields.email}).exec().then((HumanFound) => {
+                    HumanDB.findOne({email: fields.email,birthday: fields.birthday}).exec().then((HumanFound) => {
 
                         console.log('HumanFound..', HumanFound);
                         if (HumanFound) {
@@ -25,7 +25,6 @@ var Humaninformation={
                         } else {
 
                             var clientId = "id_" + Date.now();
-
 
                             var text = ""; //random text
                             var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -104,7 +103,7 @@ var Humaninformation={
 
         function uploadToFolder(file,fields) {
 
-            HumanDB.findOne({username:new RegExp(fields.username,'i')}).exec()
+            HumanDB.findOne({username:new RegExp(fields.username,'i'),birthday: fields.birthday}).exec()
                 .then((HumanFound) => {
                     console.log('HumanFound..',HumanFound);
                     if(HumanFound){
@@ -126,12 +125,11 @@ var Humaninformation={
                             }else{
                                 console.log(suc);
                                 console.log('form data fields...',fields);
-                                HumanDB.updateOne({username:new RegExp(personalinfo.username,'i')},{$set:{
+                                HumanDB.updateOne({username:new RegExp(personalinfo.username,'i'),birthday: fields.birthday,},{$set:{
                                     clientId:clientId,
                                     name: fields.name,
                                     email: fields.email,
                                     phone: fields.phone,
-                                    birthday: fields.birthday,
                                     gender: fields.gender,
                                     bloodType: fields.bloodType,
                                     height: fields.height,
