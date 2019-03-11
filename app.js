@@ -12,8 +12,11 @@ var forgetRouter = require('./routes/Forgetpassword');
 var setpassRouter = require('./routes/Setpassword');
 var changepasswordRouter = require('./routes/Chnagepassword');
 var singoutRouter = require('./routes/Singout');
+var langRouter = require('./routes/Languagejson');
+var gethospitalRouter = require('./routes/Gethospital');
 
 var humanRouter = require('./routes/Human');
+var petRouter = require('./routes/Pet');
 
 var app = express();
 var server = require('http').Server(app);
@@ -41,8 +44,11 @@ app.use('/spectrocare/forgot',forgetRouter);
 app.use('/spectrocare/newpassword',setpassRouter);
 app.use('/spectrocare/changepassword', changepasswordRouter);
 app.use('/spectrocare/logout',singoutRouter);
+app.use('/spectrocare/lang',langRouter);
+app.use('/spectrocare/hospital',gethospitalRouter);
 
 app.use('/spectrocare/human',humanRouter);
+app.use('/spectrocare/pet',petRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
