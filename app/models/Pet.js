@@ -42,7 +42,7 @@ var PetSchema = new Schema({
         type : String,
         required : true
     },
-    bread : {
+    breed : {
         type : String,
         required : true
     },

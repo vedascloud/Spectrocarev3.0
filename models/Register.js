@@ -435,8 +435,9 @@
 
                                                                                                     Hospital.updateOne({username: new RegExp(username,'i')},{$set:{ password: userParam.password,
                                                                                                         otp: text,
-                                                                                                        latitude: userParam.latitude,
-                                                                                                        longitude: userParam.longitude,
+                                                                                                        loc:[userParam.latitude,userParam.longitude],
+                                                                                                        /*latitude: userParam.latitude,
+                                                                                                        longitude: userParam.longitude,*/
                                                                                                         register_time: userParam.register_time,
                                                                                                         verification_status: false,
                                                                                                         prefer_language: userParam.prefer_language}},(error,update) => {
@@ -863,8 +864,9 @@
                                                                         username: username,
                                                                         password: userParam.password,
                                                                         otp: text,
-                                                                        latitude: userParam.latitude,
-                                                                        longitude: userParam.longitude,
+                                                                        loc:[userParam.latitude,userParam.longitude],
+                                                                        /*latitude: userParam.latitude,
+                                                                        longitude: userParam.longitude,*/
                                                                         register_time: userParam.register_time,
                                                                         register_type: userParam.register_type,
                                                                         verification_status: "false",
@@ -896,7 +898,8 @@
                             .catch((error) => {
                                 console.log(error);
                             })
-                    }/*else{
+                    }
+                    /*else{
                         console.log("logged in from social-media");
                         Hospital.findOne({username:new RegExp(username,'i')}).exec()
                         .then((userFound) => {

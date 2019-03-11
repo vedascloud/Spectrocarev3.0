@@ -61,6 +61,7 @@ var Humaninformation={
                                         console.log(success);
                                         callback({
                                             response: '3',
+                                            clientId: clientId,
                                             message: 'Your personal information has been successfully stored.'
                                         });
                                     });
@@ -108,8 +109,6 @@ var Humaninformation={
                     console.log('HumanFound..',HumanFound);
                     if(HumanFound){
 
-                        var clientId = "id_"+Date.now();
-
                         var text = ""; //random text
                         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -125,8 +124,7 @@ var Humaninformation={
                             }else{
                                 console.log(suc);
                                 console.log('form data fields...',fields);
-                                HumanDB.updateOne({username:new RegExp(personalinfo.username,'i'),birthday: fields.birthday,},{$set:{
-                                    clientId:clientId,
+                                HumanDB.updateOne({username:new RegExp(personalinfo.username,'i'),birthday: fields.birthday},{$set:{
                                     name: fields.name,
                                     email: fields.email,
                                     phone: fields.phone,
@@ -220,7 +218,7 @@ var Humaninformation={
                             }else {
                                 console.log(sc);
                             }
-                            callback({result: '3', message: 'successfully deleted'});
+                            callback({response: '3', message: 'successfully deleted'});
                         });
                     }
                 }).catch((error) => {
@@ -229,7 +227,7 @@ var Humaninformation={
 
             }else
             {
-                callback({result: '0', message: 'no Client found'});
+                callback({response: '0', message: 'no Client found'});
             }
         }).catch((error) => {
             console.log(error);

@@ -51,7 +51,7 @@ var PetInformation={
                                         birthday: fields.birthday,
                                         petType:fields.petType,
                                         gender: fields.gender,
-                                        bread:fields.bread,
+                                        breed:fields.breed,
                                         height: fields.height,
                                         weight: fields.weight,
                                         neuter:fields.neuter,
@@ -64,6 +64,7 @@ var PetInformation={
                                         console.log(success);
                                         callback({
                                             response: '3',
+                                            clientId: clientId,
                                             message: 'Your personal information has been successfully stored.'
                                         });
                                     });
@@ -111,8 +112,6 @@ var PetInformation={
                     console.log('PetFound..',PetFound);
                     if(PetFound){
 
-                        var clientId = "id_"+Date.now();
-
                         var text = ""; //random text
                         var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -128,16 +127,14 @@ var PetInformation={
                             }else{
                                 console.log(suc);
                                 console.log('form data fields...',fields);
-                                PetDB.updateOne({username:new RegExp(personalinfo.username,'i')},{$set:{
-                                        clientId: clientId,
+                                PetDB.updateOne({username:new RegExp(personalinfo.username,'i'),birthday: fields.birthday},{$set:{
                                         ownerName: fields.ownerName,
                                         email: fields.email,
                                         phone: fields.phone,
                                         petName: fields.petName,
-                                        birthday: fields.birthday,
                                         petType:fields.petType,
                                         gender: fields.gender,
-                                        bread:fields.bread,
+                                        breed:fields.breed,
                                         height: fields.height,
                                         weight: fields.weight,
                                         neuter:fields.neuter,
@@ -227,7 +224,7 @@ var PetInformation={
                             }else {
                                 console.log(sc);
                             }
-                            callback({result: '3', message: 'successfully deleted'});
+                            callback({response: '3', message: 'successfully deleted'});
                         });
                     }
                 }).catch((error) => {
@@ -236,7 +233,7 @@ var PetInformation={
 
             }else
             {
-                callback({result: '0', message: 'no Client found'});
+                callback({response: '0', message: 'no Client found'});
             }
         }).catch((error) => {
             console.log(error);

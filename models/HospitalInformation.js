@@ -194,7 +194,7 @@ var Personalinformation={
                             }else {
                                 console.log(sc);
                             }
-                            callback({result: '3', message: 'successfully deleted'});
+                            callback({response: '3', message: 'successfully deleted'});
                         });
                     }
                 }).catch((error) => {
@@ -203,7 +203,7 @@ var Personalinformation={
 
             }else
             {
-                callback({result: '0', message: 'no Hospital found'});
+                callback({response: '0', message: 'no Hospital found'});
             }
         }).catch((error) => {
             console.log(error);
