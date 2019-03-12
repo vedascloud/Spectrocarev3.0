@@ -17,14 +17,14 @@ var Humaninformation={
 
                 if (HospitalFound) {
 
-                    HumanDB.findOne({email: fields.email,birthday: fields.birthday}).exec().then((HumanFound) => {
+                    HumanDB.findOne({username:new RegExp(fields.username,'i'),clientId:fields.clientId}).exec().then((HumanFound) => {
 
                         console.log('HumanFound..', HumanFound);
                         if (HumanFound) {
-                            callback({response: '0', message: 'something gone wrong!!!'});
+                            callback({response: '5', message: 'clientId already existed.'});
                         } else {
 
-                            var clientId = "id_" + Date.now();
+                            //var clientId = "id_" + Date.now();
 
                             var text = ""; //random text
                             var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -43,7 +43,7 @@ var Humaninformation={
                                     console.log('form data fields...', fields);
                                     var personDb = new HumanDB({
                                         username: fields.username,
-                                        clientId: clientId,
+                                        clientId: fields.clientId,
                                         name: fields.name,
                                         email: fields.email,
                                         phone: fields.phone,
@@ -61,7 +61,7 @@ var Humaninformation={
                                         console.log(success);
                                         callback({
                                             response: '3',
-                                            clientId: clientId,
+                                            clientId: fields.clientId,
                                             message: 'Your personal information has been successfully stored.'
                                         });
                                     });
@@ -104,7 +104,7 @@ var Humaninformation={
 
         function uploadToFolder(file,fields) {
 
-            HumanDB.findOne({username:new RegExp(fields.username,'i'),birthday: fields.birthday}).exec()
+            HumanDB.findOne({username:new RegExp(fields.username,'i'),clientId:fields.clientId}).exec()
                 .then((HumanFound) => {
                     console.log('HumanFound..',HumanFound);
                     if(HumanFound){
@@ -124,8 +124,9 @@ var Humaninformation={
                             }else{
                                 console.log(suc);
                                 console.log('form data fields...',fields);
-                                HumanDB.updateOne({username:new RegExp(personalinfo.username,'i'),birthday: fields.birthday},{$set:{
+                                HumanDB.updateOne({username:new RegExp(personalinfo.username,'i'),clientId:fields.clientId },{$set:{
                                     name: fields.name,
+                                    birthday: fields.birthday,
                                     email: fields.email,
                                     phone: fields.phone,
                                     gender: fields.gender,
@@ -209,7 +210,7 @@ var Humaninformation={
 
             if(fileFound){
 
-                HumanDB.deleteOne({clientId: data.clientId}).exec().then((res) => {
+                HumanDB.deleteOne({clientId:data.clientId}).exec().then((res) => {
                     if(res){
                         console.log('path of a profilePic..', fileFound.profilePic);
                         fs.unlink('./public'+fileFound.profilePic , (er, sc) => {

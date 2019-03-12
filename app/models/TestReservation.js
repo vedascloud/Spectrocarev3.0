@@ -3,21 +3,23 @@ var Schema = mongoose.Schema;
 
 var TestReservationSchema = new Schema({
 
-    clientType : {
+    username : {
         type : String,
         required : true
     },
     clientId : {
         type : String,
-        required : true,
-        index : true,
-        unique : true
+        required : true
+    },
+    clientType : {
+        type : String,
+        required : true
     },
     name : {
         type : String,
         required : true
     },
-    data : {
+    date : {
         type : String,
         required : true
     },

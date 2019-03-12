@@ -18,6 +18,8 @@ var gethospitalRouter = require('./routes/Gethospital');
 var contactusRouter = require('./routes/Contactus');
 var humanRouter = require('./routes/Human');
 var petRouter = require('./routes/Pet');
+var testReservRouter = require('./routes/TestReservation');
+var urineDataRouter = require('./routes/UrinetestResults');
 
 var app = express();
 var server = require('http').Server(app);
@@ -51,6 +53,8 @@ app.use('/spectrocare/hospital',gethospitalRouter);
 app.use('/spectrocare/feedback',contactusRouter);
 app.use('/spectrocare/human',humanRouter);
 app.use('/spectrocare/pet',petRouter);
+app.use('/spectrocare/testreserv',testReservRouter);
+app.use('/spectrocare/urinetest',urineDataRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -315,7 +315,8 @@ var feedbackController = {
                     }).catch((error) => {
                         throw error;
                     })
-                }else{
+                }
+                //else{
                     var saveFunction = new contactDB({
                         username:userParam.username,
                         mail:userParam.EMail,
@@ -334,7 +335,7 @@ var feedbackController = {
                       
                         }
                     });
-                }
+                //}
             })
 
         }

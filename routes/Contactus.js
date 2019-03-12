@@ -9,7 +9,7 @@ router.post('/',function(req,res,next){
         ContactusModel.takingFeedback(req.body, (result) => {
             console.log(result);
             res.json(result);
-        })
+        });
     }
 
 });

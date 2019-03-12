@@ -17,14 +17,14 @@ var PetInformation={
 
                 if (HospitalFound) {
 
-                    PetDB.findOne({email: fields.email,birthday: fields.birthday}).exec().then((PetFound) => {
+                    PetDB.findOne({username:new RegExp(fields.username,'i'),clientId:fields.clientId}).exec().then((PetFound) => {
 
                         console.log('PetFound..', PetFound);
                         if (PetFound) {
-                            callback({response: '0', message: 'something gone wrong!!!'});
+                            callback({response: '5', message: 'clientId already existed.'});
                         } else {
 
-                            var clientId = "id_" + Date.now();
+                            //var clientId = "id_" + Date.now();
 
                             var text = ""; //random text
                             var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -43,7 +43,7 @@ var PetInformation={
                                     console.log('form data fields...', fields);
                                     var personDb = new PetDB({
                                         username: fields.username,
-                                        clientId: clientId,
+                                        clientId: fields.clientId,
                                         ownerName: fields.ownerName,
                                         email: fields.email,
                                         phone: fields.phone,
@@ -64,7 +64,7 @@ var PetInformation={
                                         console.log(success);
                                         callback({
                                             response: '3',
-                                            clientId: clientId,
+                                            clientId: fields.clientId,
                                             message: 'Your personal information has been successfully stored.'
                                         });
                                     });
@@ -107,7 +107,7 @@ var PetInformation={
 
         function uploadToFolder(file,fields) {
 
-            PetDB.findOne({username:new RegExp(fields.username,'i'),birthday:fields.birthday}).exec()
+            PetDB.findOne({username:new RegExp(fields.username,'i'),clientId:fields.clientId}).exec()
                 .then((PetFound) => {
                     console.log('PetFound..',PetFound);
                     if(PetFound){
@@ -127,11 +127,12 @@ var PetInformation={
                             }else{
                                 console.log(suc);
                                 console.log('form data fields...',fields);
-                                PetDB.updateOne({username:new RegExp(personalinfo.username,'i'),birthday: fields.birthday},{$set:{
+                                PetDB.updateOne({username:new RegExp(personalinfo.username,'i'),clientId:fields.clientId},{$set:{
                                         ownerName: fields.ownerName,
                                         email: fields.email,
                                         phone: fields.phone,
                                         petName: fields.petName,
+                                        birthday: fields.birthday,
                                         petType:fields.petType,
                                         gender: fields.gender,
                                         breed:fields.breed,
@@ -239,8 +240,6 @@ var PetInformation={
             console.log(error);
         })
     }
-
-
 
 }
 module.exports = PetInformation;

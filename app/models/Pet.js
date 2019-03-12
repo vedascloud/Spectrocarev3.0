@@ -5,26 +5,22 @@ var PetSchema = new Schema({
 
     username : {
         type : String,
+        index:true,
         required : true
     },
-
     clientId : {
         type : String,
-        required : true,
-        index : true,
-        unique : true
+        required : true
     },
     ownerName : {
         type : String,
         required : true
     },
     email : {
-        type : String,
-        required : true
+        type : String
     },
     phone : {
-        type : String,
-        required : true
+        type : String
     },
     petName : {
         type : String,
@@ -47,20 +43,17 @@ var PetSchema = new Schema({
         required : true
     },
     height : {
-        type : String,
-        required : true
+        type : String
     },
     weight : {
-        type : String,
-        required : true
+        type : String
     },
     neuter : {
         type : String,
         required : true
     },
     note : {
-        type : String,
-        required : true
+        type : String
     },
     addedTime : {
         type:String,

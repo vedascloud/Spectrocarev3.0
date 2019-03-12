@@ -5,51 +5,43 @@ var Schema = mongoose.Schema;
 var HumanSchema = new Schema({
 
     username : {
-        type : String,
-        required : true
+        type:String,
+        index:true,
+        required:true
     },
-
     clientId : {
-        type : String,
-        required : true,
-        index : true,
-        unique : true
+        type:String,
+        required:true
     },
     name : {
-        type : String,
-        required : true
+        type:String,
+        required:true
     },
     email : {
-        type : String,
-        required : true
+        type:String
     },
     phone : {
-        type : String,
-        required : true
+        type:String
     },
     birthday : {
-        type : String,
-        required : true
+        type:String,
+        required:true
     },
     gender : {
-        type : String,
-        required : true
+        type:String,
+        required:true
     },
     bloodType : {
-        type : String,
-        required : true
+        type:String
     },
     height : {
-        type : String,
-        required : true
+        type:String
     },
     weight : {
-        type : String,
-        required : true
+        type:String
     },
     note : {
-        type : String,
-        required : true
+        type:String
     },
     addedTime : {
         type:String,
