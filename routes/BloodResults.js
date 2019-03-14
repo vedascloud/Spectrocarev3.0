@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var urineDataController = require('../models/UrinetestResults');
+var bloodDataController = require('../models/BloodResults');
 const fileUpload = require('express-fileupload');
 
 router.use(fileUpload({
@@ -13,7 +13,7 @@ router.post('/',(req,res) => {
         res.json({response:'0',message:'No content found to process your request'});
     }else {
 
-        urineDataController.insertUrinedata(req.body, req.files, req.headers, req, (result) => {
+        bloodDataController.insertBloodData(req.body, req.files, req.headers, req, (result) => {
 
             res.send(result);
 
@@ -27,8 +27,8 @@ router.post('/',(req,res) => {
     if(typeof req.body === undefined && typeof req.files === undefined){
         res.json({response:'0',message:'No content found to process your request'});
     }else {
-       console.log('request body..',req.body);
-        urineDataController.insertUrinedata(req.body, req.files, req.headers, req, (result) => {
+        console.log('request body..',req.body);
+        bloodDataController.insertBloodData(req.body, req.files, req.headers, req, (result) => {
 
             res.json(result);
 
@@ -42,7 +42,7 @@ router.delete('/',(req,res) => {
     if(typeof req.body === undefined){
         res.json({response:'0',message:'No content found to process your request'});
     }else {
-        urineDataController.deleteResults(req.body,(result) => {
+        bloodDataController.deleteBloodData(req.body,(result) => {
             res.json(result);
         });
     }

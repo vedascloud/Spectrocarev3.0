@@ -20,6 +20,7 @@ var humanRouter = require('./routes/Human');
 var petRouter = require('./routes/Pet');
 var testReservRouter = require('./routes/TestReservation');
 var urineDataRouter = require('./routes/UrinetestResults');
+var bloodDataRouter = require('./routes/BloodResults');
 
 var app = express();
 var server = require('http').Server(app);
@@ -55,6 +56,7 @@ app.use('/spectrocare/human',humanRouter);
 app.use('/spectrocare/pet',petRouter);
 app.use('/spectrocare/testreserv',testReservRouter);
 app.use('/spectrocare/urinetest',urineDataRouter);
+app.use('/spectrocare/bloodtest',bloodDataRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -34,28 +34,6 @@ var UrineSchema = new Schema({
         type:String,
         required:true
     },
-    weightScore:{
-        type:String,
-        required:true
-    },
-    kidneyScore:{
-        type:String,
-        required:true
-    },
-    diabetesScore:{
-        type:String,
-        required:true
-    },
-    urinaryTractScore:{
-        type:String,
-        required:true
-    },
-    liverScore:{
-        type:String,
-        required:true
-    },
-    preHealthcheckInfo:[{
-    }],
     testFactors:[{
         flag:{
             type:Boolean,
@@ -87,6 +65,10 @@ var UrineSchema = new Schema({
         }
     }],
     testedTime:{
+        type:String,
+        required:true
+    },
+    takePhoto:{
         type:String,
         required:true
     }
