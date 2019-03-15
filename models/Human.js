@@ -1,5 +1,6 @@
 var HospotalDB = require('../app/models/Hospital');
 var HumanDB = require('../app/models/Human');
+var UrineDB = require('../app/models/Urine');
 var validator = require('validator');
 var fs = require('fs');
 const Busboy = require('busboy');
@@ -205,7 +206,7 @@ var Humaninformation={
         })
     },
 
-    //Delete HumanInfo
+    /*//Delete HumanInfo
     deleteHumanInfo : (data,callback) => {
 
         HumanDB.findOne({clientId:data.clientId}).exec().then((fileFound)=>{
@@ -227,6 +228,73 @@ var Humaninformation={
                 }).catch((error) => {
                     console.log(error);
                 })
+
+            }else
+            {
+                callback({response: '0', message: 'no Client found'});
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
+    }*/
+
+    //Delete HumanInfo
+    deleteHumanInfo : (data,callback) => {
+
+        HumanDB.findOne({username:new RegExp(fields.username,'i'),clientId:data.clientId}).exec().then((fileFound)=>{
+
+            if(fileFound){
+
+                UrineDB.find({username:new RegExp(fields.username,'i'),clientId:data.clientId}).exec().then((dataAvailable)=>{
+
+                    if (dataAvailable){
+
+                        UrineDB.delete({username:new RegExp(fields.username,'i'),clientId:data.clientId}).exec().then((Deleted)=>{
+                            if (Deleted){
+
+                                fs.unlink('./public'+dataAvailable.takePhoto , (er, sc) => {
+                                    if (er) {
+                                        console.log('error found,', er);
+                                    }else {
+                                        console.log(sc);
+
+
+                                        HumanDB.deleteOne({username:new RegExp(fields.username,'i'),clientId:data.clientId}).exec().then((res) => {
+                                            if(res){
+                                                console.log('path of a profilePic..', fileFound.profilePic);
+                                                fs.unlink('./public'+fileFound.profilePic , (er, sc) => {
+                                                    if (er) {
+                                                        console.log('error found,', er);
+                                                    }else {
+                                                        console.log(sc);
+                                                    }
+                                                    callback({response: '3', message: 'successfully deleted'});
+                                                });
+                                            }
+                                        }).catch((error) => {
+                                            console.log(error);
+                                        })
+
+                                    }
+                                    //callback({response: '3', message: 'Your test results has been successfully deleted'});
+                                });
+
+                            }
+                            else {
+                                callback({response:2,message:"Failed to Delete."});
+                            }
+                        });
+
+                        //callback({response:3,message:"Deleted Data."});
+                    }else {
+                        callback({response:1,
+                                  message:"No Records Found."});
+                    }
+
+                }).catch((error) => {
+                    console.log(error);
+                })
+
 
             }else
             {
