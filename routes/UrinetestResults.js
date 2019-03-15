@@ -7,6 +7,7 @@ router.use(fileUpload({
     limits: { fileSize: 50 * 1024 * 1024 },
 }));
 
+//Add UrineTest Data
 router.post('/',(req,res) => {
 
     if(typeof req.body === undefined || typeof req.files === undefined){
@@ -37,6 +38,7 @@ router.post('/',(req,res) => {
 
 });*/
 
+//Delete UrineTest Data
 router.delete('/',(req,res) => {
 
     if(typeof req.body === undefined){
@@ -47,4 +49,5 @@ router.delete('/',(req,res) => {
         });
     }
 });
+
 module.exports=router;

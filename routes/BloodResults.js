@@ -7,6 +7,7 @@ router.use(fileUpload({
     limits: { fileSize: 50 * 1024 * 1024 },
 }));
 
+//Add BloodTest Data
 router.post('/',(req,res) => {
 
     if(typeof req.body === undefined || typeof req.files === undefined){
@@ -37,6 +38,7 @@ router.post('/',(req,res) => {
 
 });*/
 
+//Delete BloodTest Data
 router.delete('/',(req,res) => {
 
     if(typeof req.body === undefined){

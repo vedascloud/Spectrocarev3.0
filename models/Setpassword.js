@@ -1,6 +1,8 @@
 var Hospital   = require('../app/models/Hospital');
 var validator = require('validator');
+
 var Newpassword={
+
 		setpassword:function(userParam,callback){
 			var username = userParam.username;
 			if(validator.isEmail(username)){

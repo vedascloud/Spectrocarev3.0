@@ -6,6 +6,7 @@ const Busboy = require('busboy');
 
 var PetInformation={
 
+    //Add PetInfo
     insertPetInfo:function(personalinfo,profilepic,headers,req,callback) {
 
         function uploadToFolder(file,fields) {
@@ -103,6 +104,7 @@ var PetInformation={
         req.pipe(busboy);
     },
 
+    //Update PetInfo
     updatePetInfo : (personalinfo,profilepic,headers,req,callback) => {
 
         function uploadToFolder(file,fields) {
@@ -189,7 +191,7 @@ var PetInformation={
 
     },
 
-    //Fetch PetClient
+    //Fetch PetInfo
     fetchPetInfo : (user,callback) => {
         HospotalDB.findOne({username:user.username},{_id:0,__v:0}).exec().then((results)=> {
                 // console.log(results);
@@ -209,7 +211,7 @@ var PetInformation={
         })
     },
 
-    //Delete PetClient
+    //Delete PetInfo
     deletePetInfo : (data,callback) => {
 
         PetDB.findOne({clientId:data.clientId}).exec().then((fileFound)=>{

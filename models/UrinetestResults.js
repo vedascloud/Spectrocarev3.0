@@ -2,8 +2,10 @@ var HospotalDB = require('../app/models/Hospital');
 var urineDB = require('../app/models/Urine');
 var fs = require('fs');
 const Busboy = require('busboy');
+
 var urineDataController = {
 
+    //Add UrineTest Data
     insertUrinedata:function(urineDataInfo,takePhoto,headers,req,callback) {
 
         function uploadToFolder(file,fields) {
@@ -14,7 +16,6 @@ var urineDataController = {
             }).exec().then((HospitalFound) => {
 
                 if (HospitalFound) {
-
 
                             var testId = "id_" + Date.now();
 
@@ -57,8 +58,6 @@ var urineDataController = {
 
                                 }
                             });
-
-
 
                 }
                 else {
@@ -185,6 +184,7 @@ var urineDataController = {
         req.pipe(busboy);
     },*/
 
+    //Delete UrineTest Data
     deleteResults: (urineData,callback) => {
 
         urineDB.findOne({username:new RegExp(urineData.username,'i'),testId:urineData.testId}).exec().then((fileFound)=>{

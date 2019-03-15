@@ -2,9 +2,10 @@ const Busboy = require('busboy');
 var HospitalDb = require('../app/models/Hospital');
 var HospitalInfoDb = require('../app/models/HospitalInfo');
 var fs = require('fs');
+
 var Personalinformation={
 
-
+    //Add HospitalInfo
     insertHospitalInfo:function(personalinfo,profilepic,headers,req,callback) {
 
        function uploadToFolder(file,fields) {
@@ -17,7 +18,6 @@ var Personalinformation={
                 }else{
 
                     var hospitalId = "id_"+Date.now();
-
 
                     var text = ""; //random text
                     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -75,7 +75,7 @@ var Personalinformation={
         req.pipe(busboy);
     },
 
-
+    //Update HospitalInfo
     updateHospitalInfo : (personalinfo,profilepic,headers,req,callback) => {
 
         function uploadToFolder(file,fields) {
@@ -158,7 +158,7 @@ var Personalinformation={
         
     },
 
-    //Fetch Hospital
+    //Fetch HospitalInfo
     fetchHospitalInfo : (user,callback) => {
         HospitalDb.findOne({username:user.username},{_id:0,__v:0}).exec().then((results)=> {
                 // console.log(results);
@@ -178,7 +178,7 @@ var Personalinformation={
         })
     },
 
-    //Delete Hospital
+    //Delete HospitalInfo
     deleteHospitalInfo : (data,callback) => {
 
         HospitalInfoDb.findOne({hospitalId:data.hospitalId}).exec().then((fileFound)=>{

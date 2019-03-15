@@ -126,7 +126,7 @@ var feedbackController = {
                         </body>
                  */ });
 
-                 var custom = multiline(function(){/*
+                var custom = multiline(function(){/*
                 <head>
                     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                         <title>E-mail Template</title>
@@ -251,45 +251,45 @@ var feedbackController = {
                 var html1 = html.replace("%m",userParam.username);
 
                 var transporter = nodemailer.createTransport({
-                service: 'gmail',
-                auth: {
-                user: 'contact.spectrum.in@gmail.com',
-                pass: 'vedas2017'
-              }
-              });
+                    service: 'gmail',
+                    auth: {
+                        user: 'contact.spectrum.in@gmail.com',
+                        pass: 'vedas2017'
+                    }
+                });
 
-              var mOpt2 = {
-              from: 'contact.spectrum.in@gmail.com',
-              to: 'service@spectrochips.com', //service@spectrochips.com
-              subject: 'FeedBack from the user',
-              html: customer2
-              };
+                  var mOpt2 = {
+                      from: 'contact.spectrum.in@gmail.com',
+                      to: 'service@spectrochips.com', //service@spectrochips.com
+                      subject: 'FeedBack from the user',
+                      html: customer2
+                  };
 
               var mailOptions = {
-              from: 'contact.spectrum.in@gmail.com',
-              to: userParam.EMail,
-              subject: 'FeedBack',
-              html: html1
+                  from: 'contact.spectrum.in@gmail.com',
+                  to: userParam.EMail,
+                  subject: 'FeedBack',
+                  html: html1
               };
 
               transporter.sendMail(mailOptions, function(error, info){
-              if (error) {
-                console.log(error);
-                //res(error);
-              } else {
-                console.log('Email sent: ' + info.response);
-                
-              }
+                  if (error) {
+                    console.log(error);
+                    //res(error);
+                  } else {
+                    console.log('Email sent: ' + info.response);
+
+                  }
               });
 
               transporter.sendMail(mOpt2, function(error, info){
-              if (error) {
-                console.log(error);
-                //res(error);
-              } else {
-                console.log('Email sent: ' + info.response);
-                
-              }
+                  if (error) {
+                    console.log(error);
+                    //res(error);
+                  } else {
+                    console.log('Email sent: ' + info.response);
+
+                  }
               });
               
             contactDB.findOne({username: new RegExp(userParam.username,'i')}).exec()

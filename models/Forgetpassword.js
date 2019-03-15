@@ -2,7 +2,9 @@ var Hospital   = require('../app/models/Hospital');
 var multiline = require('multiline');
 var nodemailer = require('nodemailer');
 var validator = require('validator');
+
 var Forgot={
+
 		forgot:function(userParam,callback){
             let username = userParam.username;
 			 if (validator.isEmail(username)){
@@ -390,15 +392,15 @@ var Forgot={
                          var transporter = nodemailer.createTransport({
                             service: 'gmail',
                             auth: {
-                            user: 'contact.spectrum.in@gmail.com',
-                            pass: 'vedas2017'
-                          }
+                                user: 'contact.spectrum.in@gmail.com',
+                                pass: 'vedas2017'
+                            }
                           });
                          var mailOptions = {
-                          from: 'contact.spectrum.in@gmail.com',
-                          to: username,
-                          subject: 'Forgot password OTP verification',
-                          html: html1
+                              from: 'contact.spectrum.in@gmail.com',
+                              to: username,
+                              subject: 'Forgot password OTP verification',
+                              html: html1
                         };
         
                         transporter.sendMail(mailOptions, (info) => {

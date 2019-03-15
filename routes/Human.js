@@ -7,6 +7,7 @@ router.use(fileUpload({
     limits: { fileSize: 50 * 1024 * 1024 },
 }));
 
+//Add HumanInfo
 router.post('/',(req,res) => {
 
     if(typeof req.body === undefined || typeof req.files === undefined){
@@ -22,6 +23,7 @@ router.post('/',(req,res) => {
 
 });
 
+//Update HumanInfo
 router.put('/',(req,res) => {
 
     if(typeof req.body === undefined || typeof req.files === undefined){
@@ -36,6 +38,7 @@ router.put('/',(req,res) => {
     }
 });
 
+//Fetch HumanInfo
 router.post('/fetch',(req,res) => {
 
     profile.fetchHumanInfo(req.body,(result) => {
@@ -44,6 +47,7 @@ router.post('/fetch',(req,res) => {
     })
 });
 
+//Delete HumanInfo
 router.delete('/',(req,res) => {
     if(typeof req.body.clientId === 'undefined'){
         res.json({result:'error',message:'no content found'});

@@ -4,6 +4,7 @@ var TestReservDb = require('../app/models/TestReservation');
 
 var TestReservationInfo={
 
+    //Add TestReservInfo
     insertTestReservInfo:function(test,callback) {
 
             HospitalInfoDb.findOne({username:new RegExp(test.username,'i')}).exec()
@@ -36,6 +37,7 @@ var TestReservationInfo={
                 });
     },
 
+    //Update TestReservInfo
     updateTestReservInfo:function(test,callback) {
 
         HospitalInfoDb.findOne({username:new RegExp(test.username,'i')}).exec()
@@ -82,7 +84,7 @@ var TestReservationInfo={
             });
     },
 
-    //Fetch TertReserv
+    //Fetch TestReservInfo
     fetchTestReservInfo : (user,callback) => {
         HospitalInfoDb.findOne({username:user.username},{_id:0,__v:0}).exec().then((results)=> {
                 // console.log(results);
@@ -113,7 +115,7 @@ var TestReservationInfo={
         })
     },
 
-    //Delete TestReserv
+    //Delete TestReservInfo
     deleteTestReservInfo : (data,callback) => {
 
         TestReservDb.findOne({testReservNo:data.testReservNo}).exec().then((fileFound)=>{

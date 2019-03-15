@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var profile = require('../models/TestReservation');
 
+//Add TestReservInfo
 router.post('/',(req,res) => {
 
     if(typeof req.body === 'undefined' ){
@@ -17,6 +18,7 @@ router.post('/',(req,res) => {
 
 });
 
+//Fetch TestReservInfo
 router.post('/fetch',(req,res) => {
 
     profile.fetchTestReservInfo(req.body,(result) => {
@@ -25,6 +27,7 @@ router.post('/fetch',(req,res) => {
     })
 });
 
+//Update TestReservInfo
 router.put('/',(req,res) => {
 
     if(typeof req.body === 'undefined' ){
@@ -39,6 +42,7 @@ router.put('/',(req,res) => {
     }
 });
 
+//Delete TestReservInfo
 router.delete('/',(req,res) => {
     if(typeof req.body === 'undefined'){
         res.json({result:'error',message:'no content found'});

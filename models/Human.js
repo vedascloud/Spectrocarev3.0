@@ -6,6 +6,7 @@ const Busboy = require('busboy');
 
 var Humaninformation={
 
+    //Add HumanInfo
     insertHumanInfo:function(personalinfo,profilepic,headers,req,callback) {
 
         function uploadToFolder(file,fields) {
@@ -100,6 +101,7 @@ var Humaninformation={
         req.pipe(busboy);
     },
 
+    //Update HumanInfo
     updateHumanInfo : (personalinfo,profilepic,headers,req,callback) => {
 
         function uploadToFolder(file,fields) {
@@ -183,7 +185,7 @@ var Humaninformation={
 
     },
 
-    //Fetch HumanClient
+    //Fetch HumanInfo
     fetchHumanInfo : (user,callback) => {
         HospotalDB.findOne({username:user.username},{_id:0,__v:0}).exec().then((results)=> {
                 // console.log(results);
@@ -203,7 +205,7 @@ var Humaninformation={
         })
     },
 
-    //Delete HumanClient
+    //Delete HumanInfo
     deleteHumanInfo : (data,callback) => {
 
         HumanDB.findOne({clientId:data.clientId}).exec().then((fileFound)=>{
@@ -234,8 +236,6 @@ var Humaninformation={
             console.log(error);
         })
     }
-
-
 
 }
 module.exports = Humaninformation;

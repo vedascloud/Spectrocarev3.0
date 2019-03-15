@@ -5,6 +5,7 @@ const Busboy = require('busboy');
 
 var bloodDataController = {
 
+    //Add BloodTest Data
     insertBloodData:function(bloodDataInfo,takePhoto,headers,req,callback) {
 
         function uploadToFolder(file,fields) {
@@ -15,7 +16,6 @@ var bloodDataController = {
             }).exec().then((HospitalFound) => {
 
                 if (HospitalFound) {
-
 
                     var testId = "id_" + Date.now();
 
@@ -58,8 +58,6 @@ var bloodDataController = {
 
                         }
                     });
-
-
 
                 }
                 else {
@@ -187,6 +185,7 @@ var bloodDataController = {
         req.pipe(busboy);
     },*/
 
+    //Delete BloodTest Data
     deleteBloodData: (bloodData,callback) => {
 
         bloodDB.findOne({username:new RegExp(bloodData.username,'i'),testId:bloodData.testId}).exec().then((fileFound)=>{

@@ -30,5 +30,7 @@ var Language = {
         }
       })
     }
-    }
-  module.exports=Language;
+
+}
+
+module.exports=Language;

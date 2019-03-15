@@ -10,6 +10,7 @@
             //var notify = require('../app/models/Notification');
 
             var Add= {
+
                 addCustomer: function (userParam, callback) {
                     let username = userParam.username;
                     console.log(userParam);

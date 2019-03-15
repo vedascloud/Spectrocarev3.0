@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var langController=require('../models/Languagejsonfile');
+
 router.get('/',function(req,res,next){
 
 	langController.fetchLanguage((result) => {
