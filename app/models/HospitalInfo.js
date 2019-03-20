@@ -24,8 +24,7 @@ var HospitalInfoSchema = new Schema({
         required : true
     },
     fax : {
-        type : String,
-        required : true
+        type : String
     },
     contactPerson : {
         type : String,

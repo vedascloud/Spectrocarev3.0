@@ -28,521 +28,622 @@ var Login = {
 
             if (userParam.Linked === 'Linked') {
 
-                Hospital.findOne({ username: new RegExp(username, 'i') }).exec()
+                Hospital.findOne({username: new RegExp(username, 'i')}).exec()
                     .then((userFound) => {
 
                         if (userFound) {
 
                             if (userFound.password === userParam.password) {
 
-                                Hospital.updateOne({ username: new RegExp(username, 'i') }, { $set: { register_type: "Linked" } }).exec()
+                                Hospital.updateOne({username: new RegExp(username, 'i')}, {$set: {register_type: "Linked"}}).exec()
                                     .then((userUpdated) => {
 
-                                        HospitalInfo.findOne({ username: new RegExp(username, 'i') }).exec()
+                                        HospitalInfo.findOne({username: new RegExp(username, 'i')}).exec()
                                             .then((pinfo) => {
                                                 if (pinfo) {
 
-                                                    human.find({ username: new RegExp(username, 'i') }).exec()
+                                                    human.find({username: new RegExp(username, 'i')}).exec()
                                                         .then((humanclient) => {
-                                                            if (humanclient){
+                                                            if (humanclient) {
 
-                                                                pet.find({ username: new RegExp(username, 'i') }).exec()
-                                                                    .then((petclient) => {
-                                                                        if (petclient){
+                                                                //
 
-                                                                            testReserv.find({ username: new RegExp(username, 'i') }).exec()
-                                                                                .then((reservData) => {
-                                                                                    if (reservData){
+                                                                human.aggregate([{
+                                                                    $match: {
+                                                                        username: new RegExp(username, 'i')
+                                                                    }
+                                                                }, {
+                                                                    $lookup: {
+                                                                        from: "urineresults",
+                                                                        localField: "clientId",
+                                                                        foreignField: "client_Id",
+                                                                        as: "Human_Urine_Test_Results"
+                                                                    }
+                                                                }, {
+                                                                    $lookup: {
+                                                                        from: "bloodresults",
+                                                                        localField: "clientId",
+                                                                        foreignField: "client_Id",
+                                                                        as: "Human_Blood_Test_Results"
+                                                                    }
+                                                                }, {
+                                                                    $lookup: {
+                                                                        from: "testreservations",
+                                                                        localField: "clientId",
+                                                                        foreignField: "clientId",
+                                                                        as: "Human_TestReservation_Results"
+                                                                    }
+                                                                }]).exec()
+                                                                    .then((hreservData) => {
+                                                                        //console.log('in testreserv', hreservData);
+                                                                        if (hreservData) {
 
-                                                                                        blood.find({ username: new RegExp(username, 'i') }).exec()
-                                                                                            .then((bloodData) => {
-                                                                                                if (bloodData){
+                                                                            pet.find({username: new RegExp(username, 'i')}).exec()
+                                                                                .then((petclient) => {
 
-                                                                                                    urine.find({ username: new RegExp(username, 'i') }).exec()
-                                                                                                        .then((urineData) => {
-                                                                                                                                    if (userParam.from === 'web') {
+                                                                                    pet.aggregate([{
+                                                                                        $match: {
+                                                                                            username: new RegExp(username, 'i')
+                                                                                        }
+                                                                                    }, {
+                                                                                        $lookup: {
+                                                                                            from: "urineresults",
+                                                                                            localField: "clientId",
+                                                                                            foreignField: "client_Id",
+                                                                                            as: "Pet_Urine_Test_Results"
+                                                                                        }
+                                                                                    }, {
+                                                                                        $lookup: {
+                                                                                            from: "bloodresults",
+                                                                                            localField: "clientId",
+                                                                                            foreignField: "client_Id",
+                                                                                            as: "Pet_Blood_Test_Results"
+                                                                                        }
+                                                                                    }, {
+                                                                                        $lookup: {
+                                                                                            from: "testreservations",
+                                                                                            localField: "clientId",
+                                                                                            foreignField: "clientId",
+                                                                                            as: "Pet_TestReservation_Results"
+                                                                                        }
+                                                                                    }]).exec()
+                                                                                        .then((preservData) => {
+                                                                                            //console.log('in testreserv', hreservData);
+                                                                                            if (preservData) {
 
-                                                                                                                                        notify.findOne({ username: new RegExp(username, 'i') }).exec()
-                                                                                                                                            .then((notifications) => {
+                                                                                                if (userParam.from === 'web') {
 
-                                                                                                                                                if (notifications) {
-                                                                                                                                                    let found = false;
-                                                                                                                                                    notifications.devices.web.map((notifyData) => {
-                                                                                                                                                        if (notifyData.deviceid === userParam.deviceid) {
-                                                                                                                                                            found = true;
-                                                                                                                                                            notify.updateOne(
-                                                                                                                                                                {
-                                                                                                                                                                    'username': username,
-                                                                                                                                                                    'devices.web.deviceid': userParam.deviceid
-                                                                                                                                                                },
-                                                                                                                                                                {
-                                                                                                                                                                    '$set':
-                                                                                                                                                                    {
-                                                                                                                                                                        'devices.web.$': {
-                                                                                                                                                                            deviceToken: userParam.deviceToken,
-                                                                                                                                                                            deviceid: userParam.deviceid,
-                                                                                                                                                                            login: true
-                                                                                                                                                                        }
+                                                                                                    notify.findOne({username: new RegExp(username, 'i')}).exec()
+                                                                                                        .then((notifications) => {
 
-                                                                                                                                                                    }
-                                                                                                                                                                }).exec()
-                                                                                                                                                                .then((updated) => {
-                                                                                                                                                                    console.log(updated);
-                                                                                                                                                                })
-                                                                                                                                                                .catch((error) => {
-                                                                                                                                                                    throw error;
-                                                                                                                                                                })
-                                                                                                                                                        }
-                                                                                                                                                    })
+                                                                                                            if (notifications) {
+                                                                                                                let found = false;
+                                                                                                                notifications.devices.web.map((notifyData) => {
+                                                                                                                    if (notifyData.deviceid === userParam.deviceid) {
+                                                                                                                        found = true;
+                                                                                                                        notify.updateOne(
+                                                                                                                            {
+                                                                                                                                'username': username,
+                                                                                                                                'devices.web.deviceid': userParam.deviceid
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                '$set':
+                                                                                                                                    {
+                                                                                                                                        'devices.web.$': {
+                                                                                                                                            deviceToken: userParam.deviceToken,
+                                                                                                                                            deviceid: userParam.deviceid,
+                                                                                                                                            login: true
+                                                                                                                                        }
 
-                                                                                                                                                    if (found === false) {
-
-                                                                                                                                                        notify.updateOne(
-                                                                                                                                                            { _id: notifications._id, username: new RegExp(username, 'i') },
-                                                                                                                                                            {
-                                                                                                                                                                "$push": {
-
-                                                                                                                                                                    "devices.web": {
-                                                                                                                                                                        deviceid: userParam.deviceid,
-                                                                                                                                                                        deviceToken: userParam.deviceToken,
-                                                                                                                                                                        login: true
-                                                                                                                                                                    }
-                                                                                                                                                                }
-
-                                                                                                                                                            }).exec()
-                                                                                                                                                            .then((notifyPushed) => {
-                                                                                                                                                            })
-                                                                                                                                                            .catch((error) => {
-                                                                                                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                                            })
-                                                                                                                                                    }
-
-                                                                                                                                                } else {
-                                                                                                                                                    var obj = new notify({
-                                                                                                                                                        username: username,
-                                                                                                                                                        devices: {
-                                                                                                                                                            web: [{
-                                                                                                                                                                deviceid: userParam.deviceid,
-                                                                                                                                                                deviceToken: userParam.deviceToken,
-                                                                                                                                                                login: true
-                                                                                                                                                            }]
-                                                                                                                                                        }
-                                                                                                                                                    });
-                                                                                                                                                    obj.save((success) => {
-                                                                                                                                                        log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
-                                                                                                                                                    });
-                                                                                                                                                }
-                                                                                                                                            })
-                                                                                                                                            .catch((error) => {
-
-                                                                                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                            })
-
-                                                                                                                                    } else {
-                                                                                                                                        notify.findOne({ username: new RegExp(username, 'i') }).exec()
-                                                                                                                                            .then((notifications) => {
-
-                                                                                                                                                 if (notifications) {
-                                                                                                                                                    let found = false;
-                                                                                                                                                    notifications.devices.mobile.map((notifyData) => {
-                                                                                                                                                        if (notifyData.deviceid === userParam.deviceid) {
-                                                                                                                                                            found = true;
-                                                                                                                                                            notify.updateOne(
-                                                                                                                                                                {
-                                                                                                                                                                    'username': username,
-                                                                                                                                                                    'devices.mobile.deviceid': userParam.deviceid
-                                                                                                                                                                },
-                                                                                                                                                                {
-                                                                                                                                                                    '$set':
-                                                                                                                                                                    {
-                                                                                                                                                                        'devices.mobile.$': {
-                                                                                                                                                                            deviceToken: userParam.deviceToken,
-                                                                                                                                                                            deviceid: userParam.deviceid,
-                                                                                                                                                                            login: true
-                                                                                                                                                                        }
-
-                                                                                                                                                                    }
-                                                                                                                                                                }).exec()
-                                                                                                                                                                .then((updated) => {
-                                                                                                                                                                    log.info('device updated',updated+"at"+Date.now())
-                                                                                                                                                                })
-                                                                                                                                                        }
-                                                                                                                                                    });
-                                                                                                                                                    if (found === false) {
-
-                                                                                                                                                        notify.updateOne(
-                                                                                                                                                            { _id: notifications._id, username: new RegExp(username, 'i') },
-                                                                                                                                                            {
-                                                                                                                                                                "$push": {
-
-                                                                                                                                                                    "devices.mobile": {
-                                                                                                                                                                        deviceid: userParam.deviceid,
-                                                                                                                                                                        deviceToken: userParam.deviceToken,
-                                                                                                                                                                        login: true
-                                                                                                                                                                    }
-                                                                                                                                                                }
-
-                                                                                                                                                            }).exec()
-                                                                                                                                                            .then((notifyPushed) => {
-                                                                                                                                                                log.info('notification updated..',updated+new Date().toJSON());
-                                                                                                                                                            })
-                                                                                                                                                            .catch((error) => {
-                                                                                                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                                            })
-                                                                                                                                                    }
-
-                                                                                                                                                }else{
-                                                                                                                                                    var obj = new notify({
-                                                                                                                                                        username: username,
-                                                                                                                                                        devices: {
-                                                                                                                                                            mobile: [{
-                                                                                                                                                                deviceid: userParam.deviceid,
-                                                                                                                                                                deviceToken: userParam.deviceToken,
-                                                                                                                                                                login: true
-                                                                                                                                                            }]
-                                                                                                                                                        }
-                                                                                                                                                    });
-                                                                                                                                                    obj.save((success) => {
-
-                                                                                                                                                        log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                                    });
-                                                                                                                                                }
-                                                                                                                                            })
-                                                                                                                                            .catch((error) => {
-                                                                                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                            })
                                                                                                                                     }
+                                                                                                                            }).exec()
+                                                                                                                            .then((updated) => {
+                                                                                                                                if (!updated) {
+                                                                                                                                    log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
 
-                                                                                                                                    var r = { response: '3',  hospital_data: [pinfo], Human_Clients:humanclient , Pet_Clients:petclient , Blood_Test_Results:bloodData , Urine_Test_Results: urineData,  prefer_language: 'English' };
-                                                                                                                                    callback(r);
+                                                                                                                                }
+                                                                                                                            })
+                                                                                                                    }
+                                                                                                                })
+                                                                                                                if (found === false) {
 
+                                                                                                                    notify.updateOne(
+                                                                                                                        {
+                                                                                                                            _id: notifications._id,
+                                                                                                                            username: new RegExp(username, 'i')
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "$push": {
+
+                                                                                                                                "devices.web": {
+                                                                                                                                    deviceid: userParam.deviceid,
+                                                                                                                                    deviceToken: userParam.deviceToken,
+                                                                                                                                    login: true
+                                                                                                                                }
+                                                                                                                            }
+
+                                                                                                                        }).exec()
+                                                                                                                        .then((notifyPushed) => {
+                                                                                                                        })
+                                                                                                                        .catch((error) => {
+                                                                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                                                        })
+                                                                                                                }
+
+                                                                                                            } else {
+                                                                                                                var obj = new notify({
+                                                                                                                    username: username,
+                                                                                                                    devices: {
+                                                                                                                        web: [{
+                                                                                                                            deviceid: userParam.deviceid,
+                                                                                                                            deviceToken: userParam.deviceToken,
+                                                                                                                            login: true
+                                                                                                                        }]
+                                                                                                                    }
+                                                                                                                });
+                                                                                                                obj.save((success) => {
+                                                                                                                    log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
+
+                                                                                                                });
+                                                                                                            }
                                                                                                         })
                                                                                                         .catch((error) => {
                                                                                                             log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
                                                                                                         })
 
-                                                                                    }
+                                                                                                } else {
+
+                                                                                                    notify.findOne({username: new RegExp(username, 'i')}).exec()
+                                                                                                        .then((notifications) => {
+
+                                                                                                            if (notifications) {
+                                                                                                                let found = false;
+                                                                                                                notifications.devices.mobile.map((notifyData) => {
+                                                                                                                    if (notifyData.deviceid === userParam.deviceid) {
+                                                                                                                        found = true;
+                                                                                                                        notify.updateOne(
+                                                                                                                            {
+                                                                                                                                'username': username,
+                                                                                                                                'devices.mobile.deviceid': userParam.deviceid
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                '$set':
+                                                                                                                                    {
+                                                                                                                                        'devices.mobile.$': {
+                                                                                                                                            deviceToken: userParam.deviceToken,
+                                                                                                                                            deviceid: userParam.deviceid,
+                                                                                                                                            login: true
+                                                                                                                                        }
+
+                                                                                                                                    }
+                                                                                                                            }).exec()
+                                                                                                                            .then((updated) => {
+                                                                                                                            })
+                                                                                                                    }
+                                                                                                                })
+                                                                                                                if (found === false) {
+
+                                                                                                                    notify.updateOne(
+                                                                                                                        {
+                                                                                                                            _id: notifications._id,
+                                                                                                                            username: new RegExp(username, 'i')
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "$push": {
+
+                                                                                                                                "devices.mobile": {
+                                                                                                                                    deviceid: userParam.deviceid,
+                                                                                                                                    deviceToken: userParam.deviceToken,
+                                                                                                                                    login: true
+                                                                                                                                }
+                                                                                                                            }
+
+                                                                                                                        }).exec()
+                                                                                                                        .then((notifyPushed) => {
+
+                                                                                                                        })
+                                                                                                                        .catch((error) => {
+                                                                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                                                        })
+                                                                                                                }
+
+                                                                                                            } else {
+
+                                                                                                                var obj = new notify({
+                                                                                                                    username: username,
+                                                                                                                    devices: {
+                                                                                                                        mobile: [{
+                                                                                                                            deviceid: userParam.deviceid,
+                                                                                                                            deviceToken: userParam.deviceToken,
+                                                                                                                            login: true
+                                                                                                                        }]
+                                                                                                                    }
+                                                                                                                });
+                                                                                                                obj.save((success) => {
+                                                                                                                    log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
+
+                                                                                                                });
+                                                                                                            }
+                                                                                                        })
+                                                                                                        .catch((error) => {
+                                                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                                        })
+                                                                                                }
+
+                                                                                                var r = {
+                                                                                                    response: '3',
+                                                                                                    hospital_data: [pinfo],
+                                                                                                    Human_Data: hreservData,
+                                                                                                    Pet_Data: preservData,
+                                                                                                    prefer_language: 'English'
+                                                                                                };
+                                                                                                callback(r);
+                                                                                            }
+
+                                                                                        })
+                                                                                        .catch((error) => {
+                                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                        })
+
                                                                                 })
                                                                                 .catch((error) => {
                                                                                     log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
                                                                                 })
 
-                                                                                        }
-                                                                                    })
-                                                                                    .catch((error) => {
-                                                                                        log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                                                    })
+                                                                        }
 
-                                                                            }
-                                                                        })
-                                                                        .catch((error) => {
-                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                                        })
+                                                                    })
+                                                                    .catch((error) => {
+                                                                        log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                                    }
-                                                                })
-                                                                .catch((error) => {
-                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+                                                                    })
 
-                                                                })
+                                                                //
+
+                                                            }
+                                                        })
+                                                        .catch((error) => {
+                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                        })
 
                                                 }
                                             });
 
                                     })
                                     .catch((Error) => {
-                                        
-                                        log.info('device insertion status', error, ' accepted at ', new Date().toJSON()); 
-                                        throw Error;                                     
+
+                                        log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+                                        throw Error;
                                     })
 
-                            } else{
-                                
-                                var r1 = { response: '0', message: 'The username or password is incorrect' };
+                            } else {
+
+                                var r1 = {response: '0', message: 'The username or password is incorrect'};
                                 callback(r1);
                             }
                         } else {
 
-                            callback({ response: '2', message: 'No data found. Please register with us' });
+                            callback({response: '2', message: 'No data found. Please register with us'});
 
                         }
 
                     })
                     .catch((error) => {
                         log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-                                                                                     
+
                     })
 
             } else {
 
-                Hospital.findOne({ username: new RegExp(username, 'i') }).exec()
+                Hospital.findOne({username: new RegExp(username, 'i')}).exec()
                     .then((userFound) => {
                         log.info('user found ', userFound, ' accepted at ', new Date().toJSON());
                         if (userFound) {
                             if (userFound.register_type !== 'Manual' && userFound.register_type !== 'Linked') {
-                                let res = { response: '6', message: 'You have not yet set your password. Please set your password' };
+                                let res = {
+                                    response: '6',
+                                    message: 'You have not yet set your password. Please set your password'
+                                };
                                 callback(res);
                             } else if (userFound.verification_status === false) {
-                                callback({ response: '0', message: 'User not verified please verify your email' });
+                                callback({response: '0', message: 'User not verified please verify your email'});
                             } else {
                                 if (userFound.password === userParam.password) {
 
-                                    Hospital.updateOne({ username: new RegExp(username, 'i') }, { $set: { register_type: "Linked" } }).exec()
+                                    Hospital.updateOne({username: new RegExp(username, 'i')}, {$set: {register_type: "Linked"}}).exec()
                                         .then((userUpdated) => {
 
-                                            HospitalInfo.findOne({ username: new RegExp(username, 'i') }).exec()
+                                            HospitalInfo.findOne({username: new RegExp(username, 'i')}).exec()
                                                 .then((pinfo) => {
 
                                                     if (pinfo) {
 
-                                                        human.find({ username: new RegExp(username, 'i') }).exec()
-                                                                    .then((humanclient) => {
-                                                                        if (humanclient){
+                                                        human.find({username: new RegExp(username, 'i')}).exec()
+                                                            .then((humanclient) => {
 
-                                                                            pet.find({ username: new RegExp(username, 'i') }).exec()
-                                                                                .then((petclient) => {
-                                                                                    if (petclient){
+                                                                        human.aggregate([{
+                                                                            $match: {
+                                                                                username: new RegExp(username, 'i')
+                                                                            }
+                                                                        }, {
+                                                                            $lookup: {
+                                                                                from: "urineresults",
+                                                                                localField: "clientId",
+                                                                                foreignField: "client_Id",
+                                                                                as: "Human_Urine_Test_Results"
+                                                                            }
+                                                                        }, {
+                                                                            $lookup: {
+                                                                                from: "bloodresults",
+                                                                                localField: "clientId",
+                                                                                foreignField: "client_Id",
+                                                                                as: "Human_Blood_Test_Results"
+                                                                            }
+                                                                        }, {
+                                                                            $lookup: {
+                                                                                from: "testreservations",
+                                                                                localField: "clientId",
+                                                                                foreignField: "clientId",
+                                                                                as: "Human_TestReservation_Results"
+                                                                            }
+                                                                        }]).exec()
+                                                                            .then((hreservData) => {
+                                                                                //console.log('in testreserv', hreservData);
+                                                                                if (hreservData) {
 
-                                                                                        testReserv.find({ username: new RegExp(username, 'i') }).exec()
-                                                                                            .then((reservData) => {
-                                                                                                if (reservData){
+                                                                                    pet.find({username: new RegExp(username, 'i')}).exec()
+                                                                                        .then((petclient) => {
 
-                                                                                                    blood.find({ username: new RegExp(username, 'i') }).exec()
-                                                                                                        .then((bloodData) => {
-                                                                                                            if (bloodData){
+                                                                                            pet.aggregate([{
+                                                                                                $match: {
+                                                                                                    username: new RegExp(username, 'i')
+                                                                                                }
+                                                                                            }, {
+                                                                                                $lookup: {
+                                                                                                    from: "urineresults",
+                                                                                                    localField: "clientId",
+                                                                                                    foreignField: "client_Id",
+                                                                                                    as: "Pet_Urine_Test_Results"
+                                                                                                }
+                                                                                            }, {
+                                                                                                $lookup: {
+                                                                                                    from: "bloodresults",
+                                                                                                    localField: "clientId",
+                                                                                                    foreignField: "client_Id",
+                                                                                                    as: "Pet_Blood_Test_Results"
+                                                                                                }
+                                                                                            }, {
+                                                                                                $lookup: {
+                                                                                                    from: "testreservations",
+                                                                                                    localField: "clientId",
+                                                                                                    foreignField: "clientId",
+                                                                                                    as: "Pet_TestReservation_Results"
+                                                                                                }
+                                                                                            }]).exec()
+                                                                                                .then((preservData) => {
+                                                                                                    //console.log('in testreserv', hreservData);
+                                                                                                    if (preservData) {
 
-                                                                                                    urine.find({ username: new RegExp(username, 'i') },{_id:0,__v:0}).exec()
-                                                                                                        .then((urineData) => {
-                                                                                                                                    if (userParam.from === 'web') {
+                                                                                                        if (userParam.from === 'web') {
 
-                                                                                                                                        notify.findOne({username: new RegExp(username, 'i')}).exec()
-                                                                                                                                            .then((notifications) => {
+                                                                                                            notify.findOne({username: new RegExp(username, 'i')}).exec()
+                                                                                                                .then((notifications) => {
 
-                                                                                                                                                if (notifications) {
-                                                                                                                                                    let found = false;
-                                                                                                                                                    notifications.devices.web.map((notifyData) => {
-                                                                                                                                                        if (notifyData.deviceid === userParam.deviceid) {
-                                                                                                                                                            found = true;
-                                                                                                                                                            notify.updateOne(
-                                                                                                                                                                {
-                                                                                                                                                                    'username': username,
-                                                                                                                                                                    'devices.web.deviceid': userParam.deviceid
-                                                                                                                                                                },
-                                                                                                                                                                {
-                                                                                                                                                                    '$set':
-                                                                                                                                                                        {
-                                                                                                                                                                            'devices.web.$': {
-                                                                                                                                                                                deviceToken: userParam.deviceToken,
-                                                                                                                                                                                deviceid: userParam.deviceid,
-                                                                                                                                                                                login: true
-                                                                                                                                                                            }
-
-                                                                                                                                                                        }
-                                                                                                                                                                }).exec()
-                                                                                                                                                                .then((updated) => {
-                                                                                                                                                                    if (!updated) {
-                                                                                                                                                                        log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                                                    }
-                                                                                                                                                                })
-                                                                                                                                                        }
-                                                                                                                                                    })
-                                                                                                                                                    if (found === false) {
-
-                                                                                                                                                        notify.updateOne(
-                                                                                                                                                            {
-                                                                                                                                                                _id: notifications._id,
-                                                                                                                                                                username: new RegExp(username, 'i')
-                                                                                                                                                            },
-                                                                                                                                                            {
-                                                                                                                                                                "$push": {
-
-                                                                                                                                                                    "devices.web": {
-                                                                                                                                                                        deviceid: userParam.deviceid,
-                                                                                                                                                                        deviceToken: userParam.deviceToken,
-                                                                                                                                                                        login: true
-                                                                                                                                                                    }
-                                                                                                                                                                }
-
-                                                                                                                                                            }).exec()
-                                                                                                                                                            .then((notifyPushed) => {
-                                                                                                                                                            })
-                                                                                                                                                            .catch((error) => {
-                                                                                                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                                            })
-                                                                                                                                                    }
-
-                                                                                                                                                } else {
-                                                                                                                                                    var obj = new notify({
-                                                                                                                                                        username: username,
-                                                                                                                                                        devices: {
-                                                                                                                                                            web: [{
-                                                                                                                                                                deviceid: userParam.deviceid,
-                                                                                                                                                                deviceToken: userParam.deviceToken,
-                                                                                                                                                                login: true
-                                                                                                                                                            }]
-                                                                                                                                                        }
-                                                                                                                                                    });
-                                                                                                                                                    obj.save((success) => {
-                                                                                                                                                        log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                                    });
+                                                                                                                    if (notifications) {
+                                                                                                                        let found = false;
+                                                                                                                        notifications.devices.web.map((notifyData) => {
+                                                                                                                            if (notifyData.deviceid === userParam.deviceid) {
+                                                                                                                                found = true;
+                                                                                                                                notify.updateOne(
+                                                                                                                                    {
+                                                                                                                                        'username': username,
+                                                                                                                                        'devices.web.deviceid': userParam.deviceid
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        '$set':
+                                                                                                                                            {
+                                                                                                                                                'devices.web.$': {
+                                                                                                                                                    deviceToken: userParam.deviceToken,
+                                                                                                                                                    deviceid: userParam.deviceid,
+                                                                                                                                                    login: true
                                                                                                                                                 }
-                                                                                                                                            })
-                                                                                                                                            .catch((error) => {
-                                                                                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                                                                                                            })
+                                                                                                                                            }
+                                                                                                                                    }).exec()
+                                                                                                                                    .then((updated) => {
+                                                                                                                                        if (!updated) {
+                                                                                                                                            log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
 
-                                                                                                                                    } else {
+                                                                                                                                        }
+                                                                                                                                    })
+                                                                                                                            }
+                                                                                                                        })
+                                                                                                                        if (found === false) {
 
-                                                                                                                                        notify.findOne({username: new RegExp(username, 'i')}).exec()
-                                                                                                                                            .then((notifications) => {
+                                                                                                                            notify.updateOne(
+                                                                                                                                {
+                                                                                                                                    _id: notifications._id,
+                                                                                                                                    username: new RegExp(username, 'i')
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "$push": {
 
-                                                                                                                                                if (notifications) {
-                                                                                                                                                    let found = false;
-                                                                                                                                                    notifications.devices.mobile.map((notifyData) => {
-                                                                                                                                                        if (notifyData.deviceid === userParam.deviceid) {
-                                                                                                                                                            found = true;
-                                                                                                                                                            notify.updateOne(
-                                                                                                                                                                {
-                                                                                                                                                                    'username': username,
-                                                                                                                                                                    'devices.mobile.deviceid': userParam.deviceid
-                                                                                                                                                                },
-                                                                                                                                                                {
-                                                                                                                                                                    '$set':
-                                                                                                                                                                        {
-                                                                                                                                                                            'devices.mobile.$': {
-                                                                                                                                                                                deviceToken: userParam.deviceToken,
-                                                                                                                                                                                deviceid: userParam.deviceid,
-                                                                                                                                                                                login: true
-                                                                                                                                                                            }
-
-                                                                                                                                                                        }
-                                                                                                                                                                }).exec()
-                                                                                                                                                                .then((updated) => {
-                                                                                                                                                                })
-                                                                                                                                                        }
-                                                                                                                                                    })
-                                                                                                                                                    if (found === false) {
-
-                                                                                                                                                        notify.updateOne(
-                                                                                                                                                            {
-                                                                                                                                                                _id: notifications._id,
-                                                                                                                                                                username: new RegExp(username, 'i')
-                                                                                                                                                            },
-                                                                                                                                                            {
-                                                                                                                                                                "$push": {
-
-                                                                                                                                                                    "devices.mobile": {
-                                                                                                                                                                        deviceid: userParam.deviceid,
-                                                                                                                                                                        deviceToken: userParam.deviceToken,
-                                                                                                                                                                        login: true
-                                                                                                                                                                    }
-                                                                                                                                                                }
-
-                                                                                                                                                            }).exec()
-                                                                                                                                                            .then((notifyPushed) => {
-
-                                                                                                                                                            })
-                                                                                                                                                            .catch((error) => {
-                                                                                                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                                            })
-                                                                                                                                                    }
-
-                                                                                                                                                } else {
-
-                                                                                                                                                    var obj = new notify({
-                                                                                                                                                        username: username,
-                                                                                                                                                        devices: {
-                                                                                                                                                            mobile: [{
-                                                                                                                                                                deviceid: userParam.deviceid,
-                                                                                                                                                                deviceToken: userParam.deviceToken,
-                                                                                                                                                                login: true
-                                                                                                                                                            }]
-                                                                                                                                                        }
-                                                                                                                                                    });
-                                                                                                                                                    obj.save((success) => {
-                                                                                                                                                        log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                                    });
-                                                                                                                                                }
-                                                                                                                                            })
-                                                                                                                                            .catch((error) => {
-                                                                                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                            })
+                                                                                                                                        "devices.web": {
+                                                                                                                                            deviceid: userParam.deviceid,
+                                                                                                                                            deviceToken: userParam.deviceToken,
+                                                                                                                                            login: true
+                                                                                                                                        }
                                                                                                                                     }
 
-                                                                                                                                    var r = {
-                                                                                                                                        response: '3',
-                                                                                                                                        hospital_data: [pinfo],
-                                                                                                                                        Human_Clients:humanclient,
-                                                                                                                                        Pet_Clients:petclient,
-                                                                                                                                        Test_Reservations:reservData,
-                                                                                                                                        Blood_Test_Results:bloodData,
-                                                                                                                                        Urine_Test_Results: urineData,
-                                                                                                                                        prefer_language: 'English'
-                                                                                                                                    };
-                                                                                                                                    callback(r);
+                                                                                                                                }).exec()
+                                                                                                                                .then((notifyPushed) => {
+                                                                                                                                })
+                                                                                                                                .catch((error) => {
+                                                                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                                                                })
+                                                                                                                        }
+
+                                                                                                                    } else {
+                                                                                                                        var obj = new notify({
+                                                                                                                            username: username,
+                                                                                                                            devices: {
+                                                                                                                                web: [{
+                                                                                                                                    deviceid: userParam.deviceid,
+                                                                                                                                    deviceToken: userParam.deviceToken,
+                                                                                                                                    login: true
+                                                                                                                                }]
+                                                                                                                            }
+                                                                                                                        });
+                                                                                                                        obj.save((success) => {
+                                                                                                                            log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
+
+                                                                                                                        });
+                                                                                                                    }
+                                                                                                                })
+                                                                                                                .catch((error) => {
+                                                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                                                })
+
+                                                                                                        } else {
+
+                                                                                                            notify.findOne({username: new RegExp(username, 'i')}).exec()
+                                                                                                                .then((notifications) => {
+
+                                                                                                                    if (notifications) {
+                                                                                                                        let found = false;
+                                                                                                                        notifications.devices.mobile.map((notifyData) => {
+                                                                                                                            if (notifyData.deviceid === userParam.deviceid) {
+                                                                                                                                found = true;
+                                                                                                                                notify.updateOne(
+                                                                                                                                    {
+                                                                                                                                        'username': username,
+                                                                                                                                        'devices.mobile.deviceid': userParam.deviceid
+                                                                                                                                    },
+                                                                                                                                    {
+                                                                                                                                        '$set':
+                                                                                                                                            {
+                                                                                                                                                'devices.mobile.$': {
+                                                                                                                                                    deviceToken: userParam.deviceToken,
+                                                                                                                                                    deviceid: userParam.deviceid,
+                                                                                                                                                    login: true
+                                                                                                                                                }
+
+                                                                                                                                            }
+                                                                                                                                    }).exec()
+                                                                                                                                    .then((updated) => {
+                                                                                                                                    })
+                                                                                                                            }
+                                                                                                                        })
+                                                                                                                        if (found === false) {
+
+                                                                                                                            notify.updateOne(
+                                                                                                                                {
+                                                                                                                                    _id: notifications._id,
+                                                                                                                                    username: new RegExp(username, 'i')
+                                                                                                                                },
+                                                                                                                                {
+                                                                                                                                    "$push": {
+
+                                                                                                                                        "devices.mobile": {
+                                                                                                                                            deviceid: userParam.deviceid,
+                                                                                                                                            deviceToken: userParam.deviceToken,
+                                                                                                                                            login: true
+                                                                                                                                        }
+                                                                                                                                    }
+
+                                                                                                                                }).exec()
+                                                                                                                                .then((notifyPushed) => {
+
+                                                                                                                                })
+                                                                                                                                .catch((error) => {
+                                                                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                                                                })
+                                                                                                                        }
+
+                                                                                                                    } else {
+
+                                                                                                                        var obj = new notify({
+                                                                                                                            username: username,
+                                                                                                                            devices: {
+                                                                                                                                mobile: [{
+                                                                                                                                    deviceid: userParam.deviceid,
+                                                                                                                                    deviceToken: userParam.deviceToken,
+                                                                                                                                    login: true
+                                                                                                                                }]
+                                                                                                                            }
+                                                                                                                        });
+                                                                                                                        obj.save((success) => {
+                                                                                                                            log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
+
+                                                                                                                        });
+                                                                                                                    }
+                                                                                                                })
+                                                                                                                .catch((error) => {
+                                                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                                                })
+                                                                                                        }
+
+                                                                                                        var r = {
+                                                                                                            response: '3',
+                                                                                                            hospital_data: [pinfo],
+                                                                                                            Human_Data: hreservData,
+                                                                                                            Pet_Data: preservData,
+                                                                                                            prefer_language: 'English'
+                                                                                                        };
+                                                                                                        callback(r);
+                                                                                                    }
+
+                                                                                                    })
+                                                                                                .catch((error) => {
+                                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                                })
+
+                                                                                        })
+                                                                                        .catch((error) => {
+                                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                        })
 
 
-                                                                                                        })
-                                                                                                       .catch((error) => {
-                                                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+                                                                                }
 
-                                                                                                        })
 
-                                                                                                }
-                                                                                            })
-                                                                                            .catch((error) => {
-                                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+                                                                            })
+                                                                            .catch((error) => {
+                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                                                            })
+                                                                            })
 
-                                                                                                }
-                                                                                            })
-                                                                                            .catch((error) => {
-                                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                                                            })
 
-                                                                                    }
-                                                                                })
-                                                                        .catch((error) => {
-                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                        })
-
-                                                                }
                                                             })
-                                                            .catch((error) => {
-                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                            })
 
-                                                    } else {
-                                                        var r = { response: '3',hospital_data: [], Human_Clients: [], Pet_Clients: [] , Test_Reservations:[] , Blood_Test_Results:[] , Urine_Test_Results: [], deviceinfo: [], prefer_language: 'English' };
-                                                        callback(r);
+
+
                                                     }
-                                                });
+                                                })
 
+                                                .catch((error) => {
+                                                    callback({response: '0', message: error});
+                                                })
                                         })
-                                        .catch((error) => {
-                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-                                                                                     
-                                        })
+                                //}
+
 
                                 } else {
                                     var r1 = { response: '0', message: 'The username or password is incorrect' };
@@ -553,16 +654,13 @@ var Login = {
                             var r1 = { response: '2', message: 'No data found. Please register with us' };
                             callback(r1);
                         }
-                    })
-                    .catch((error) => {
-                        callback({ response: '0', message: error });
-                    })
-            }
-        } else {
-           
-            callback({ response: '0', message: 'please pass a valid email address' });
-        }
 
+
+                            //}
+                        //}
+                    });
+            }
+        }
     }
 };
 module.exports = Login;

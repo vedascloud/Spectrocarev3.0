@@ -9,7 +9,7 @@ var TestReservationInfo={
 
             HospitalInfoDb.findOne({username:new RegExp(test.username,'i')}).exec()
                 .then((userFound) => {
-                    console.log('userfound..',userFound);
+                    console.log('userfound..');
                     if(userFound){
                         var testReservNo = "testNo_" + Date.now();
                                 console.log('form data testreserv...',test);
@@ -27,7 +27,9 @@ var TestReservationInfo={
 
                                 personDb.save((success) => {
                                     console.log(success);
-                                    callback({response:'3',message:'Your testreservation information has been successfully stored.'});
+                                    callback({response:'3',
+                                              testReservNo:testReservNo,
+                                              message:'Your testreservation information has been successfully stored.'});
                                 });
                     }
                     else
@@ -44,20 +46,21 @@ var TestReservationInfo={
             .then((userFound) => {
 
                 if(userFound){
-                    console.log('userfound..',userFound);
+                    console.log('userfound..');
                     console.log('form data testreserv...',test);
 
-                    TestReservDb.findOne({username:new RegExp(test.username,'i'),testReservNo:test.testReservNo}).exec().then((testreservFind) => {
+                    TestReservDb.findOne({username:new RegExp(test.username,'i'),clientId:test.clientId, testReservNo:test.testReservNo }).exec().then((testreservFind) => {
                         if(testreservFind){
 
-                            TestReservDb.updateOne({username:new RegExp(test.username,'i'),testReservNo:test.testReservNo},{$set:{
-                                clientId:test.clientId,
+                            TestReservDb.updateOne({username:new RegExp(test.username,'i'), clientId:test.clientId, testReservNo:test.testReservNo },{$set:{
+
                                 clientType:test.clientType,
                                 name:test.name,
                                 date:test.date,
                                 time:test.time,
                                 testName:test.testName,
                                 note:test.note
+
                             }}).exec().then((testreservUpdate) => {
                                 if(testreservUpdate){
                                     callback({response:'3',message:'Your testreserv information has been successfully updated.'});
@@ -69,7 +72,7 @@ var TestReservationInfo={
                                 })
 
                         }else{
-                            callback({response:'0',message:'testReservNo not Found.'});
+                            callback({response:'0',message:'testReservNo Not Found.'});
                         }
                     }).catch((error) => {
                         console.log(error);
@@ -118,11 +121,11 @@ var TestReservationInfo={
     //Delete TestReservInfo
     deleteTestReservInfo : (data,callback) => {
 
-        TestReservDb.findOne({testReservNo:data.testReservNo}).exec().then((fileFound)=>{
+        TestReservDb.findOne({clientId:data.clientId, testReservNo:data.testReservNo}).exec().then((fileFound)=>{
 
             if(fileFound){
 
-                TestReservDb.deleteOne({testReservNo:data.testReservNo}).exec().then((res) => {
+                TestReservDb.deleteOne({clientId:data.clientId, testReservNo:data.testReservNo}).exec().then((res) => {
                     if(res){
                         callback({response: '3', message: 'successfully deleted'});
                     }

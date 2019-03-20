@@ -36,8 +36,7 @@ var TestReservationSchema = new Schema({
         required : true
     },
     note : {
-        type : String,
-        required : true
+        type : String
     }
 
 });

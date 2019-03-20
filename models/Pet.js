@@ -57,7 +57,7 @@ var PetInformation={
                                         weight: fields.weight,
                                         neuter:fields.neuter,
                                         note: fields.note,
-                                        addedTime: Date.now(),
+                                        addedTime: fields.addedTime,
                                         profilePic: "/images/" + text + d + file.name
                                     });
 
@@ -142,7 +142,7 @@ var PetInformation={
                                         weight: fields.weight,
                                         neuter:fields.neuter,
                                         note: fields.note,
-                                        addedTime: Date.now(),
+                                        addedTime: fields.addedTime,
                                         profilePic: "/images/" + text + d + file.name}}).exec()
                                     .then((profileUpdate) => {
                                         if(profileUpdate){

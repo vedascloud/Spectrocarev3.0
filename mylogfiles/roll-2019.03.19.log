@@ -1,0 +1,576 @@
+10:06:09.472 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T04:36:09.436Z 
+10:38:36.005 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T05:08:36.005Z 
+10:43:01.142 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T05:13:01.141Z 
+10:48:23.895 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T05:18:23.895Z 
+11:40:28.175 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T06:10:28.175Z 
+11:43:43.268 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T06:13:43.267Z 
+11:46:49.237 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T06:16:49.237Z 
+11:48:08.519 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T06:18:08.519Z 
+11:50:23.914 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T06:20:23.914Z 
+11:50:23.968 INFO  device insertion status#<Object> is not a function
+{}
+TypeError: #<Object> is not a function
+    at Array.find (native)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:501:205)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T06:20:23.968Z 
+11:53:30.747 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T06:23:30.746Z 
+12:03:48.602 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T06:33:48.601Z 
+12:05:31.427 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T06:35:31.427Z 
+12:08:16.377 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T06:38:16.377Z 
+20:23:47.927 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T14:53:47.927Z 
+20:23:47.979 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:507:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:53:47.979Z 
+20:23:47.983 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:507:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:53:47.983Z 
+20:23:47.983 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:507:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:53:47.983Z 
+20:24:40.400 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T14:54:40.400Z 
+20:24:40.424 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:507:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:54:40.424Z 
+20:24:40.432 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:507:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:54:40.432Z 
+20:24:40.432 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:507:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:54:40.432Z 
+20:27:58.125 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T14:57:58.125Z 
+20:27:58.173 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:509:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:57:58.173Z 
+20:27:58.177 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:509:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:57:58.177Z 
+20:27:58.177 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:509:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:57:58.177Z 
+20:29:43.222 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T14:59:43.222Z 
+20:29:43.269 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:511:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:59:43.269Z 
+20:29:43.274 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:511:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:59:43.274Z 
+20:29:43.274 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:511:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T14:59:43.274Z 
+20:31:29.056 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:01:29.056Z 
+20:34:27.528 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:04:27.527Z 
+20:38:24.025 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:08:24.025Z 
+20:40:54.806 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:10:54.806Z 
+20:40:54.849 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.findOne.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:512:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T15:10:54.849Z 
+20:40:54.852 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.findOne.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:512:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T15:10:54.852Z 
+20:42:54.723 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:12:54.723Z 
+20:42:54.883 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.findOne.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:512:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T15:12:54.883Z 
+20:42:54.890 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.findOne.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:512:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T15:12:54.890Z 
+20:45:56.209 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:15:56.209Z 
+20:45:56.275 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.findOne.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:513:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T15:15:56.275Z 
+20:45:56.282 INFO  device insertion statuspetclient is not defined
+{}
+ReferenceError: petclient is not defined
+    at urine.findOne.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:513:105)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20)
+    at tryOnImmediate (timers.js:768:5)
+    at processImmediate [as _immediateCallback] (timers.js:745:5) accepted at 2019-03-19T15:15:56.282Z 
+20:55:46.347 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:25:46.347Z 
+20:55:46.547 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.findOne.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:523:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T15:25:46.547Z 
+20:57:24.192 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:27:24.192Z 
+20:57:24.316 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:523:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T15:27:24.316Z 
+20:57:24.316 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:523:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T15:27:24.316Z 
+21:01:10.286 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:31:10.286Z 
+21:01:10.405 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:523:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T15:31:10.405Z 
+21:01:10.405 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:523:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T15:31:10.405Z 
+21:05:47.467 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:35:47.467Z 
+21:05:47.608 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:524:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T15:35:47.608Z 
+21:05:47.608 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:524:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T15:35:47.608Z 
+21:09:38.092 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T15:39:38.091Z 
+21:09:38.213 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:524:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T15:39:38.213Z 
+21:09:38.213 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:524:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T15:39:38.213Z 
+21:30:00.980 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T16:00:00.980Z 
+21:30:01.111 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:524:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T16:00:01.111Z 
+21:30:01.130 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:524:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T16:00:01.130Z 
+22:08:19.190 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T16:38:19.189Z 
+22:08:19.469 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:564:101)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T16:38:19.469Z 
+22:08:19.481 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:10:13)
+    at urine.find.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:564:101)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-19T16:38:19.481Z 
+22:12:08.044 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T16:42:08.043Z 
+22:19:57.860 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T16:49:57.860Z 
+22:21:54.373 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T16:51:54.373Z 
+22:25:08.934 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T16:55:08.934Z 
+22:28:38.339 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T16:58:38.338Z 
+22:31:29.262 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T17:01:29.262Z 
+22:38:54.448 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T17:08:54.448Z 
+22:46:26.740 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c863f339faa0b00e0623203","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"9789","loc":[14.7819,77.7006],"register_time":"15123652","register_type":"Linked","__v":0} accepted at 2019-03-19T17:16:26.740Z 
+
+
+
+
+

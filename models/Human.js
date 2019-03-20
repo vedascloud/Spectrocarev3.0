@@ -55,7 +55,7 @@ var Humaninformation={
                                         height: fields.height,
                                         weight: fields.weight,
                                         note: fields.note,
-                                        addedTime: Date.now(),
+                                        addedTime: fields.addedTime,
                                         profilePic: "/images/" + text + d + file.name
                                     });
 
@@ -137,7 +137,7 @@ var Humaninformation={
                                     height: fields.height,
                                     weight: fields.weight,
                                     note: fields.note,
-                                    addedTime: Date.now(),
+                                    addedTime: fields.addedTime,
                                     profilePic: "/images/" + text + d + file.name}}).exec()
                                     .then((profileUpdate) => {
                                         if(profileUpdate){
@@ -206,7 +206,7 @@ var Humaninformation={
         })
     },
 
-    /*//Delete HumanInfo
+    //Delete HumanInfo
     deleteHumanInfo : (data,callback) => {
 
         HumanDB.findOne({clientId:data.clientId}).exec().then((fileFound)=>{
@@ -236,35 +236,36 @@ var Humaninformation={
         }).catch((error) => {
             console.log(error);
         })
-    }*/
+    }
 
     //Delete HumanInfo
-    deleteHumanInfo : (data,callback) => {
+   /* deleteHumanInfo : (data,callback) => {
 
-        HumanDB.findOne({username:new RegExp(fields.username,'i'),clientId:data.clientId}).exec().then((fileFound)=>{
+        HumanDB.findOne({username:new RegExp(data.username,'i'),clientId:data.clientId}).exec().then((fileFound)=>{
 
             if(fileFound){
 
-                UrineDB.find({username:new RegExp(fields.username,'i'),clientId:data.clientId}).exec().then((dataAvailable)=>{
+                UrineDB.find({username:new RegExp(data.username,'i'),client_Id:data.clientId}).exec().then((found)=>{
+                    if (found){
 
-                    if (dataAvailable){
-
-                        UrineDB.delete({username:new RegExp(fields.username,'i'),clientId:data.clientId}).exec().then((Deleted)=>{
+                        UrineDB.remove({username:new RegExp(data.username,'i'),client_Id:data.clientId}).exec().then((Deleted)=>{
                             if (Deleted){
 
-                                fs.unlink('./public'+dataAvailable.takePhoto , (er, sc) => {
+                                console.log('path of a takePhoto from urine..', found.takePhoto);
+
+                                fs.unlink('./public'+found.takePhoto , (er, sc) => {
                                     if (er) {
-                                        console.log('error found,', er);
+                                        console.log('error found, from urine', er);
                                     }else {
                                         console.log(sc);
-
-
-                                        HumanDB.deleteOne({username:new RegExp(fields.username,'i'),clientId:data.clientId}).exec().then((res) => {
+                                    }
+                                });
+                                        HumanDB.deleteOne({username:new RegExp(data.username,'i'),clientId:data.clientId}).exec().then((res) => {
                                             if(res){
-                                                console.log('path of a profilePic..', fileFound.profilePic);
+                                                console.log('path of a profilePic humanfrom ..', fileFound.profilePic);
                                                 fs.unlink('./public'+fileFound.profilePic , (er, sc) => {
                                                     if (er) {
-                                                        console.log('error found,', er);
+                                                        console.log('error found, from human', er);
                                                     }else {
                                                         console.log(sc);
                                                     }
@@ -275,9 +276,9 @@ var Humaninformation={
                                             console.log(error);
                                         })
 
-                                    }
+
                                     //callback({response: '3', message: 'Your test results has been successfully deleted'});
-                                });
+
 
                             }
                             else {
@@ -303,7 +304,7 @@ var Humaninformation={
         }).catch((error) => {
             console.log(error);
         })
-    }
+    }*/
 
 }
 module.exports = Humaninformation;
