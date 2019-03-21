@@ -630,20 +630,28 @@ var Login = {
 
 
 
-                                                            })
+                                                            }).catch((error) => {
+                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
+                                                        })
 
+                                                    }else {
 
-
+                                                        var r = { response: '3',
+                                                            hospital_data: [],
+                                                            Human_Data: [],
+                                                            Pet_Data: [],
+                                                            prefer_language: 'English' };
+                                                        callback(r);
                                                     }
                                                 })
 
-                                                .catch((error) => {
-                                                    callback({response: '0', message: error});
-                                                })
+                                                .catch((Error) => {
+                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                            })
                                         })
                                 //}
-
 
                                 } else {
                                     var r1 = { response: '0', message: 'The username or password is incorrect' };
