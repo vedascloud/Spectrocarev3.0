@@ -19,6 +19,10 @@ var TestReservationSchema = new Schema({
         type : String,
         required : true
     },
+    EMail : {
+        type : String,
+        required : true
+    },
     name : {
         type : String,
         required : true

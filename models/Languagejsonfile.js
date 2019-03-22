@@ -26,7 +26,7 @@ var Language = {
         if(userUpdated){
           callback({response:'3',message:'language updated successfully'});
         }else{
-          callback({message:'0',message:'Something gone wrong!!!'});
+          callback({response:'0',message:'Something gone wrong!!!'});
         }
       })
     }
