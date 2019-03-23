@@ -1,5 +1,7 @@
             var nodemailer = require('nodemailer');
             var multiline = require('multiline');
+            var fs = require('fs');
+
 
             var Hospital   = require('../app/models/Hospital');
             var HospitalInfo = require('../app/models/HospitalInfo');
@@ -38,8 +40,8 @@
                                                 message: 'The phone/email is already registered.'
                                             };
                                             callback(r);
-                                        }else{
-                                            
+                                        }else {
+
                                             var text = "";
                                             var possible = "0123456789";
 
@@ -49,8 +51,18 @@
 
                                             console.log('pin:' + text);
 
-                                            var str = multiline(function () {/*
-                                                
+                                            //file read starts
+                                            fs.readFile('./app/configfiles/Register.html', function (err, data) {
+
+                                                var str = data.toString();
+
+                                                //res.writeHead(200, {'Content-Type': 'text/html'});
+                                                //res.write(data);
+                                                //res.end();
+                                           // });
+
+                                            /*var str = multiline(function () {/!*
+
                                                 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -98,14 +110,14 @@
             margin: 0 !important;
         }
 
-     
+
         table,
         td {
             mso-table-lspace: 0pt !important;
             mso-table-rspace: 0pt !important;
         }
 
-       
+
         table {
             border-spacing: 0 !important;
             border-collapse: collapse !important;
@@ -116,18 +128,18 @@
             table-layout: auto;
         }
 
-       
+
         img {
             -ms-interpolation-mode:bicubic;
         }
 
-       
+
         a {
             text-decoration: none;
         }
 
-     
-        *[x-apple-data-detectors],  
+
+        *[x-apple-data-detectors],
         .unstyle-auto-detected-links *,
         .aBn {
             border-bottom: 0 !important;
@@ -140,35 +152,35 @@
             line-height: inherit !important;
         }
 
-       
+
         .a6S {
             display: none !important;
             opacity: 0.01 !important;
         }
 
-     
+
         .im {
             color: inherit !important;
         }
 
-       
+
         img.g-img + div {
             display: none !important;
         }
 
-       
+
         @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
             u ~ div .email-container {
                 min-width: 320px !important;
             }
         }
-      
+
         @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
             u ~ div .email-container {
                 min-width: 375px !important;
             }
         }
-       
+
         @media only screen and (min-device-width: 414px) {
             u ~ div .email-container {
                 min-width: 414px !important;
@@ -275,16 +287,16 @@
 		        <!-- Email Header : BEGIN -->
 	            <tr>
 	                <td style="padding: 20px 0; text-align: center">
-                    
+
 	                  <!--  <img src="https://via.placeholder.com/200x50" width="200" height="50" alt="alt_text" border="0" style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"> -->
-                        
+
 	                </td>
 	            </tr>
 		        <!-- Email Header : END -->
 
                 <!-- Hero Image, Flush : BEGIN -->
                 <tr>
-                    
+
                 </tr>
                 <!-- Hero Image, Flush : END -->
 
@@ -323,7 +335,7 @@
                         <br><br>
 						Spectrocare<br><span class="unstyle-auto-detected-links">No.951, Fuxing Rd., Zhubei City,<br>Hsinchu County 302, Taiwan (R.O.C.)</span>
                         <br><br>
-                       
+
                     </td>
                 </tr>
             </table>
@@ -337,11 +349,11 @@
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:560px;">
                             <tr>
                                 <td valign="top" width="50%">
-                                   
+
                                 </td>
                                 <td valign="top" width="50%">
-                                    
-                                        
+
+
                             </tr>
                         </table>
                     </td>
@@ -368,13 +380,13 @@
                         </table>
                     </td>
                 </tr>
-                <!-- 1 Column Text : END 
+                <!-- 1 Column Text : END
 
             </table> -->
             <!-- Email Body : END -->
 
             <!-- Email Footer : BEGIN -->
-	       
+
             <!-- Email Footer : END -->
 
             <!--[if mso]>
@@ -394,7 +406,7 @@
                         <tr>
                         <td>
                         <![endif]-->
-                        
+
                         <!--[if mso]>
                         </td>
                         </tr>
@@ -414,58 +426,64 @@
     </center>
 </body>
 </html>
-                                                
-                                                                    */
-                                                                    });
-                                                                                                    var html = str.replace("%s", text);
-                                                                                                    var html1 = html.replace("%m", username);
-                                                
-                                                                                                    var transporter = nodemailer.createTransport({
-                                                                                                        service: 'gmail',
-                                                                                                        auth: {
-                                                                                                            user: 'contact.spectrum.in@gmail.com',
-                                                                                                            pass: 'vedas2017'
-                                                                                                        }
-                                                                                                    });
-                                                                                                    var mailOptions = {
-                                                                                                        from: 'contact.spectrum.in@gmail.com',
-                                                                                                        to: userParam.username,
-                                                                                                        subject: 'Email verification',
-                                                                                                        html: html1
-                                                                                                    };
 
-                                                                                                    Hospital.updateOne({username: new RegExp(username,'i')},{$set:{ password: userParam.password,
-                                                                                                        otp: text,
-                                                                                                        loc:[userParam.latitude,userParam.longitude],
-                                                                                                        /*latitude: userParam.latitude,
-                                                                                                        longitude: userParam.longitude,*/
-                                                                                                        register_time: userParam.register_time,
-                                                                                                        verification_status: false,
-                                                                                                        prefer_language: userParam.prefer_language}},(error,update) => {
-                                                                                                        if(error){
-                                                                                                            console.log(error);
-                                                                                                        }else{
-                                                                                                            console.log(update);
-                                                                                                            transporter.sendMail(mailOptions, function (error, info) {
-                                                                                                                if (error) {
-                                                                                                                    console.log(error);
-                                                                                                                    callback({response:'0',message:err});
-                                    
-                                                                                                                } else {
-                                                                                                                    console.log('Email sent: ' + info.response);
-                                    
-                                                                                                                }
-                                                                                                            });
-                                                                                                            var r = {
-                                                                                                                response: '3',
-                                                                                                                message: 'Your registration was successful! '
-                                                                                                            };
-                                                                                                            callback(r);
-                                                                                                        }
-                                                                                                    });
-                                                
-                                                                                                            
+                                                                    *!/
+                                            });*/
 
+                                            var html = str.replace("%s", text);
+                                            var html1 = html.replace("%m", username);
+
+                                            var transporter = nodemailer.createTransport({
+                                                service: 'gmail',
+                                                auth: {
+                                                    user: 'contact.spectrum.in@gmail.com',
+                                                    pass: 'vedas2017'
+                                                }
+                                            });
+                                            var mailOptions = {
+                                                from: 'contact.spectrum.in@gmail.com',
+                                                to: userParam.username,
+                                                subject: 'Email verification',
+                                                html: html1
+                                            };
+
+                                            Hospital.updateOne({username: new RegExp(username, 'i')}, {
+                                                $set: {
+                                                    password: userParam.password,
+                                                    otp: text,
+                                                    loc: [userParam.latitude, userParam.longitude],
+                                                    /*latitude: userParam.latitude,
+                                                    longitude: userParam.longitude,*/
+                                                    register_time: userParam.register_time,
+                                                    verification_status: false,
+                                                    prefer_language: userParam.prefer_language
+                                                }
+                                            }, (error, update) => {
+                                                if (error) {
+                                                    console.log(error);
+                                                } else {
+                                                    console.log(update);
+                                                    transporter.sendMail(mailOptions, function (error, info) {
+                                                        if (error) {
+                                                            console.log(error);
+                                                            callback({response: '0', message: err});
+
+                                                        } else {
+                                                            console.log('Email sent: ' + info.response);
+
+                                                        }
+                                                    });
+                                                    var r = {
+                                                        response: '3',
+                                                        message: 'Your registration was successful! '
+                                                    };
+                                                    callback(r);
+                                                }
+                                            });
+
+
+                                        });
+                                            //file read ends here
                                         }
                                     }
                                 }else{
@@ -477,7 +495,16 @@
                                     }
                                     console.log('pin:' + text);
 
-                                    var str = multiline(function () {/*
+                                    //file read starts
+                                    fs.readFile('./app/configfiles/Register.html', function (err, data) {
+                                        var str = data.toString();
+                                        //var str = data;
+
+                                        //res.writeHead(200, {'Content-Type': 'text/html'});
+                                        //res.write(data);
+                                        //res.end();
+
+                                   /* var str = multiline(function () {/!*
                                         <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
@@ -842,8 +869,8 @@
 </body>
 </html>
                                         
-                                                                    */
-                                                                    });
+                                                                    *!/
+                                                                    });*/
                                                                     var html = str.replace("%s", text);
                                                                     var html1 = html.replace("%m", username);
                                         
@@ -892,6 +919,8 @@
                                                                             });
                                         
                                                                         }
+                                                                    });
+
                                                                     });
                                 }
                                 
