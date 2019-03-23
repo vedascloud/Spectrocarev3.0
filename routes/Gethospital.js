@@ -8,6 +8,7 @@ router.post('/',function(req,res,next){
         console.log('result from controller...',result);
         res.send(result);
     });
+
 });
 
 module.exports=router;

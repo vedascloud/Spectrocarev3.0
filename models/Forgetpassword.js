@@ -430,9 +430,9 @@ var Forgot={
 				callback({response:'0',message:'we have not yet provide the option to use mobile number.'});
 			}
 			}
-	
 		
 };
+
 module.exports=Forgot;
 
 		

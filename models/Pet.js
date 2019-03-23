@@ -425,8 +425,6 @@ var PetInformation={
                             callback({response: '5', message: 'clientId already existed.'});
                         } else {
 
-                            //var clientId = "id_" + Date.now();
-
                             var text = ""; //random text
                             var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -656,4 +654,5 @@ var PetInformation={
     }
 
 }
+
 module.exports = PetInformation;

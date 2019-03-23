@@ -36,6 +36,7 @@ router.put('/',(req,res) => {
 
         })
     }
+
 });
 
 //Fetch HumanInfo
@@ -45,10 +46,12 @@ router.post('/fetch',(req,res) => {
         console.log(result);
         res.json(result);
     })
+
 });
 
 //Delete HumanInfo
 router.delete('/',(req,res) => {
+
     if(typeof req.body.clientId === 'undefined'){
         res.json({result:'error',message:'no content found'});
     }else {
@@ -57,6 +60,7 @@ router.delete('/',(req,res) => {
             res.json(result);
         })
     }
+
 });
 
 module.exports=router;

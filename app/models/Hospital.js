@@ -30,14 +30,6 @@ var HospitalSchema = new Schema({
         index: '2d',      // create the geospatial index
         required: true
     },
-    /*latitude:{
-        type:String,
-        required:true
-    },
-    longitude:{
-        type:String,
-        required:true
-    },*/
     register_time:{
         type:String,
         required:true

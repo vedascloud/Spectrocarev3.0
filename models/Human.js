@@ -3,7 +3,6 @@ var multiline = require('multiline');
 
 var HospotalDB = require('../app/models/Hospital');
 var HumanDB = require('../app/models/Human');
-var UrineDB = require('../app/models/Urine');
 var validator = require('validator');
 var fs = require('fs');
 const Busboy = require('busboy');
@@ -650,73 +649,6 @@ var Humaninformation={
         })
     }
 
-    //Delete HumanInfo
-   /* deleteHumanInfo : (data,callback) => {
+};
 
-        HumanDB.findOne({username:new RegExp(data.username,'i'),clientId:data.clientId}).exec().then((fileFound)=>{
-
-            if(fileFound){
-
-                UrineDB.find({username:new RegExp(data.username,'i'),client_Id:data.clientId}).exec().then((found)=>{
-                    if (found){
-
-                        UrineDB.remove({username:new RegExp(data.username,'i'),client_Id:data.clientId}).exec().then((Deleted)=>{
-                            if (Deleted){
-
-                                console.log('path of a takePhoto from urine..', found.takePhoto);
-
-                                fs.unlink('./public'+found.takePhoto , (er, sc) => {
-                                    if (er) {
-                                        console.log('error found, from urine', er);
-                                    }else {
-                                        console.log(sc);
-                                    }
-                                });
-                                        HumanDB.deleteOne({username:new RegExp(data.username,'i'),clientId:data.clientId}).exec().then((res) => {
-                                            if(res){
-                                                console.log('path of a profilePic humanfrom ..', fileFound.profilePic);
-                                                fs.unlink('./public'+fileFound.profilePic , (er, sc) => {
-                                                    if (er) {
-                                                        console.log('error found, from human', er);
-                                                    }else {
-                                                        console.log(sc);
-                                                    }
-                                                    callback({response: '3', message: 'successfully deleted'});
-                                                });
-                                            }
-                                        }).catch((error) => {
-                                            console.log(error);
-                                        })
-
-
-                                    //callback({response: '3', message: 'Your test results has been successfully deleted'});
-
-
-                            }
-                            else {
-                                callback({response:2,message:"Failed to Delete."});
-                            }
-                        });
-
-                        //callback({response:3,message:"Deleted Data."});
-                    }else {
-                        callback({response:1,
-                                  message:"No Records Found."});
-                    }
-
-                }).catch((error) => {
-                    console.log(error);
-                })
-
-
-            }else
-            {
-                callback({response: '0', message: 'no Client found'});
-            }
-        }).catch((error) => {
-            console.log(error);
-        })
-    }*/
-
-}
 module.exports = Humaninformation;

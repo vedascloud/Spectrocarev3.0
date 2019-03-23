@@ -325,28 +325,19 @@ var feedbackController = {
                             feedback:userParam.feedback,
                             token_id:tokenId
                         }
-                        /*mail:userParam.EMail,
-                        name:userParam.name,
-                        feedback:userParam.feedback,
-                        token_id:tokenId*/
                     });
 
                     saveFunction.save((success) => {
                         console.log(success);
-                       // if(success){
                             callback({response:'3',
                                       message:'your feed back has taken successfully. We will contact you soon.'});
 
-                       // }
-                        /*else{
-                            callback({response:'0',message:'Something gone wrong'});
-                      
-                        }*/
                     });
                 }
             })
 
         }
 
-}
+};
+
 module.exports = feedbackController;

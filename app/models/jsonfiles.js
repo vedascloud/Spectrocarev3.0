@@ -1,9 +1,9 @@
-
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 // set up a mongoose model
 module.exports = mongoose.model('Jsonfile', new Schema({
+
     filename:{
         type:String,
         required:true,
@@ -21,4 +21,6 @@ module.exports = mongoose.model('Jsonfile', new Schema({
         type:Date,
         required:true
     }
-}));
+
+    })
+);

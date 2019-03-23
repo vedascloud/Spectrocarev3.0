@@ -31,6 +31,6 @@ var Language = {
       })
     }
 
-}
+};
 
 module.exports=Language;
