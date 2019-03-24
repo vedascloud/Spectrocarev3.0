@@ -1,28 +1,26 @@
-var Hospital   = require('../app/models/Hospital');
-var multiline = require('multiline');
 var nodemailer = require('nodemailer');
-var validator = require('validator');
+var multiline = require('multiline');
 
-var Forgot={
+const Busboy = require('busboy');
+var HospitalInfoDb = require('../app/models/Hospital');
+var TestReservDb = require('../app/models/TestReservation');
 
-		forgot:function(userParam,callback){
-            let username = userParam.username;
-			 if (validator.isEmail(username)){
+var TestReservationInfo={
 
-                Hospital.findOne({username:new RegExp(username,'i')}).exec()
+    //Add TestReservInfo
+    insertTestReservInfo:function(test,callback) {
+
+        let EMail = test.EMail;
+
+            HospitalInfoDb.findOne({username:new RegExp(test.username,'i')}).exec()
                 .then((userFound) => {
-                    console.log('userfound...',userFound);
+                    console.log('userfound..');
                     if(userFound){
-                         let pin = "";
-						 var possible = "0123456789";
 
-						  for (var i1 = 0; i1 < 4; i1++){
-						    pin += possible.charAt(Math.floor(Math.random() * possible.length));
-						    }
-                    console.log('pin:'+pin);
-                    var str = multiline(function(){/*
-				    	
-<!DOCTYPE html>
+                        text = "This is from Hospital TestReservation Information."
+                        var str = multiline(function () {/*
+
+                                                <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 <head>
     <meta charset="utf-8"> <!-- utf-8 works for most cases -->
@@ -69,14 +67,14 @@ var Forgot={
             margin: 0 !important;
         }
 
-     
+
         table,
         td {
             mso-table-lspace: 0pt !important;
             mso-table-rspace: 0pt !important;
         }
 
-       
+
         table {
             border-spacing: 0 !important;
             border-collapse: collapse !important;
@@ -87,18 +85,18 @@ var Forgot={
             table-layout: auto;
         }
 
-       
+
         img {
             -ms-interpolation-mode:bicubic;
         }
 
-       
+
         a {
             text-decoration: none;
         }
 
-     
-        *[x-apple-data-detectors],  
+
+        *[x-apple-data-detectors],
         .unstyle-auto-detected-links *,
         .aBn {
             border-bottom: 0 !important;
@@ -111,35 +109,35 @@ var Forgot={
             line-height: inherit !important;
         }
 
-       
+
         .a6S {
             display: none !important;
             opacity: 0.01 !important;
         }
 
-     
+
         .im {
             color: inherit !important;
         }
 
-       
+
         img.g-img + div {
             display: none !important;
         }
 
-       
+
         @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
             u ~ div .email-container {
                 min-width: 320px !important;
             }
         }
-      
+
         @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
             u ~ div .email-container {
                 min-width: 375px !important;
             }
         }
-       
+
         @media only screen and (min-device-width: 414px) {
             u ~ div .email-container {
                 min-width: 414px !important;
@@ -246,16 +244,16 @@ var Forgot={
 		        <!-- Email Header : BEGIN -->
 	            <tr>
 	                <td style="padding: 20px 0; text-align: center">
-                    
+
 	                  <!--  <img src="https://via.placeholder.com/200x50" width="200" height="50" alt="alt_text" border="0" style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 15px; color: #555555;"> -->
-                        
+
 	                </td>
 	            </tr>
 		        <!-- Email Header : END -->
 
                 <!-- Hero Image, Flush : BEGIN -->
                 <tr>
-                    
+
                 </tr>
                 <!-- Hero Image, Flush : END -->
 
@@ -266,7 +264,17 @@ var Forgot={
                             <tr>
                                 <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
                                     <h1 style="margin: 10px 0 20px 0; font-family: sans-serif; font-size: 25px; line-height: 30px; color: #333333; font-weight: normal;">Dear %m &nbsp;</h1>
-                                    <p style="margin: 0 10px; font-size: 20px; line-height: 30px;">  We received a request that you forgot your password of Your Spectrocare account.Use this One Time Password (OTP) toreset your password.</p>
+                                    <p style="margin: 0 10px; font-size: 20px; line-height: 30px;">
+									We received a request that you are register a TestReservation slot in Our Hospital.
+									</p>
+									<br>
+									<br>
+									<p style="margin: 0 10px; font-size: 20px; line-height: 30px;">
+									Warm Regards,
+									</p>
+									<p style="margin: 0 10px; font-size: 20px; line-height: 30px;">
+									Hospital
+									</p>
                                 </td>
                             </tr>
                             <tr>
@@ -284,7 +292,7 @@ var Forgot={
                             </tr>
                             <tr>
                                 <td style="padding: 30px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #4B97F8;">
-                                    <h2 style="margin: 0 0 0 0; font-family: sans-serif; font-size: 15px; line-height: 22px; color: #FC564E; font-weight: bold;">Note : If You Didn't mean to Reset your Password ,then you can just ignore this Your Password will not change</h2>
+                                    <h2 style="margin: 0 0 0 0; font-family: sans-serif; font-size: 15px; line-height: 22px; color: #FC564E; font-weight: bold;">Note : If You Didn't mean to Register in Hospital to TestReservation then please ignore this email.</h2>
                                 </td>
                             </tr>
                         </table>
@@ -294,7 +302,7 @@ var Forgot={
                         <br><br>
 						Spectrocare<br><span class="unstyle-auto-detected-links">No.951, Fuxing Rd., Zhubei City,<br>Hsinchu County 302, Taiwan (R.O.C.)</span>
                         <br><br>
-                       
+
                     </td>
                 </tr>
             </table>
@@ -308,11 +316,11 @@ var Forgot={
                         <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:560px;">
                             <tr>
                                 <td valign="top" width="50%">
-                                   
+
                                 </td>
                                 <td valign="top" width="50%">
-                                    
-                                        
+
+
                             </tr>
                         </table>
                     </td>
@@ -339,13 +347,13 @@ var Forgot={
                         </table>
                     </td>
                 </tr>
-                <!-- 1 Column Text : END 
+                <!-- 1 Column Text : END
 
             </table> -->
             <!-- Email Body : END -->
 
             <!-- Email Footer : BEGIN -->
-	       
+
             <!-- Email Footer : END -->
 
             <!--[if mso]>
@@ -365,7 +373,7 @@ var Forgot={
                         <tr>
                         <td>
                         <![endif]-->
-                        
+
                         <!--[if mso]>
                         </td>
                         </tr>
@@ -385,54 +393,177 @@ var Forgot={
     </center>
 </body>
 </html>
-                         */ });
-                         var html = str.replace("%s", pin);
-                         var html1 = html.replace("%m",username);
+                                                                    */
+                        });
+                        var html = str.replace("%s", text);
+                        var html1 = html.replace("%m", EMail);
 
-                         var transporter = nodemailer.createTransport({
+                        var transporter = nodemailer.createTransport({
                             service: 'gmail',
                             auth: {
                                 user: 'contact.spectrum.in@gmail.com',
                                 pass: 'vedas2017'
                             }
-                          });
-                         var mailOptions = {
-                              from: 'contact.spectrum.in@gmail.com',
-                              to: username,
-                              subject: 'Forgot password OTP verification',
-                              html: html1
+                        });
+                        var mailOptions = {
+                            from: 'contact.spectrum.in@gmail.com',
+                            to: test.EMail,
+                            subject: 'TestReservation Info',
+                            html: html1
                         };
-        
-                        transporter.sendMail(mailOptions, (info) => {
 
-                            console.log('Email sent: ' + info.response);
-                          
-                          });
+                        var testReservNo = "testNo_" + Date.now();
+                                console.log('form data testreserv...',test);
+                                var personDb = new TestReservDb({
+                                    username:test.username,
+                                    testReservNo:testReservNo,
+                                    clientId:test.clientId,
+                                    clientType:test.clientType,
+                                    EMail:test.EMail,
+                                    name:test.name,
+                                    date:test.date,
+                                    time:test.time,
+                                    testName:test.testName,
+                                    note:test.note
+                                });
 
-                          Hospital.updateOne({username:new RegExp(username,'i')},{$set:{otp:pin,register_time: userParam.register_time}}).exec()
-                          .then((otpUpdated) => {
-                              console.log('otp updated...',otpUpdated);
-                              if(otpUpdated){
-                                callback({response:'3',message:'Please verify your account'});
-                              }else{
-                                callback({response:'0',message:'Something went wrong'});
-                              }
-                          })
- 
-                    }else{
-                        callback({response:'0',message:'you dont have account please register'});
+                                personDb.save((success) => {
+
+                                        console.log(success);
+
+                                        callback({
+                                            response: '3',
+                                            testReservNo: testReservNo,
+                                            message: 'Your testreservation information has been successfully stored.'
+                                        });
+
+                                        transporter.sendMail(mailOptions, function (error, info) {
+                                            if (error) {
+                                                console.log(error);
+                                                callback({response: '0', message: error});
+
+                                            } else {
+                                                console.log('Email sent: ' + info.response);
+
+                                            }
+                                        });
+
+                                });
                     }
+                    else
+                    {
+                        callback({response:'0',message:'user dont have account'});
+                    }
+                });
+    },
+
+    //Update TestReservInfo
+    updateTestReservInfo:function(test,callback) {
+
+        HospitalInfoDb.findOne({username:new RegExp(test.username,'i')}).exec()
+            .then((userFound) => {
+
+                if(userFound){
+                    console.log('userfound..');
+                    console.log('form data testreserv...',test);
+
+                    TestReservDb.findOne({username:new RegExp(test.username,'i'),clientId:test.clientId, testReservNo:test.testReservNo }).exec().then((testreservFind) => {
+                        if(testreservFind){
+
+                            TestReservDb.updateOne({username:new RegExp(test.username,'i'), clientId:test.clientId, testReservNo:test.testReservNo },{$set:{
+
+                                clientType:test.clientType,
+                                EMail:test.EMail,
+                                name:test.name,
+                                date:test.date,
+                                time:test.time,
+                                testName:test.testName,
+                                note:test.note
+
+                            }}).exec().then((testreservUpdate) => {
+                                if(testreservUpdate){
+                                    callback({response:'3',message:'Your testreserv information has been successfully updated.'});
+                                }else{
+                                    callback({response:'0',message:'Your testreserv not updated.'});
+                                }
+                            }).catch((error) => {
+                                    console.log(error);
+                                })
+
+                        }else{
+                            callback({response:'0',message:'testReservNo Not Found.'});
+                        }
+                    }).catch((error) => {
+                        console.log(error);
+                    })
+
+                }
+                else{
+
+                    callback({response:'0',message:'user not Found.'});
+
+                }
+            });
+    },
+
+    //Fetch TestReservInfo
+    fetchTestReservInfo : (user,callback) => {
+        HospitalInfoDb.findOne({username:user.username},{_id:0,__v:0}).exec().then((results)=> {
+                // console.log(results);
+                if (results) {
+                    if (user.clientType === 'Human')
+                    {
+                        TestReservDb.find({clientType: "Human"}, {__v: false}).exec().then((res) => {
+                            callback({response: '3', HumanTestReservs: res});
+                        }).catch((err) => {
+                            console.log(err);
+                        })
+                    }
+                    else if (user.clientType === 'Pet')
+                    {
+                        TestReservDb.find({clientType: "Pet"}, {__v: false}).exec().then((res) => {
+                            callback({response: '3', PetTestReservs: res});
+                        }).catch((err) => {
+                            console.log(err);
+                        })
+                    }
+                }
+                else {
+                    callback({response: '0', message: 'user dont have account'});
+                }
+            }
+        ).catch((error) => {
+            console.log(error);
+        })
+    },
+
+    //Delete TestReservInfo
+    deleteTestReservInfo : (data,callback) => {
+
+        TestReservDb.findOne({clientId:data.clientId, testReservNo:data.testReservNo}).exec().then((fileFound)=>{
+
+            if(fileFound){
+
+                TestReservDb.deleteOne({clientId:data.clientId, testReservNo:data.testReservNo}).exec().then((res) => {
+                    if(res){
+                        callback({response: '3', message: 'successfully deleted'});
+                    }
+                    else {
+                        callback({response: '0', message: 'Delete Operation Failed'});
+                    }
+                }).catch((error) => {
+                    console.log(error);
                 })
-				
-				 
-			}else{
-				console.log('please pass correct email address');
-				callback({response:'0',message:'we have not yet provide the option to use mobile number.'});
-			}
-			}
-		
+
+            }else
+            {
+                callback({response: '0', message: 'no Data found'});
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
+    }
+
 };
 
-module.exports=Forgot;
-
-		
+module.exports=TestReservationInfo;

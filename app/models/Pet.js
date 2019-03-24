@@ -17,7 +17,8 @@ var PetSchema = new Schema({
         required : true
     },
     email : {
-        type : String
+        type : String,
+        required : true
     },
     phone : {
         type : String

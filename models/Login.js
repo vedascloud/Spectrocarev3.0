@@ -44,71 +44,80 @@ var Login = {
 
                                                     human.find({username: new RegExp(username, 'i')}).exec()
                                                         .then((humanclient) => {
+
                                                             if (humanclient) {
 
-                                                                //
-
-                                                                human.aggregate([{
-                                                                    $match: {
-                                                                        username: new RegExp(username, 'i')
+                                                                human.aggregate([
+                                                                    {
+                                                                        $match: {
+                                                                            username: new RegExp(username, 'i')
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        $lookup: {
+                                                                            from: "urineresults",
+                                                                            localField: "clientId",
+                                                                            foreignField: "client_Id",
+                                                                            as: "Human_Urine_Test_Results"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        $lookup: {
+                                                                            from: "bloodresults",
+                                                                            localField: "clientId",
+                                                                            foreignField: "client_Id",
+                                                                            as: "Human_Blood_Test_Results"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        $lookup: {
+                                                                            from: "testreservations",
+                                                                            localField: "clientId",
+                                                                            foreignField: "clientId",
+                                                                            as: "Human_TestReservation_Results"
+                                                                        }
                                                                     }
-                                                                }, {
-                                                                    $lookup: {
-                                                                        from: "urineresults",
-                                                                        localField: "clientId",
-                                                                        foreignField: "client_Id",
-                                                                        as: "Human_Urine_Test_Results"
-                                                                    }
-                                                                }, {
-                                                                    $lookup: {
-                                                                        from: "bloodresults",
-                                                                        localField: "clientId",
-                                                                        foreignField: "client_Id",
-                                                                        as: "Human_Blood_Test_Results"
-                                                                    }
-                                                                }, {
-                                                                    $lookup: {
-                                                                        from: "testreservations",
-                                                                        localField: "clientId",
-                                                                        foreignField: "clientId",
-                                                                        as: "Human_TestReservation_Results"
-                                                                    }
-                                                                }]).exec()
+                                                                ]).exec()
                                                                     .then((hreservData) => {
-                                                                        //console.log('in testreserv', hreservData);
+
                                                                         if (hreservData) {
 
                                                                             pet.find({username: new RegExp(username, 'i')}).exec()
                                                                                 .then((petclient) => {
 
-                                                                                    pet.aggregate([{
-                                                                                        $match: {
-                                                                                            username: new RegExp(username, 'i')
+                                                                                    pet.aggregate([
+                                                                                        {
+                                                                                            $match: {
+                                                                                                username: new RegExp(username, 'i')
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            $lookup: {
+                                                                                                from: "urineresults",
+                                                                                                localField: "clientId",
+                                                                                                foreignField: "client_Id",
+                                                                                                as: "Pet_Urine_Test_Results"
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            $lookup: {
+                                                                                                from: "bloodresults",
+                                                                                                localField: "clientId",
+                                                                                                foreignField: "client_Id",
+                                                                                                as: "Pet_Blood_Test_Results"
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            $lookup: {
+                                                                                                from: "testreservations",
+                                                                                                localField: "clientId",
+                                                                                                foreignField: "clientId",
+                                                                                                as: "Pet_TestReservation_Results"
+                                                                                            }
                                                                                         }
-                                                                                    }, {
-                                                                                        $lookup: {
-                                                                                            from: "urineresults",
-                                                                                            localField: "clientId",
-                                                                                            foreignField: "client_Id",
-                                                                                            as: "Pet_Urine_Test_Results"
-                                                                                        }
-                                                                                    }, {
-                                                                                        $lookup: {
-                                                                                            from: "bloodresults",
-                                                                                            localField: "clientId",
-                                                                                            foreignField: "client_Id",
-                                                                                            as: "Pet_Blood_Test_Results"
-                                                                                        }
-                                                                                    }, {
-                                                                                        $lookup: {
-                                                                                            from: "testreservations",
-                                                                                            localField: "clientId",
-                                                                                            foreignField: "clientId",
-                                                                                            as: "Pet_TestReservation_Results"
-                                                                                        }
-                                                                                    }]).exec()
+                                                                                    ]).exec()
                                                                                         .then((preservData) => {
-                                                                                            //console.log('in testreserv', hreservData);
+
                                                                                             if (preservData) {
 
                                                                                                 if (userParam.from === 'web') {
@@ -296,17 +305,13 @@ var Login = {
 
                                                                                 })
 
-
                                                                         }
-
 
                                                                     })
                                                                     .catch((error) => {
                                                                         log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
                                                                     })
-
-                                                                //
 
                                                             }
                                                         })
@@ -370,247 +375,251 @@ var Login = {
                                                         human.find({username: new RegExp(username, 'i')}).exec()
                                                             .then((humanclient) => {
 
-                                                                        human.aggregate([{
-                                                                            $match: {
-                                                                                username: new RegExp(username, 'i')
-                                                                            }
-                                                                        }, {
-                                                                            $lookup: {
-                                                                                from: "urineresults",
-                                                                                localField: "clientId",
-                                                                                foreignField: "client_Id",
-                                                                                as: "Human_Urine_Test_Results"
-                                                                            }
-                                                                        }, {
-                                                                            $lookup: {
-                                                                                from: "bloodresults",
-                                                                                localField: "clientId",
-                                                                                foreignField: "client_Id",
-                                                                                as: "Human_Blood_Test_Results"
-                                                                            }
-                                                                        }, {
-                                                                            $lookup: {
-                                                                                from: "testreservations",
-                                                                                localField: "clientId",
-                                                                                foreignField: "clientId",
-                                                                                as: "Human_TestReservation_Results"
-                                                                            }
-                                                                        }]).exec()
-                                                                            .then((hreservData) => {
-                                                                                //console.log('in testreserv', hreservData);
-                                                                                if (hreservData) {
+                                                                human.aggregate([
+                                                                    {
+                                                                        $match: {
+                                                                            username: new RegExp(username, 'i')
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        $lookup: {
+                                                                            from: "urineresults",
+                                                                            localField: "clientId",
+                                                                            foreignField: "client_Id",
+                                                                            as: "Human_Urine_Test_Results"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        $lookup: {
+                                                                            from: "bloodresults",
+                                                                            localField: "clientId",
+                                                                            foreignField: "client_Id",
+                                                                            as: "Human_Blood_Test_Results"
+                                                                        }
+                                                                    },
+                                                                    {
+                                                                        $lookup: {
+                                                                            from: "testreservations",
+                                                                            localField: "clientId",
+                                                                            foreignField: "clientId",
+                                                                            as: "Human_TestReservation_Results"
+                                                                        }
+                                                                    }
+                                                                ]).exec()
+                                                                    .then((hreservData) => {
 
-                                                                                    pet.find({username: new RegExp(username, 'i')}).exec()
-                                                                                        .then((petclient) => {
+                                                                        if (hreservData) {
 
-                                                                                            pet.aggregate([{
-                                                                                                $match: {
-                                                                                                    username: new RegExp(username, 'i')
-                                                                                                }
-                                                                                            }, {
-                                                                                                $lookup: {
-                                                                                                    from: "urineresults",
-                                                                                                    localField: "clientId",
-                                                                                                    foreignField: "client_Id",
-                                                                                                    as: "Pet_Urine_Test_Results"
-                                                                                                }
-                                                                                            }, {
-                                                                                                $lookup: {
-                                                                                                    from: "bloodresults",
-                                                                                                    localField: "clientId",
-                                                                                                    foreignField: "client_Id",
-                                                                                                    as: "Pet_Blood_Test_Results"
-                                                                                                }
-                                                                                            }, {
-                                                                                                $lookup: {
-                                                                                                    from: "testreservations",
-                                                                                                    localField: "clientId",
-                                                                                                    foreignField: "clientId",
-                                                                                                    as: "Pet_TestReservation_Results"
-                                                                                                }
-                                                                                            }]).exec()
-                                                                                                .then((preservData) => {
-                                                                                                    //console.log('in testreserv', hreservData);
-                                                                                                    if (preservData) {
+                                                                            pet.find({username: new RegExp(username, 'i')}).exec()
+                                                                                .then((petclient) => {
 
-                                                                                                        if (userParam.from === 'web') {
+                                                                                    pet.aggregate([
+                                                                                        {
+                                                                                            $match: {
+                                                                                                username: new RegExp(username, 'i')
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            $lookup: {
+                                                                                                from: "urineresults",
+                                                                                                localField: "clientId",
+                                                                                                foreignField: "client_Id",
+                                                                                                as: "Pet_Urine_Test_Results"
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            $lookup: {
+                                                                                                from: "bloodresults",
+                                                                                                localField: "clientId",
+                                                                                                foreignField: "client_Id",
+                                                                                                as: "Pet_Blood_Test_Results"
+                                                                                            }
+                                                                                        },
+                                                                                        {
+                                                                                            $lookup: {
+                                                                                                from: "testreservations",
+                                                                                                localField: "clientId",
+                                                                                                foreignField: "clientId",
+                                                                                                as: "Pet_TestReservation_Results"
+                                                                                            }
+                                                                                        }
+                                                                                    ]).exec()
+                                                                                        .then((preservData) => {
 
-                                                                                                            notify.findOne({username: new RegExp(username, 'i')}).exec()
-                                                                                                                .then((notifications) => {
+                                                                                            if (preservData) {
 
-                                                                                                                    if (notifications) {
-                                                                                                                        let found = false;
-                                                                                                                        notifications.devices.web.map((notifyData) => {
-                                                                                                                            if (notifyData.deviceid === userParam.deviceid) {
-                                                                                                                                found = true;
-                                                                                                                                notify.updateOne(
+                                                                                                if (userParam.from === 'web') {
+
+                                                                                                    notify.findOne({username: new RegExp(username, 'i')}).exec()
+                                                                                                        .then((notifications) => {
+
+                                                                                                            if (notifications) {
+                                                                                                                let found = false;
+                                                                                                                notifications.devices.web.map((notifyData) => {
+                                                                                                                    if (notifyData.deviceid === userParam.deviceid) {
+                                                                                                                        found = true;
+                                                                                                                        notify.updateOne(
+                                                                                                                            {
+                                                                                                                                'username': username,
+                                                                                                                                'devices.web.deviceid': userParam.deviceid
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                '$set':
                                                                                                                                     {
-                                                                                                                                        'username': username,
-                                                                                                                                        'devices.web.deviceid': userParam.deviceid
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        '$set':
-                                                                                                                                            {
-                                                                                                                                                'devices.web.$': {
-                                                                                                                                                    deviceToken: userParam.deviceToken,
-                                                                                                                                                    deviceid: userParam.deviceid,
-                                                                                                                                                    login: true
-                                                                                                                                                }
-
-                                                                                                                                            }
-                                                                                                                                    }).exec()
-                                                                                                                                    .then((updated) => {
-                                                                                                                                        if (!updated) {
-                                                                                                                                            log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                        }
-                                                                                                                                    })
-                                                                                                                            }
-                                                                                                                        })
-                                                                                                                        if (found === false) {
-
-                                                                                                                            notify.updateOne(
-                                                                                                                                {
-                                                                                                                                    _id: notifications._id,
-                                                                                                                                    username: new RegExp(username, 'i')
-                                                                                                                                },
-                                                                                                                                {
-                                                                                                                                    "$push": {
-
-                                                                                                                                        "devices.web": {
-                                                                                                                                            deviceid: userParam.deviceid,
+                                                                                                                                        'devices.web.$': {
                                                                                                                                             deviceToken: userParam.deviceToken,
+                                                                                                                                            deviceid: userParam.deviceid,
                                                                                                                                             login: true
                                                                                                                                         }
+
                                                                                                                                     }
+                                                                                                                            }).exec()
+                                                                                                                            .then((updated) => {
+                                                                                                                                if (!updated) {
+                                                                                                                                    log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
 
-                                                                                                                                }).exec()
-                                                                                                                                .then((notifyPushed) => {
-                                                                                                                                })
-                                                                                                                                .catch((error) => {
-                                                                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+                                                                                                                                }
+                                                                                                                            })
+                                                                                                                    }
+                                                                                                                })
+                                                                                                                if (found === false) {
 
-                                                                                                                                })
-                                                                                                                        }
+                                                                                                                    notify.updateOne(
+                                                                                                                        {
+                                                                                                                            _id: notifications._id,
+                                                                                                                            username: new RegExp(username, 'i')
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "$push": {
 
-                                                                                                                    } else {
-                                                                                                                        var obj = new notify({
-                                                                                                                            username: username,
-                                                                                                                            devices: {
-                                                                                                                                web: [{
+                                                                                                                                "devices.web": {
                                                                                                                                     deviceid: userParam.deviceid,
                                                                                                                                     deviceToken: userParam.deviceToken,
                                                                                                                                     login: true
-                                                                                                                                }]
+                                                                                                                                }
                                                                                                                             }
-                                                                                                                        });
-                                                                                                                        obj.save((success) => {
-                                                                                                                            log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
 
-                                                                                                                        });
-                                                                                                                    }
-                                                                                                                })
-                                                                                                                .catch((error) => {
-                                                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                                                                })
-
-                                                                                                        } else {
-
-                                                                                                            notify.findOne({username: new RegExp(username, 'i')}).exec()
-                                                                                                                .then((notifications) => {
-
-                                                                                                                    if (notifications) {
-                                                                                                                        let found = false;
-                                                                                                                        notifications.devices.mobile.map((notifyData) => {
-                                                                                                                            if (notifyData.deviceid === userParam.deviceid) {
-                                                                                                                                found = true;
-                                                                                                                                notify.updateOne(
-                                                                                                                                    {
-                                                                                                                                        'username': username,
-                                                                                                                                        'devices.mobile.deviceid': userParam.deviceid
-                                                                                                                                    },
-                                                                                                                                    {
-                                                                                                                                        '$set':
-                                                                                                                                            {
-                                                                                                                                                'devices.mobile.$': {
-                                                                                                                                                    deviceToken: userParam.deviceToken,
-                                                                                                                                                    deviceid: userParam.deviceid,
-                                                                                                                                                    login: true
-                                                                                                                                                }
-
-                                                                                                                                            }
-                                                                                                                                    }).exec()
-                                                                                                                                    .then((updated) => {
-                                                                                                                                    })
-                                                                                                                            }
+                                                                                                                        }).exec()
+                                                                                                                        .then((notifyPushed) => {
                                                                                                                         })
-                                                                                                                        if (found === false) {
+                                                                                                                        .catch((error) => {
+                                                                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                                                                                            notify.updateOne(
-                                                                                                                                {
-                                                                                                                                    _id: notifications._id,
-                                                                                                                                    username: new RegExp(username, 'i')
-                                                                                                                                },
-                                                                                                                                {
-                                                                                                                                    "$push": {
+                                                                                                                        })
+                                                                                                                }
 
-                                                                                                                                        "devices.mobile": {
-                                                                                                                                            deviceid: userParam.deviceid,
+                                                                                                            } else {
+                                                                                                                var obj = new notify({
+                                                                                                                    username: username,
+                                                                                                                    devices: {
+                                                                                                                        web: [{
+                                                                                                                            deviceid: userParam.deviceid,
+                                                                                                                            deviceToken: userParam.deviceToken,
+                                                                                                                            login: true
+                                                                                                                        }]
+                                                                                                                    }
+                                                                                                                });
+                                                                                                                obj.save((success) => {
+                                                                                                                    log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
+
+                                                                                                                });
+                                                                                                            }
+                                                                                                        })
+                                                                                                        .catch((error) => {
+                                                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                                        })
+
+                                                                                                } else {
+
+                                                                                                    notify.findOne({username: new RegExp(username, 'i')}).exec()
+                                                                                                        .then((notifications) => {
+
+                                                                                                            if (notifications) {
+                                                                                                                let found = false;
+                                                                                                                notifications.devices.mobile.map((notifyData) => {
+                                                                                                                    if (notifyData.deviceid === userParam.deviceid) {
+                                                                                                                        found = true;
+                                                                                                                        notify.updateOne(
+                                                                                                                            {
+                                                                                                                                'username': username,
+                                                                                                                                'devices.mobile.deviceid': userParam.deviceid
+                                                                                                                            },
+                                                                                                                            {
+                                                                                                                                '$set':
+                                                                                                                                    {
+                                                                                                                                        'devices.mobile.$': {
                                                                                                                                             deviceToken: userParam.deviceToken,
+                                                                                                                                            deviceid: userParam.deviceid,
                                                                                                                                             login: true
                                                                                                                                         }
+
                                                                                                                                     }
+                                                                                                                            }).exec()
+                                                                                                                            .then((updated) => {
+                                                                                                                            })
+                                                                                                                    }
+                                                                                                                })
+                                                                                                                if (found === false) {
 
-                                                                                                                                }).exec()
-                                                                                                                                .then((notifyPushed) => {
+                                                                                                                    notify.updateOne(
+                                                                                                                        {
+                                                                                                                            _id: notifications._id,
+                                                                                                                            username: new RegExp(username, 'i')
+                                                                                                                        },
+                                                                                                                        {
+                                                                                                                            "$push": {
 
-                                                                                                                                })
-                                                                                                                                .catch((error) => {
-                                                                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                                                                                })
-                                                                                                                        }
-
-                                                                                                                    } else {
-
-                                                                                                                        var obj = new notify({
-                                                                                                                            username: username,
-                                                                                                                            devices: {
-                                                                                                                                mobile: [{
+                                                                                                                                "devices.mobile": {
                                                                                                                                     deviceid: userParam.deviceid,
                                                                                                                                     deviceToken: userParam.deviceToken,
                                                                                                                                     login: true
-                                                                                                                                }]
+                                                                                                                                }
                                                                                                                             }
-                                                                                                                        });
-                                                                                                                        obj.save((success) => {
-                                                                                                                            log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
 
-                                                                                                                        });
+                                                                                                                        }).exec()
+                                                                                                                        .then((notifyPushed) => {
+
+                                                                                                                        })
+                                                                                                                        .catch((error) => {
+                                                                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+
+                                                                                                                        })
+                                                                                                                }
+
+                                                                                                            } else {
+
+                                                                                                                var obj = new notify({
+                                                                                                                    username: username,
+                                                                                                                    devices: {
+                                                                                                                        mobile: [{
+                                                                                                                            deviceid: userParam.deviceid,
+                                                                                                                            deviceToken: userParam.deviceToken,
+                                                                                                                            login: true
+                                                                                                                        }]
                                                                                                                     }
-                                                                                                                })
-                                                                                                                .catch((error) => {
-                                                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+                                                                                                                });
+                                                                                                                obj.save((success) => {
+                                                                                                                    log.info('device insertion status', success, ' accepted at ', new Date().toJSON());
 
-                                                                                                                })
-                                                                                                        }
+                                                                                                                });
+                                                                                                            }
+                                                                                                        })
+                                                                                                        .catch((error) => {
+                                                                                                            log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                                                                        var r = {
-                                                                                                            response: '3',
-                                                                                                            hospital_data: [pinfo],
-                                                                                                            Human_Data: hreservData,
-                                                                                                            Pet_Data: preservData,
-                                                                                                            prefer_language: 'English'
-                                                                                                        };
-                                                                                                        callback(r);
-                                                                                                    }
+                                                                                                        })
+                                                                                                }
 
-                                                                                                    })
-                                                                                                .catch((error) => {
-                                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
-
-                                                                                                })
+                                                                                                var r = {
+                                                                                                    response: '3',
+                                                                                                    hospital_data: [pinfo],
+                                                                                                    Human_Data: hreservData,
+                                                                                                    Pet_Data: preservData,
+                                                                                                    prefer_language: 'English'
+                                                                                                };
+                                                                                                callback(r);
+                                                                                            }
 
                                                                                         })
                                                                                         .catch((error) => {
@@ -618,17 +627,19 @@ var Login = {
 
                                                                                         })
 
+                                                                                })
+                                                                                .catch((error) => {
+                                                                                    log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                                                }
+                                                                                })
 
+                                                                        }
 
-                                                                            })
-                                                                            .catch((error) => {
-                                                                                log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
+                                                                    })
+                                                                    .catch((error) => {
+                                                                        log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
 
-                                                                            })
-
-
+                                                                    })
 
                                                             }).catch((error) => {
                                                             log.info('device insertion status', error, ' accepted at ', new Date().toJSON());
@@ -637,11 +648,11 @@ var Login = {
 
                                                     }else {
 
-                                                        var r = { response: '3',
-                                                            hospital_data: [],
-                                                            Human_Data: [],
-                                                            Pet_Data: [],
-                                                            prefer_language: 'English' };
+                                                        var r = {   response: '3',
+                                                                    hospital_data: [],
+                                                                    Human_Data: [],
+                                                                    Pet_Data: [],
+                                                                    prefer_language: 'English' };
                                                         callback(r);
                                                     }
                                                 })
@@ -651,21 +662,19 @@ var Login = {
 
                                             })
                                         })
-                                //}
 
                                 } else {
-                                    var r1 = { response: '0', message: 'The username or password is incorrect' };
+                                    var r1 = { response: '0',
+                                               message: 'The username or password is incorrect' };
                                     callback(r1);
                                 }
                             }
                         } else {
-                            var r1 = { response: '2', message: 'No data found. Please register with us' };
+                            var r1 = { response: '2',
+                                       message: 'No data found. Please register with us' };
                             callback(r1);
                         }
 
-
-                            //}
-                        //}
                     });
             }
         }

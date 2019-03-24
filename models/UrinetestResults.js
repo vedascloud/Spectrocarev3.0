@@ -16,48 +16,48 @@ var urineDataController = {
             }).exec().then((HospitalFound) => {
 
                 if (HospitalFound) {
+                    var testId = "id_" + Date.now();
 
-                            var testId = "id_" + Date.now();
+                    var text = ""; //random text
+                    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-                            var text = ""; //random text
-                            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                    for (let i = 0; i < 5; i++) {
+                        text += possible.charAt(Math.floor(Math.random() * possible.length));
+                    }
+                    let d = Date.now();
+                    let imagepath = "./public/testphotos/" + text + d + file.name;
+                    file.mv(imagepath, (err, suc) => {
 
-                            for (let i = 0; i < 5; i++) {
-                                text += possible.charAt(Math.floor(Math.random() * possible.length));
-                            }
-                            let d = Date.now();
-                            let imagepath = "./public/testphotos/" + text + d + file.name;
-                            file.mv(imagepath, (err, suc) => {
-                                if (err) {
-                                    console.log(err);
-                                    callback({response: '0', message: 'something gone wrong!!!'});
-                                } else {
-                                    console.log(suc);
-                                    console.log('form data fields...', fields);
-                                    var personDb = new urineDB({
-                                        username:fields.username,
-                                        testId:testId,
-                                        clientType:fields.clientType,
-                                        client_Id:fields.client_Id,
-                                        clientName:fields.clientName,
-                                        latitude:fields.latitude,
-                                        longitude:fields.longitude,
-                                        testFactors:JSON.parse(fields.testFactors),
-                                        testedTime:fields.testedTime,
-                                        takePhoto: "/testphotos/" + text + d + file.name
-                                    });
-
-                                    personDb.save((success) => {
-                                        console.log(success);
-                                        callback({
-                                            response: '3',
-                                            test_id: testId,
-                                            message: 'Your personal information has been successfully stored.'
-                                        });
-                                    });
-
-                                }
+                        if (err) {
+                            console.log(err);
+                            callback({response: '0', message: 'something gone wrong!!!'});
+                        } else {
+                            console.log(suc);
+                            console.log('form data fields...', fields);
+                            var personDb = new urineDB({
+                                username:fields.username,
+                                testId:testId,
+                                clientType:fields.clientType,
+                                client_Id:fields.client_Id,
+                                clientName:fields.clientName,
+                                latitude:fields.latitude,
+                                longitude:fields.longitude,
+                                testFactors:JSON.parse(fields.testFactors),
+                                testedTime:fields.testedTime,
+                                takePhoto: "/testphotos/" + text + d + file.name
                             });
+
+                            personDb.save((success) => {
+                                console.log(success);
+                                callback({
+                                    response: '3',
+                                    test_id: testId,
+                                    message: 'Your personal information has been successfully stored.'
+                                });
+                            });
+
+                        }
+                    });
 
                 }
                 else {
@@ -87,102 +87,6 @@ var urineDataController = {
 
         req.pipe(busboy);
     },
-
-    /*insertUrinedata : (urineDataInfo,takePhoto,headers,req,callback) => {
-
-        function uploadToFolder(file,fields) {
-
-                    const testId = "id_"+Date.now();
-                    var text = ""; //random text
-                    var possible = "1234567890";
-
-                    for( let i=0; i < 5; i++ ){
-                        text += possible.charAt(Math.floor(Math.random() * possible.length));
-                    }
-                    let d= Date.now();
-                    let imagepath = "./public/testphotos/"+text+d+file.name;
-                    file.mv(imagepath, (err,suc) => {
-                        if(err){
-                            console.log(err);
-                            callback({response:'0',message:'something gone wrong!!!'});
-                        }else{
-                            console.log(suc);
-                            console.log('form data fields...',fields);
-
-                            var urinedb = new urineDB({
-                                username:fields.username,
-                                testId:testId,
-                                clientType:fields.clientType,
-                                client_Id:fields.client_Id,
-                                clientName:fields.clientName,
-                                latitude:fields.latitude,
-                                longitude:fields.longitude,
-                                testFactors:JSON.parse(fields.testFactors),
-                                testedTime:fields.testedTime,
-                                takePhoto: "/testphotos/" + text + d + file.name
-                            });
-
-                            urinedb.save((success) => {
-                                console.log(success);
-                                callback({
-                                    test_id: testId,
-                                    response:'3',
-                                    message: 'Your test results has been successfully stored.'});
-                            });
-                        }
-                    });
-                }
-
-        function insertUrineResults(file,fields){
-                    const testId = "id_"+Date.now();
-            var text = ""; //random text
-            var possible = "1234567890";
-
-            for( let i=0; i < 5; i++ ){
-                text += possible.charAt(Math.floor(Math.random() * possible.length));
-            }
-            let d= Date.now();
-                    console.log('fileds....',fields);
-
-                    var urinedb = new urineDB({
-                        username:fields.username,
-                        testId:testId,
-                        clientType:fields.clientType,
-                        client_Id:fields.client_Id,
-                        clientName:fields.clientName,
-                        latitude:fields.latitude,
-                        longitude:fields.longitude,
-                        testFactors:JSON.parse(fields.testFactors),
-                        testedTime:fields.testedTime,
-                        takePhoto: "/testphotos/" + text + d + file.name
-
-                    });
-
-                    urinedb.save((success) => {
-                        console.log(success);
-                        callback({
-                            test_id: testId,
-                            response:'3',
-                            message: 'Your test results has been successfully stored.'});
-                    });
-            }
-
-        var busboy = new Busboy({ headers: headers });
-
-        // The file upload has completed
-        busboy.on('finish', function() {
-            if(typeof takePhoto === undefined || takePhoto === null){
-                console.log('optional objects..');
-                insertUrineResults(urineDataInfo);
-            }else{
-            // Grabs your file object from the request.
-            const file = takePhoto.takePhoto;
-            // Begins the upload to the directory
-            uploadToFolder(file,urineDataInfo);
-            }
-        });
-        req.pipe(busboy);
-    },*/
 
     //Delete UrineTest Data
     deleteResults: (urineData,callback) => {

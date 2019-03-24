@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+
 module.exports = mongoose.model('Mobile', new Schema({
+
     username: {
         type:String,
         unique:true,
@@ -19,6 +21,7 @@ module.exports = mongoose.model('Mobile', new Schema({
             },
             login: Boolean
         }],
+
         mobile:[{
             deviceid: {
                 type:String,

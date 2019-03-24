@@ -1,5 +1,6 @@
 var Hospital   = require('../app/models/Hospital');
 var validator = require('validator');
+
 var Changepassword={
 
 		setpassword:function(userParam,callback){

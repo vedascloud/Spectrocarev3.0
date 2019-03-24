@@ -39,5 +39,6 @@ var Newpassword={
 		}
 		
 };
+
 module.exports=Newpassword;
 		

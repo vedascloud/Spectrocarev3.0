@@ -13,7 +13,7 @@ module.exports = mongoose.model('Feedback', new Schema({
             type:String,
             required:true
         },
-        mail:{
+        EMail:{
             type:String,
             required:true
         },

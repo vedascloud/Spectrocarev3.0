@@ -1,4 +1,5 @@
 var hospitalDB = require('../app/models/Hospital');
+
 var Doctor={
 
     getLocation:function(New,callback) {
@@ -38,6 +39,7 @@ var Doctor={
         })
   
     }
+
 };
 
 module.exports=Doctor;

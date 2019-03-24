@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var modelNewpassword =require('../models/Setpassword');
+
 router.post('/',function(req,res,next){
 
     if(typeof req.body === 'undefined'){
@@ -12,5 +13,7 @@ router.post('/',function(req,res,next){
 
         });
     }
+
 });
+
 module.exports=router;
