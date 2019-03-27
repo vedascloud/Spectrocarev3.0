@@ -1,4 +1,3 @@
-
 var validator = require('validator');
 var Hospital   = require('../app/models/Hospital');
 var notify = require('../app/models/Notification');

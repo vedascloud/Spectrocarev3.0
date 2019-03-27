@@ -68,6 +68,10 @@ var BloodSchema = new Schema({
         type:String,
         required:true
     },
+    isShared:{
+        type:Boolean,
+        default:false
+    },
     takePhoto:{
         type:String,
         required:true

@@ -22,6 +22,8 @@ var testReservRouter = require('./routes/TestReservation');
 var urineDataRouter = require('./routes/UrinetestResults');
 var bloodDataRouter = require('./routes/BloodResults');
 var jsonfileRouter = require('./routes/Jsonfiles');
+var shareReportRouter = require('./routes/ShareReport');
+
 
 var app = express();
 var server = require('http').Server(app);
@@ -59,6 +61,8 @@ app.use('/spectrocare/testreserv',testReservRouter);
 app.use('/spectrocare/urinetest',urineDataRouter);
 app.use('/spectrocare/bloodtest',bloodDataRouter);
 app.use('/spectrocare/jsonfiles',jsonfileRouter);
+app.use('/spectrocare/share',shareReportRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

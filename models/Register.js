@@ -58,10 +58,11 @@ var Add= {
                                             pass: 'vedas2017'
                                         }
                                     });
+
                                     var mailOptions = {
                                         from: 'contact.spectrum.in@gmail.com',
                                         to: userParam.username,
-                                        subject: 'Email verification',
+                                        subject: 'Email Verification',
                                         html: html1
                                     };
 
@@ -83,10 +84,8 @@ var Add= {
                                                 if (error) {
                                                     console.log(error);
                                                     callback({response: '0', message: err});
-
                                                 } else {
                                                     console.log('Email sent: ' + info.response);
-
                                                 }
                                             });
                                             var r = {
@@ -112,7 +111,9 @@ var Add= {
 
                         //file read starts
                         fs.readFile('./app/configfiles/Register.html', function (err, data) {
+
                             var str = data.toString();
+
                             var html = str.replace("%s", text);
                             var html1 = html.replace("%m", username);
 
@@ -123,10 +124,11 @@ var Add= {
                                     pass: 'vedas2017'
                                 }
                             });
+
                             var mailOptions = {
                                 from: 'contact.spectrum.in@gmail.com',
                                 to: userParam.username,
-                                subject: 'Email verification',
+                                subject: 'Email Verification',
                                 html: html1
                             };
 
@@ -140,6 +142,7 @@ var Add= {
                                 verification_status: "false",
                                 prefer_language: userParam.prefer_language
                             });
+
                             myobj.save(function(err){
                                 if(err){
                                     console.log(err);
@@ -162,7 +165,7 @@ var Add= {
                             });
 
                         });
-
+                        //file read ends here
                     }
 
                 })
