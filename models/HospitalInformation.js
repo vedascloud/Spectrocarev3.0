@@ -14,7 +14,7 @@ var Personalinformation={
                 .then((userFound) => {
                 console.log('userfound..',userFound);
                 if(userFound){
-                    callback({response:'0',message:'something gone wrong!!!'});
+                    callback({response:'0',message:'Hospital Available.'});
                 }else{
 
                     var hospitalId = "id_"+Date.now();

@@ -678,6 +678,9 @@ var Login = {
                     });
             }
         }
+        else {
+            callback({ response: '0', message: 'please pass a valid email address' });
+        }
     }
 };
 module.exports = Login;

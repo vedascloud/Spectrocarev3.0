@@ -1,0 +1,24 @@
+11:54:13.685 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c9b1a74a13a3c5084f13cfd","username":"vinodkumar.ksv@gmail.com","password":"222222","otp":"3243","loc":[12.23,15.61231],"register_time":"1553688600","register_type":"Linked","__v":0} accepted at 2019-03-29T06:24:13.685Z 
+11:54:21.726 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5c9b1a74a13a3c5084f13cfd","username":"vinodkumar.ksv@gmail.com","password":"222222","otp":"3243","loc":[12.23,15.61231],"register_time":"1553688600","register_type":"Linked","__v":0} accepted at 2019-03-29T06:24:21.726Z 
+15:54:08.271 INFO  user found {"verification_status":true,"prefer_language":"French","_id":"5c9b1a74a13a3c5084f13cfd","username":"vinodkumar.ksv@gmail.com","password":"222222","otp":"3603","loc":[12.23,15.61231],"register_time":"15139888","register_type":"Linked","__v":0} accepted at 2019-03-29T10:24:08.271Z 
+15:54:15.445 INFO  user found {"verification_status":true,"prefer_language":"French","_id":"5c9b1a74a13a3c5084f13cfd","username":"vinodkumar.ksv@gmail.com","password":"222222","otp":"3603","loc":[12.23,15.61231],"register_time":"15139888","register_type":"Linked","__v":0} accepted at 2019-03-29T10:24:15.445Z 
+15:54:15.543 INFO  device insertion statusCan't set headers after they are sent.
+{}
+Error: Can't set headers after they are sent.
+    at validateHeader (_http_outgoing.js:491:11)
+    at ServerResponse.setHeader (_http_outgoing.js:498:3)
+    at ServerResponse.header (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:767:10)
+    at ServerResponse.send (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:170:12)
+    at ServerResponse.json (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\express\lib\response.js:267:15)
+    at Login.loginAuthentication (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\routes\Login.js:11:17)
+    at pet.aggregate.exec.then (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\models\Login.js:621:97)
+    at tryCatcher (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\util.js:16:23)
+    at Promise._settlePromiseFromHandler (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:512:31)
+    at Promise._settlePromise (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:569:18)
+    at Promise._settlePromise0 (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:614:10)
+    at Promise._settlePromises (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\promise.js:693:18)
+    at Async._drainQueue (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:133:16)
+    at Async._drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:143:10)
+    at Immediate.Async.drainQueues (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\bluebird\js\release\async.js:17:14)
+    at runCallback (timers.js:810:20) accepted at 2019-03-29T10:24:15.543Z 
+15:56:37.018 INFO  user found {"verification_status":true,"prefer_language":"French","_id":"5c9b1a74a13a3c5084f13cfd","username":"vinodkumar.ksv@gmail.com","password":"222222","otp":"3603","loc":[12.23,15.61231],"register_time":"15139888","register_type":"Linked","__v":0} accepted at 2019-03-29T10:26:37.018Z 

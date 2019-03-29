@@ -21,7 +21,7 @@ var Add= {
                             console.log('already logged in from social-media');
                             var z = {
                                 response: '6',
-                                message: ' You have already logged from your social-media account'
+                                message: 'You have already logged from your social-media account'
                             };
                             callback(z);
 
@@ -90,7 +90,7 @@ var Add= {
                                             });
                                             var r = {
                                                 response: '3',
-                                                message: 'Your registration was successful! '
+                                                message: 'Your registration was successful!'
                                             };
                                             callback(r);
                                         }
