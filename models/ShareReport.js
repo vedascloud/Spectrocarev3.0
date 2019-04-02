@@ -164,7 +164,7 @@ var Share={
             .then((doc) => {
                 console.log('HospitalFound...');
                 if(doc === null){
-                    callback({response:"0",message:"No Hospital found "});
+                    callback({response:"0",message:"No Hospital found"});
                 }else {
 
                     if (userParam.clientType === "Human") {

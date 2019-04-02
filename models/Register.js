@@ -90,7 +90,7 @@ var Add= {
                                             });
                                             var r = {
                                                 response: '3',
-                                                message: 'Your registration was successful! '
+                                                message: 'Your registration was successful!'
                                             };
                                             callback(r);
                                         }
