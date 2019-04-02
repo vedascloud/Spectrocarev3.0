@@ -23,6 +23,7 @@ var urineDataRouter = require('./routes/UrinetestResults');
 var bloodDataRouter = require('./routes/BloodResults');
 var jsonfileRouter = require('./routes/Jsonfiles');
 var shareReportRouter = require('./routes/ShareReport');
+var fetchClientsRouter = require('./routes/MyClients');
 
 
 var app = express();
@@ -62,6 +63,7 @@ app.use('/spectrocare/urinetest',urineDataRouter);
 app.use('/spectrocare/bloodtest',bloodDataRouter);
 app.use('/spectrocare/jsonfiles',jsonfileRouter);
 app.use('/spectrocare/share',shareReportRouter);
+app.use('/spectrocare/myclients',fetchClientsRouter);
 
 
 // catch 404 and forward to error handler
