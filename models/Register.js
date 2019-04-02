@@ -21,7 +21,7 @@ var Add= {
                             console.log('already logged in from social-media');
                             var z = {
                                 response: '6',
-                                message: ' You have already logged from your social-media account'
+                                message: 'You have already logged from your social-media account'
                             };
                             callback(z);
 

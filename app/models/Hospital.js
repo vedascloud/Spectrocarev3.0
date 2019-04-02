@@ -46,6 +46,6 @@ var HospitalSchema = new Schema({
 
 });
 
-mongoose.connect(config.connectionString, { useNewUrlParser: true });
+mongoose.connect(config.connectionString, { useCreateIndex: true, useNewUrlParser: true });
 
 module.exports = mongoose.model('Hospital',HospitalSchema);
