@@ -512,16 +512,16 @@ var TestReservationInfo={
                 // console.log(results);
                 if (results) {
                     if (user.clientType === 'Human')
-                    {
-                        TestReservDb.find({clientType: "Human"}, {__v: false}).exec().then((res) => {
+                    {//username:user.username
+                        TestReservDb.find({username:user.username,clientType: "Human"}, {__v: false}).exec().then((res) => {
                             callback({response: '3', HumanTestReservs: res});
                         }).catch((err) => {
                             console.log(err);
                         })
                     }
                     else if (user.clientType === 'Pet')
-                    {
-                        TestReservDb.find({clientType: "Pet"}, {__v: false}).exec().then((res) => {
+                    {//username:user.username
+                        TestReservDb.find({username:user.username,clientType: "Pet"}, {__v: false}).exec().then((res) => {
                             callback({response: '3', PetTestReservs: res});
                         }).catch((err) => {
                             console.log(err);

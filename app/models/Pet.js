@@ -40,8 +40,7 @@ var PetSchema = new Schema({
         required : true
     },
     breed : {
-        type : String,
-        required : true
+        type : String
     },
     height : {
         type : String
