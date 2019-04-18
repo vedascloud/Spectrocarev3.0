@@ -288,7 +288,8 @@ var Login = {
                                                                                                     hospital_data: [pinfo],
                                                                                                     Human_Data: hreservData,
                                                                                                     Pet_Data: preservData,
-                                                                                                    prefer_language: 'English'
+                                                                                                    prefer_language: userFound.prefer_language
+                                                                                                    /*prefer_language: 'English'*/
                                                                                                 };
                                                                                                 callback(r);
                                                                                             }
@@ -616,7 +617,8 @@ var Login = {
                                                                                                     hospital_data: [pinfo],
                                                                                                     Human_Data: hreservData,
                                                                                                     Pet_Data: preservData,
-                                                                                                    prefer_language: 'English'
+                                                                                                    prefer_language: userFound.prefer_language
+                                                                                                    /*prefer_language: 'English'*/
                                                                                                 };
                                                                                                 callback(r);
                                                                                             }
@@ -652,7 +654,8 @@ var Login = {
                                                                     hospital_data: [],
                                                                     Human_Data: [],
                                                                     Pet_Data: [],
-                                                                    prefer_language: 'English' };
+                                                                    prefer_language: userFound.prefer_language
+                                                                    /*prefer_language: 'English'*/ };
                                                         callback(r);
                                                     }
                                                 })
