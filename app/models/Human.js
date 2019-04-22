@@ -9,6 +9,11 @@ var HumanSchema = new Schema({
         index:true,
         required:true
     },
+    id : {
+        type:String,
+        index:true,
+        required:true
+    },
     clientId : {
         type:String,
         required:true

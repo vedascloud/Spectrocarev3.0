@@ -1,5 +1,5 @@
-var nodemailer = require('nodemailer');
-var multiline = require('multiline');
+//var nodemailer = require('nodemailer');
+//var multiline = require('multiline');
 
 const Busboy = require('busboy');
 var HospitalInfoDb = require('../app/models/Hospital');
@@ -10,15 +10,15 @@ var TestReservationInfo={
     //Add TestReservInfo
     insertTestReservInfo:function(test,callback) {
 
-        let EMail = test.EMail;
+        //let EMail = test.EMail;
 
             HospitalInfoDb.findOne({username:new RegExp(test.username,'i')}).exec()
                 .then((userFound) => {
                     console.log('userfound..');
                     if(userFound){
 
-                        text = "This is from Hospital TestReservation Information."
-                        var str = multiline(function () {/*
+                        /*text = "This is from Hospital TestReservation Information."
+                        var str = multiline(function () {/!*
 
                                                 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -393,7 +393,7 @@ var TestReservationInfo={
     </center>
 </body>
 </html>
-                                                                    */
+                                                                    *!/
                         });
                         var html = str.replace("%s", text);
                         var html1 = html.replace("%m", EMail);
@@ -410,7 +410,7 @@ var TestReservationInfo={
                             to: test.EMail,
                             subject: 'TestReservation Info',
                             html: html1
-                        };
+                        };*/
 
                         var testReservNo = "testNo_" + Date.now();
                                 console.log('form data testreserv...',test);
@@ -437,7 +437,7 @@ var TestReservationInfo={
                                             message: 'Your testreservation information has been successfully stored.'
                                         });
 
-                                        transporter.sendMail(mailOptions, function (error, info) {
+                                        /*transporter.sendMail(mailOptions, function (error, info) {
                                             if (error) {
                                                 console.log(error);
                                                 callback({response: '0', message: error});
@@ -446,7 +446,7 @@ var TestReservationInfo={
                                                 console.log('Email sent: ' + info.response);
 
                                             }
-                                        });
+                                        });*/
 
                                 });
                     }

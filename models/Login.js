@@ -24,6 +24,9 @@ var Login = {
 
         const username = userParam.username;
 
+        console.log('username...',userParam.username);
+        console.log('password...',userParam.password);
+
         if (validator.isEmail(username)) {
 
             if (userParam.Linked === 'Linked') {
