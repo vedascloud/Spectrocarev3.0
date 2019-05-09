@@ -1,14 +1,15 @@
 var HospotalDB = require('../app/models/Hospital');
 var urineDB = require('../app/models/Urine');
-var fs = require('fs');
-const Busboy = require('busboy');
+//var fs = require('fs');
+//const Busboy = require('busboy');
 
 var urineDataController = {
 
     //Add UrineTest Data
-    insertUrinedata:function(urineDataInfo,takePhoto,headers,req,callback) {
+   // insertUrinedata:function(urineDataInfo,takePhoto,headers,req,callback) {
+    insertUrinedata:function(fields,callback) {
 
-        function uploadToFolder(file,fields) {
+        //function uploadToFolder(file,fields) {
 
             HospotalDB.findOne({
                 username: new RegExp(fields.username, 'i'),
@@ -18,46 +19,66 @@ var urineDataController = {
                 if (HospitalFound) {
                     var testId = "id_" + Date.now();
 
-                    var text = ""; //random text
-                    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                    //var text = ""; //random text
+                    //var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-                    for (let i = 0; i < 5; i++) {
-                        text += possible.charAt(Math.floor(Math.random() * possible.length));
-                    }
-                    let d = Date.now();
-                    let imagepath = "./public/testphotos/" + text + d + file.name;
-                    file.mv(imagepath, (err, suc) => {
+                    //for (let i = 0; i < 5; i++) {
+                    //    text += possible.charAt(Math.floor(Math.random() * possible.length));
+                    //}
+                    //let d = Date.now();
+                    //let imagepath = "./public/testphotos/" + text + d + file.name;
+                    //file.mv(imagepath, (err, suc) => {
 
-                        if (err) {
-                            console.log(err);
-                            callback({response: '0', message: 'something gone wrong!!!'});
-                        } else {
-                            console.log(suc);
+                    //    if (err) {
+                    //        console.log(err);
+                    //        callback({response: '0', message: 'something gone wrong!!!'});
+                    //    } else {
+                            //console.log(suc);
                             console.log('form data fields...', fields);
-                            var personDb = new urineDB({
-                                username:fields.username,
-                                testId:testId,
-                                clientType:fields.clientType,
-                                client_Id:fields.client_Id,
-                                clientName:fields.clientName,
-                                latitude:fields.latitude,
-                                longitude:fields.longitude,
-                                testFactors:JSON.parse(fields.testFactors),
-                                testedTime:fields.testedTime,
-                                takePhoto: "/testphotos/" + text + d + file.name
-                            });
 
-                            personDb.save((success) => {
-                                console.log(success);
-                                callback({
-                                    response: '3',
-                                    test_id: testId,
-                                    message: 'Your personal information has been successfully stored.'
-                                });
-                            });
+                            urineDB.findOne({username: new RegExp(fields.username, 'i'),client_Id:fields.client_Id,testedTime:fields.testedTime}).exec().then((ReportFound) => {
 
-                        }
-                    });
+                                //console.log('founded data...',ReportFound);
+
+                                if (ReportFound){
+                                    callback({
+                                        response: '0',
+                                        message: 'Duplicate test record.'
+                                    });
+                                }
+                                else {
+                                    var personDb = new urineDB({
+                                        username:fields.username,
+                                        testId:testId,
+                                        clientType:fields.clientType,
+                                        client_Id:fields.client_Id,
+                                        clientName:fields.clientName,
+                                        latitude:fields.latitude,
+                                        longitude:fields.longitude,
+                                        //testFactors:JSON.parse(fields.testFactors),
+                                        testFactors:fields.testFactors,
+                                        testedTime:fields.testedTime,
+                                        //takePhoto: "/testphotos/" + text + d + file.name
+                                    });
+
+                                    personDb.save((success) => {
+                                        console.log(success);
+                                        callback({
+                                            response: '3',
+                                            test_id: testId,
+                                            message: 'Your personal information has been successfully stored.'
+                                        });
+                                    });
+                                }
+
+                            }).catch((error) => {
+                                console.log(error);
+                            })
+
+
+
+                        //}
+                    //});
 
                 }
                 else {
@@ -70,9 +91,9 @@ var urineDataController = {
             }).catch((error) => {
                 console.log(error);
             })
-        }
+        //}
 
-        var busboy = new Busboy({ headers: headers });
+        /*var busboy = new Busboy({ headers: headers });
 
         // The file upload has completed
         busboy.on('finish', function() {
@@ -85,7 +106,7 @@ var urineDataController = {
 
         });
 
-        req.pipe(busboy);
+        req.pipe(busboy);*/
     },
 
     //Delete UrineTest Data
@@ -93,13 +114,17 @@ var urineDataController = {
 
         urineDB.findOne({username:new RegExp(urineData.username,'i'),testId:urineData.testId}).exec().then((fileFound)=>{
 
+            console.log('form data fields...', urineData);
+
             if(fileFound){
 
                 urineDB.deleteOne({username:new RegExp(urineData.username,'i'), testId:urineData.testId}).exec()
                     .then((recordDeleted) => {
                         if(recordDeleted){
 
-                            console.log('path of a takePhoto..', fileFound.takePhoto);
+                            callback({response: '3', message: 'Your test results has been successfully deleted'});
+
+                            /*console.log('path of a takePhoto..', fileFound.takePhoto);
 
                             fs.unlink('./public'+fileFound.takePhoto , (er, sc) => {
                                 if (er) {
@@ -108,7 +133,7 @@ var urineDataController = {
                                     console.log(sc);
                                 }
                                 callback({response: '3', message: 'Your test results has been successfully deleted'});
-                            });
+                            });*/
 
                         }else{
                             console.log('not deleted');

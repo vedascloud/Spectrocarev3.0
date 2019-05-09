@@ -25,6 +25,10 @@ var jsonfileRouter = require('./routes/Jsonfiles');
 var shareReportRouter = require('./routes/ShareReport');
 var fetchClientsRouter = require('./routes/MyClients');
 
+var sdkJsonfileRouter = require('./routes/sdkjsonfiles');
+var deleteDataRouter = require('./routes/DeleteAllData');
+
+
 
 var app = express();
 var server = require('http').Server(app);
@@ -34,10 +38,6 @@ var io = require('socket.io')(server);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(function(req, res, next){
-    res.io = io;
-    next();
-});
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -64,6 +64,10 @@ app.use('/spectrocare/bloodtest',bloodDataRouter);
 app.use('/spectrocare/jsonfiles',jsonfileRouter);
 app.use('/spectrocare/share',shareReportRouter);
 app.use('/spectrocare/myclients',fetchClientsRouter);
+
+app.use('/spectrocare/sdkjsonfiles',sdkJsonfileRouter);
+app.use('/spectrocare/deletedata',deleteDataRouter);
+
 
 
 // catch 404 and forward to error handler

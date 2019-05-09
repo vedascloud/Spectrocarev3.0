@@ -422,7 +422,7 @@ var PetInformation={
 
                         console.log('PetFound..', PetFound);
                         if (PetFound) {
-                            callback({response: '5', message: 'clientId already existed.'});
+                            callback({response: '5', message: "Client ID already existed"});
                         } else {
 
                             var id = "id_" + Date.now();
@@ -451,6 +451,7 @@ var PetInformation={
                                         phone: fields.phone,
                                         petName: fields.petName,
                                         birthday: fields.birthday,
+                                        age: fields.age,
                                         petType:fields.petType,
                                         gender: fields.gender,
                                         breed:fields.breed,
@@ -467,6 +468,7 @@ var PetInformation={
                                         callback({
                                             response: '3',
                                             clientId: fields.clientId,
+                                            id: id,
                                             message: 'Your personal information has been successfully stored.'
                                         });
 
@@ -517,7 +519,214 @@ var PetInformation={
         req.pipe(busboy);
     },
 
-    //Update PetInfo
+
+    updatePetInfo : (personalinfo,profilepic,headers,req,callback) => {
+
+        function uploadToFolder(file,fields) {
+
+            PetDB.findOne({username: new RegExp(fields.username, 'i'), id: fields.id}).exec()
+                .then((HumanFound) => {
+
+                    console.log('HumanFound..', HumanFound);
+
+                    if (HumanFound) {
+
+                        PetDB.findOne({
+                            username: new RegExp(fields.username, 'i'),
+                            clientId: fields.clientId
+                        }).exec()
+                            .then((HumanCFound) => {
+                                if (HumanCFound) {
+                                    console.log('Client Id...', HumanCFound);
+
+                                    if (HumanCFound.id === fields.id ) {
+
+                                        //callback({response: '5', message: 'clientId already existed.'});
+
+                                        var text = ""; //random text
+                                        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+                                        for (let i = 0; i < 5; i++) {
+                                            text += possible.charAt(Math.floor(Math.random() * possible.length));
+                                        }
+                                        let d = Date.now();
+                                        let imagepath = "./public/images/" + text + d + file.name;
+                                        file.mv(imagepath, (err, suc) => {
+                                            if (err) {
+                                                console.log(err);
+                                                callback({response: '0', message: 'something gone wrong!!!'});
+                                            } else {
+                                                console.log(suc);
+                                                console.log('form data fields...', fields);
+                                                PetDB.updateOne({
+                                                    username: new RegExp(personalinfo.username, 'i'),
+                                                    id: fields.id
+                                                }, {
+                                                    $set: {
+
+                                                        clientId: fields.clientId,
+                                                        ownerName: fields.ownerName,
+                                                        email: fields.email,
+                                                        phone: fields.phone,
+                                                        petName: fields.petName,
+                                                        birthday: fields.birthday,
+                                                        age: fields.age,
+                                                        petType:fields.petType,
+                                                        gender: fields.gender,
+                                                        breed:fields.breed,
+                                                        height: fields.height,
+                                                        weight: fields.weight,
+                                                        neuter:fields.neuter,
+                                                        note: fields.note,
+                                                        addedTime: fields.addedTime,
+                                                        profilePic: "/images/" + text + d + file.name
+
+                                                    }
+                                                }).exec()
+                                                    .then((profileUpdate) => {
+
+                                                        if (profileUpdate) {
+
+                                                            fs.unlink('./public' + HumanFound.profilePic, (err) => {
+                                                                if (err) throw err;
+                                                                console.log('path file was deleted');
+                                                            });
+
+                                                            callback({
+                                                                response: '3',
+                                                                message: 'Your personal information has been successfully updated.'
+                                                            })
+
+                                                        } else {
+                                                            callback({
+                                                                response: '0',
+                                                                message: 'Personal information not updated'
+                                                            });
+                                                        }
+
+                                                    })
+                                                    .catch((error) => {
+                                                        console.log(error);
+                                                    })
+
+                                            }
+                                        });
+
+                                    }
+                                    else {
+                                        callback({response: '5', message: "Client ID already existed"});
+                                    }
+                                }
+                                else {
+                                    //callback({response: '5', message: 'clientId already existed.'});
+
+                                    var text = ""; //random text
+                                    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+                                    for (let i = 0; i < 5; i++) {
+                                        text += possible.charAt(Math.floor(Math.random() * possible.length));
+                                    }
+                                    let d = Date.now();
+                                    let imagepath = "./public/images/" + text + d + file.name;
+                                    file.mv(imagepath, (err, suc) => {
+                                        if (err) {
+                                            console.log(err);
+                                            callback({response: '0', message: 'something gone wrong!!!'});
+                                        } else {
+                                            console.log(suc);
+                                            console.log('form data fields...', fields);
+                                            PetDB.updateOne({
+                                                username: new RegExp(personalinfo.username, 'i'),
+                                                id: fields.id
+                                            }, {
+                                                $set: {
+
+                                                    clientId: fields.clientId,
+                                                    ownerName: fields.ownerName,
+                                                    email: fields.email,
+                                                    phone: fields.phone,
+                                                    petName: fields.petName,
+                                                    birthday: fields.birthday,
+                                                    age: fields.age,
+                                                    petType:fields.petType,
+                                                    gender: fields.gender,
+                                                    breed:fields.breed,
+                                                    height: fields.height,
+                                                    weight: fields.weight,
+                                                    neuter:fields.neuter,
+                                                    note: fields.note,
+                                                    addedTime: fields.addedTime,
+                                                    profilePic: "/images/" + text + d + file.name
+
+                                                }
+                                            }).exec()
+                                                .then((profileUpdate) => {
+
+                                                    if (profileUpdate) {
+
+                                                        fs.unlink('./public' + HumanFound.profilePic, (err) => {
+                                                            if (err) throw err;
+                                                            console.log('path file was deleted');
+                                                        });
+
+                                                        callback({
+                                                            response: '3',
+                                                            message: 'Your personal information has been successfully updated.'
+                                                        })
+
+                                                    } else {
+                                                        callback({
+                                                            response: '0',
+                                                            message: 'Personal information not updated'
+                                                        });
+                                                    }
+
+                                                })
+                                                .catch((error) => {
+                                                    console.log(error);
+                                                })
+
+                                        }
+                                    });
+                                }
+
+
+
+                            }).catch((error) => {
+                            console.log(error);
+                        })
+
+                    }
+                    else
+                    {
+                        callback({response: '0', message: 'Data Not Found.'});
+
+                    }
+
+                }).catch((error) => {
+                console.log(error);
+            })
+
+        }
+
+        var busboy = new Busboy({ headers: headers });
+
+        // The file upload has completed
+        busboy.on('finish', function() {
+
+            // Grabs your file object from the request.
+            const file = profilepic.profilepic;
+
+            // Begins the upload to the AWS S3
+            uploadToFolder(file,personalinfo);
+
+        });
+
+        req.pipe(busboy);
+
+    },
+
+    /*//Update PetInfo
     updatePetInfo : (personalinfo,profilepic,headers,req,callback) => {
 
         function uploadToFolder(file,fields) {
@@ -569,6 +778,7 @@ var PetInformation={
                                                             phone: fields.phone,
                                                             petName: fields.petName,
                                                             birthday: fields.birthday,
+                                                            age: fields.age,
                                                             petType:fields.petType,
                                                             gender: fields.gender,
                                                             breed:fields.breed,
@@ -645,101 +855,15 @@ var PetInformation={
         req.pipe(busboy);
 
     },
-
-
-    /*//Update PetInfo
-    updatePetInfo : (personalinfo,profilepic,headers,req,callback) => {
-
-        function uploadToFolder(file,fields) {
-
-            PetDB.findOne({username:new RegExp(fields.username,'i'),clientId:fields.clientId}).exec()
-                .then((PetFound) => {
-                    console.log('PetFound..',PetFound);
-                    if(PetFound){
-
-                        var text = ""; //random text
-                        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
-                        for( let i=0; i < 5; i++ ){
-                            text += possible.charAt(Math.floor(Math.random() * possible.length));
-                        }
-                        let d= Date.now();
-                        let imagepath = "./public/images/"+text+d+file.name;
-                        file.mv(imagepath, (err,suc) => {
-                            if(err){
-                                console.log(err);
-                                callback({response:'0',message:'something gone wrong!!!'});
-                            }else{
-                                console.log(suc);
-                                console.log('form data fields...',fields);
-                                PetDB.updateOne({username:new RegExp(personalinfo.username,'i'),clientId:fields.clientId},{$set:{
-                                        ownerName: fields.ownerName,
-                                        email: fields.email,
-                                        phone: fields.phone,
-                                        petName: fields.petName,
-                                        birthday: fields.birthday,
-                                        petType:fields.petType,
-                                        gender: fields.gender,
-                                        breed:fields.breed,
-                                        height: fields.height,
-                                        weight: fields.weight,
-                                        neuter:fields.neuter,
-                                        note: fields.note,
-                                        addedTime: fields.addedTime,
-                                        profilePic: "/images/" + text + d + file.name}}).exec()
-                                    .then((profileUpdate) => {
-                                        if(profileUpdate){
-
-                                            fs.unlink('./public'+PetFound.profilePic, (err) => {
-                                                if (err) throw err;
-                                                console.log('path file was deleted');
-                                            });
-
-                                            callback({response:'3',message:'Your personal information has been successfully updated.'})
-                                        }else{
-                                            callback({response:'0',message:'Personal information not updated'});
-                                        }
-                                    })
-                                    .catch((error) => {
-                                        console.log(error);
-                                    })
-
-                            }
-                        });
-
-                    }else{
-                        callback({response:'0',message:'please provide your data first'});
-                    }
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
-
-        }
-
-        var busboy = new Busboy({ headers: headers });
-
-        // The file upload has completed
-        busboy.on('finish', function() {
-
-            // Grabs your file object from the request.
-            const file = profilepic.profilepic;
-
-            // Begins the upload to the AWS S3
-            uploadToFolder(file,personalinfo);
-
-        });
-
-        req.pipe(busboy);
-
-    },
 */
-
     //Fetch PetInfo
     fetchPetInfo : (user,callback) => {
         HospotalDB.findOne({username:user.username},{_id:0,__v:0}).exec().then((results)=> {
                 // console.log(results);
+            console.log('sended data fields...', user);
+
                 if (results) {
+
                     PetDB.find({username:user.username}, {_id: false, __v: false}).exec().then( (res) => {
                         callback({response: '3', PetClients: res});
                     }) .catch((err) => {
@@ -758,12 +882,15 @@ var PetInformation={
     //Delete PetInfo
     deletePetInfo : (data,callback) => {
 
-        PetDB.findOne({clientId:data.clientId}).exec().then((fileFound)=>{
+        PetDB.findOne({username:data.username,clientId:data.clientId}).exec().then((fileFound)=>{
+
+            console.log('sended data fields...', data);
 
             if(fileFound){
 
-                PetDB.deleteOne({clientId: data.clientId}).exec().then((res) => {
+                PetDB.deleteOne({username:data.username,clientId: data.clientId}).exec().then((res) => {
                     if(res){
+
                         console.log('path of a profilePic..', fileFound.profilePic);
                         fs.unlink('./public'+fileFound.profilePic , (er, sc) => {
                             if (er) {

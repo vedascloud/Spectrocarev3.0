@@ -49,11 +49,21 @@ var bloodDataController = {
 
                             personDb.save((success) => {
                                 console.log(success);
-                                callback({
-                                    response: '3',
-                                    test_id: testId,
-                                    message: 'Your personal information has been successfully stored.'
-                                });
+
+                                if (success){
+                                    callback({
+                                        response: '3',
+                                        test_id: testId,
+                                        message: 'Your personal information has been successfully stored.'
+                                    });
+                                }
+                                else {
+                                    callback({
+                                        response: '0',
+                                        message: 'Something went wrong'
+                                    });
+                                }
+
                             });
 
                         }

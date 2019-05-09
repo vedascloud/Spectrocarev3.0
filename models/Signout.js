@@ -5,6 +5,11 @@ var validator = require('validator');
 var Logout={
 
     sessionout:function (userParam,callback) {
+
+        console.log('username...',userParam.username);
+        console.log('deviceId...',userParam.deviceid);
+        console.log('deviceToken...',userParam.deviceToken);
+
         var username = userParam.username;
         if(validator.isEmail(username)){
             if(userParam.from === 'web'){

@@ -12,7 +12,8 @@ var HumanSchema = new Schema({
     id : {
         type:String,
         index:true,
-        required:true
+        required:true,
+        unique:true
     },
     clientId : {
         type:String,
@@ -30,6 +31,9 @@ var HumanSchema = new Schema({
         type:String
     },
     birthday : {
+        type:String
+    },
+    age : {
         type:String,
         required:true
     },

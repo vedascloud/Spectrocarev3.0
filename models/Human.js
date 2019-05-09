@@ -422,7 +422,7 @@ var Humaninformation={
 
                         console.log('HumanFound..', HumanFound);
                         if (HumanFound) {
-                            callback({response: '5', message: 'clientId already existed.'});
+                            callback({response: '5', message: "Client ID already existed"});
                         } else {
 
                             var id = "id_" + Date.now();
@@ -450,6 +450,7 @@ var Humaninformation={
                                         email: fields.email,
                                         phone: fields.phone,
                                         birthday: fields.birthday,
+                                        age: fields.age,
                                         gender: fields.gender,
                                         bloodType: fields.bloodType,
                                         height: fields.height,
@@ -464,6 +465,7 @@ var Humaninformation={
                                         callback({
                                             response: '3',
                                             clientId: fields.clientId,
+                                            id: id,
                                             message: 'Your personal information has been successfully stored.'
                                         });
 
@@ -519,107 +521,181 @@ var Humaninformation={
 
         function uploadToFolder(file,fields) {
 
-            HumanDB.find({username: new RegExp(fields.username, 'i')}).exec().then((HumanData) => {
-
-                if (HumanData.clientId !== fields.clientId) {
-
                     HumanDB.findOne({username: new RegExp(fields.username, 'i'), id: fields.id}).exec()
                         .then((HumanFound) => {
 
                             console.log('HumanFound..', HumanFound);
 
-                            if (HumanFound){
+                            if (HumanFound) {
 
-                                HumanDB.findOne({username: new RegExp(fields.username, 'i'), clientId: fields.clientId}).exec()
+                                HumanDB.findOne({
+                                    username: new RegExp(fields.username, 'i'),
+                                    clientId: fields.clientId
+                                }).exec()
                                     .then((HumanCFound) => {
-
                                         if (HumanCFound) {
+                                            console.log('Client Id...', HumanCFound);
 
-                                            callback({response: '5', message: 'clientId already existed.'});
+                                            if (HumanCFound.id === fields.id ) {
 
-                                        }
-                                        else {
+                                                //callback({response: '5', message: 'clientId already existed.'});
 
-                                        var text = ""; //random text
-                                        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+                                                var text = ""; //random text
+                                                var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-                                        for (let i = 0; i < 5; i++) {
-                                            text += possible.charAt(Math.floor(Math.random() * possible.length));
-                                        }
-                                        let d = Date.now();
-                                        let imagepath = "./public/images/" + text + d + file.name;
-                                        file.mv(imagepath, (err, suc) => {
-                                            if (err) {
-                                                console.log(err);
-                                                callback({response: '0', message: 'something gone wrong!!!'});
-                                            } else {
-                                                console.log(suc);
-                                                console.log('form data fields...', fields);
-                                                HumanDB.updateOne({
-                                                    username: new RegExp(personalinfo.username, 'i'),
-                                                    id: fields.id
-                                                }, {
-                                                    $set: {
-                                                        name: fields.name,
-                                                        clientId: fields.clientId,
-                                                        birthday: fields.birthday,
-                                                        email: fields.email,
-                                                        phone: fields.phone,
-                                                        gender: fields.gender,
-                                                        bloodType: fields.bloodType,
-                                                        height: fields.height,
-                                                        weight: fields.weight,
-                                                        note: fields.note,
-                                                        addedTime: fields.addedTime,
-                                                        profilePic: "/images/" + text + d + file.name
-                                                    }
-                                                }).exec()
-                                                    .then((profileUpdate) => {
+                                                for (let i = 0; i < 5; i++) {
+                                                    text += possible.charAt(Math.floor(Math.random() * possible.length));
+                                                }
+                                                let d = Date.now();
+                                                let imagepath = "./public/images/" + text + d + file.name;
+                                                file.mv(imagepath, (err, suc) => {
+                                                    if (err) {
+                                                        console.log(err);
+                                                        callback({response: '0', message: 'something gone wrong!!!'});
+                                                    } else {
+                                                        console.log(suc);
+                                                        console.log('form data fields...', fields);
+                                                        HumanDB.updateOne({
+                                                            username: new RegExp(personalinfo.username, 'i'),
+                                                            id: fields.id
+                                                        }, {
+                                                            $set: {
+                                                                name: fields.name,
+                                                                clientId: fields.clientId,
+                                                                birthday: fields.birthday,
+                                                                age: fields.age,
+                                                                email: fields.email,
+                                                                phone: fields.phone,
+                                                                gender: fields.gender,
+                                                                bloodType: fields.bloodType,
+                                                                height: fields.height,
+                                                                weight: fields.weight,
+                                                                note: fields.note,
+                                                                addedTime: fields.addedTime,
+                                                                profilePic: "/images/" + text + d + file.name
+                                                            }
+                                                        }).exec()
+                                                            .then((profileUpdate) => {
 
-                                                        if (profileUpdate) {
+                                                                if (profileUpdate) {
 
-                                                            fs.unlink('./public' + HumanFound.profilePic, (err) => {
-                                                                if (err) throw err;
-                                                                console.log('path file was deleted');
-                                                            });
+                                                                    fs.unlink('./public' + HumanFound.profilePic, (err) => {
+                                                                        if (err) throw err;
+                                                                        console.log('path file was deleted');
+                                                                    });
 
-                                                            callback({
-                                                                response: '3',
-                                                                message: 'Your personal information has been successfully updated.'
+                                                                    callback({
+                                                                        response: '3',
+                                                                        message: 'Your personal information has been successfully updated.'
+                                                                    })
+
+                                                                } else {
+                                                                    callback({
+                                                                        response: '0',
+                                                                        message: 'Personal information not updated'
+                                                                    });
+                                                                }
+
+                                                            })
+                                                            .catch((error) => {
+                                                                console.log(error);
                                                             })
 
-                                                        } else {
-                                                            callback({
-                                                                response: '0',
-                                                                message: 'Personal information not updated'
-                                                            });
-                                                        }
-
-                                                    })
-                                                    .catch((error) => {
-                                                        console.log(error);
-                                                    })
+                                                    }
+                                                });
 
                                             }
-                                        });
+                                            else {
+                                                callback({response: '5', message: "Client ID already existed"});
+                                            }
+                                        }
+                                        else {
+                                            //callback({response: '5', message: 'clientId already existed.'});
 
-                                    }
+                                            var text = ""; //random text
+                                            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+                                            for (let i = 0; i < 5; i++) {
+                                                text += possible.charAt(Math.floor(Math.random() * possible.length));
+                                            }
+                                            let d = Date.now();
+                                            let imagepath = "./public/images/" + text + d + file.name;
+                                            file.mv(imagepath, (err, suc) => {
+                                                if (err) {
+                                                    console.log(err);
+                                                    callback({response: '0', message: 'something gone wrong!!!'});
+                                                } else {
+                                                    console.log(suc);
+                                                    console.log('form data fields...', fields);
+                                                    HumanDB.updateOne({
+                                                        username: new RegExp(personalinfo.username, 'i'),
+                                                        id: fields.id
+                                                    }, {
+                                                        $set: {
+                                                            name: fields.name,
+                                                            clientId: fields.clientId,
+                                                            birthday: fields.birthday,
+                                                            age: fields.age,
+                                                            email: fields.email,
+                                                            phone: fields.phone,
+                                                            gender: fields.gender,
+                                                            bloodType: fields.bloodType,
+                                                            height: fields.height,
+                                                            weight: fields.weight,
+                                                            note: fields.note,
+                                                            addedTime: fields.addedTime,
+                                                            profilePic: "/images/" + text + d + file.name
+                                                        }
+                                                    }).exec()
+                                                        .then((profileUpdate) => {
+
+                                                            if (profileUpdate) {
+
+                                                                fs.unlink('./public' + HumanFound.profilePic, (err) => {
+                                                                    if (err) throw err;
+                                                                    console.log('path file was deleted');
+                                                                });
+
+                                                                callback({
+                                                                    response: '3',
+                                                                    message: 'Your personal information has been successfully updated.'
+                                                                })
+
+                                                            } else {
+                                                                callback({
+                                                                    response: '0',
+                                                                    message: 'Personal information not updated'
+                                                                });
+                                                            }
+
+                                                        })
+                                                        .catch((error) => {
+                                                            console.log(error);
+                                                        })
+
+                                                }
+                                            });
+                                        }
+
+
 
                                     }).catch((error) => {
                                     console.log(error);
                                 })
+
+                            }
+                            else
+                            {
+                                callback({response: '0', message: 'Data Not Found.'});
+
                             }
 
-                        })
-                        .catch((error) => {
-                            console.log(error);
-                        })
+                        }).catch((error) => {
+                        console.log(error);
+                    })
 
-                }
 
-        }).catch((error) => {
-                console.log(error);
-            })
+
 
         }
 
@@ -644,7 +720,11 @@ var Humaninformation={
     fetchHumanInfo : (user,callback) => {
         HospotalDB.findOne({username:user.username},{_id:0,__v:0}).exec().then((results)=> {
                 // console.log(results);
+
+                console.log('sended data fields...', user);
+
                 if (results) {
+
                     HumanDB.find({username:user.username}, {_id: false, __v: false}).exec().then( (res) => {
                         callback({response: '3', HumanClients: res});
                     }) .catch((err) => {
@@ -663,12 +743,15 @@ var Humaninformation={
     //Delete HumanInfo
     deleteHumanInfo : (data,callback) => {
 
-        HumanDB.findOne({clientId:data.clientId}).exec().then((fileFound)=>{
+        HumanDB.findOne({username:data.username,clientId:data.clientId}).exec().then((fileFound)=>{
+
+            console.log('sended data fields...', data);
 
             if(fileFound){
 
-                HumanDB.deleteOne({clientId:data.clientId}).exec().then((res) => {
+                HumanDB.deleteOne({username:data.username,clientId:data.clientId}).exec().then((res) => {
                     if(res){
+
                         console.log('path of a profilePic..', fileFound.profilePic);
                         fs.unlink('./public'+fileFound.profilePic , (er, sc) => {
                             if (er) {

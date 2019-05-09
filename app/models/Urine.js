@@ -71,11 +71,11 @@ var UrineSchema = new Schema({
     isShared:{
         type:Boolean,
         default:false
-    },
-    takePhoto:{
+    }
+    /*takePhoto:{
         type:String,
         required:true
-    }
+    }*/
 
 });
 

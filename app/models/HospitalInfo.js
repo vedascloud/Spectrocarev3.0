@@ -27,8 +27,7 @@ var HospitalInfoSchema = new Schema({
         type : String
     },
     contactPerson : {
-        type : String,
-        required : true
+        type : String
     },
     address : {
         type : String,
