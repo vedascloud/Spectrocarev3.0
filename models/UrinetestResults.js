@@ -41,6 +41,7 @@ var urineDataController = {
                                 //console.log('founded data...',ReportFound);
 
                                 if (ReportFound){
+                                    console.log('Duplicate test record.');
                                     callback({
                                         response: '0',
                                         message: 'Duplicate test record.'
@@ -48,6 +49,7 @@ var urineDataController = {
                                 }
                                 else {
                                     var personDb = new urineDB({
+                                        id:fields.id,
                                         username:fields.username,
                                         testId:testId,
                                         clientType:fields.clientType,

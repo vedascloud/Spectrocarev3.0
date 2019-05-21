@@ -35,6 +35,7 @@ var bloodDataController = {
                             console.log(suc);
                             console.log('form data fields...', fields);
                             var personDb = new bloodDB({
+                                id:fields.id,
                                 username:fields.username,
                                 testId:testId,
                                 clientType:fields.clientType,

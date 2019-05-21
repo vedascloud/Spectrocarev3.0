@@ -3,6 +3,7 @@
 
 var HospotalDB = require('../app/models/Hospital');
 var PetDB = require('../app/models/Pet');
+var HumanDB = require('../app/models/Human');
 var validator = require('validator');
 var fs = require('fs');
 const Busboy = require('busboy');
@@ -425,67 +426,78 @@ var PetInformation={
                             callback({response: '5', message: "Client ID already existed"});
                         } else {
 
-                            var id = "id_" + Date.now();
+                            HumanDB.findOne({username:new RegExp(fields.username,'i'),clientId:fields.clientId}).exec().then((PetFound) => {
 
-                            var text = ""; //random text
-                            var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-
-                            for (let i = 0; i < 5; i++) {
-                                text += possible.charAt(Math.floor(Math.random() * possible.length));
-                            }
-                            let d = Date.now();
-                            let imagepath = "./public/images/" + text + d + file.name;
-                            file.mv(imagepath, (err, suc) => {
-                                if (err) {
-                                    console.log(err);
-                                    callback({response: '0', message: 'something gone wrong!!!'});
+                                console.log('PetFound..', PetFound);
+                                if (PetFound) {
+                                    callback({response: '5', message: "Client ID already existed"});
                                 } else {
-                                    console.log(suc);
-                                    console.log('form data fields...', fields);
-                                    var personDb = new PetDB({
-                                        username: fields.username,
-                                        id:id,
-                                        clientId: fields.clientId,
-                                        ownerName: fields.ownerName,
-                                        email: fields.email,
-                                        phone: fields.phone,
-                                        petName: fields.petName,
-                                        birthday: fields.birthday,
-                                        age: fields.age,
-                                        petType:fields.petType,
-                                        gender: fields.gender,
-                                        breed:fields.breed,
-                                        height: fields.height,
-                                        weight: fields.weight,
-                                        neuter:fields.neuter,
-                                        note: fields.note,
-                                        addedTime: fields.addedTime,
-                                        profilePic: "/images/" + text + d + file.name
-                                    });
 
-                                    personDb.save((success) => {
-                                        console.log(success);
-                                        callback({
-                                            response: '3',
-                                            clientId: fields.clientId,
-                                            id: id,
-                                            message: 'Your personal information has been successfully stored.'
-                                        });
+                                    var id = "id_" + Date.now();
 
-                                       /* transporter.sendMail(mailOptions, function (error, info) {
-                                            if (error) {
-                                                console.log(error);
-                                                callback({response: '0', message: error});
+                                    var text = ""; //random text
+                                    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-                                            } else {
-                                                console.log('Email sent: ' + info.response);
+                                    for (let i = 0; i < 5; i++) {
+                                        text += possible.charAt(Math.floor(Math.random() * possible.length));
+                                    }
+                                    let d = Date.now();
+                                    let imagepath = "./public/images/" + text + d + file.name;
+                                    file.mv(imagepath, (err, suc) => {
+                                        if (err) {
+                                            console.log(err);
+                                            callback({response: '0', message: 'something gone wrong!!!'});
+                                        } else {
+                                            console.log(suc);
+                                            console.log('form data fields...', fields);
+                                            var personDb = new PetDB({
+                                                username: fields.username,
+                                                id:id,
+                                                clientId: fields.clientId,
+                                                ownerName: fields.ownerName,
+                                                email: fields.email,
+                                                phone: fields.phone,
+                                                petName: fields.petName,
+                                                birthday: fields.birthday,
+                                                age: fields.age,
+                                                petType:fields.petType,
+                                                gender: fields.gender,
+                                                breed:fields.breed,
+                                                height: fields.height,
+                                                weight: fields.weight,
+                                                neuter:fields.neuter,
+                                                note: fields.note,
+                                                addedTime: fields.addedTime,
+                                                profilePic: "/images/" + text + d + file.name
+                                            });
 
-                                            }
-                                        });*/
+                                            personDb.save((success) => {
+                                                console.log(success);
+                                                callback({
+                                                    response: '3',
+                                                    clientId: fields.clientId,
+                                                    id: id,
+                                                    message: 'Your personal information has been successfully stored.'
+                                                });
 
+                                                /* transporter.sendMail(mailOptions, function (error, info) {
+                                                     if (error) {
+                                                         console.log(error);
+                                                         callback({response: '0', message: error});
+
+                                                     } else {
+                                                         console.log('Email sent: ' + info.response);
+
+                                                     }
+                                                 });*/
+
+                                            });
+
+                                        }
                                     });
 
                                 }
+
                             });
 
                         }
@@ -907,7 +919,7 @@ var PetInformation={
 
             }else
             {
-                callback({response: '0', message: 'no Client found'});
+                callback({response: '0', message: 'No client found'});
             }
         }).catch((error) => {
             console.log(error);

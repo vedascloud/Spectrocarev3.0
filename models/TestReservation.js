@@ -415,6 +415,7 @@ var TestReservationInfo={
                         var testReservNo = "testNo_" + Date.now();
                                 console.log('form data testreserv...',test);
                                 var personDb = new TestReservDb({
+                                    id:test.id,
                                     username:test.username,
                                     testReservNo:testReservNo,
                                     clientId:test.clientId,

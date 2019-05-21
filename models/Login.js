@@ -59,24 +59,24 @@ var Login = {
                                                                     {
                                                                         $lookup: {
                                                                             from: "urineresults",
-                                                                            localField: "clientId",
-                                                                            foreignField: "client_Id",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_Urine_Test_Results"
                                                                         }
                                                                     },
                                                                     {
                                                                         $lookup: {
                                                                             from: "bloodresults",
-                                                                            localField: "clientId",
-                                                                            foreignField: "client_Id",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_Blood_Test_Results"
                                                                         }
                                                                     },
                                                                     {
                                                                         $lookup: {
                                                                             from: "testreservations",
-                                                                            localField: "clientId",
-                                                                            foreignField: "clientId",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_TestReservation_Results"
                                                                         }
                                                                     }
@@ -97,24 +97,24 @@ var Login = {
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "urineresults",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "client_Id",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_Urine_Test_Results"
                                                                                             }
                                                                                         },
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "bloodresults",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "client_Id",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_Blood_Test_Results"
                                                                                             }
                                                                                         },
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "testreservations",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "clientId",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_TestReservation_Results"
                                                                                             }
                                                                                         }
@@ -388,24 +388,24 @@ var Login = {
                                                                     {
                                                                         $lookup: {
                                                                             from: "urineresults",
-                                                                            localField: "clientId",
-                                                                            foreignField: "client_Id",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_Urine_Test_Results"
                                                                         }
                                                                     },
                                                                     {
                                                                         $lookup: {
                                                                             from: "bloodresults",
-                                                                            localField: "clientId",
-                                                                            foreignField: "client_Id",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_Blood_Test_Results"
                                                                         }
                                                                     },
                                                                     {
                                                                         $lookup: {
                                                                             from: "testreservations",
-                                                                            localField: "clientId",
-                                                                            foreignField: "clientId",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_TestReservation_Results"
                                                                         }
                                                                     }
@@ -426,24 +426,24 @@ var Login = {
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "urineresults",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "client_Id",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_Urine_Test_Results"
                                                                                             }
                                                                                         },
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "bloodresults",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "client_Id",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_Blood_Test_Results"
                                                                                             }
                                                                                         },
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "testreservations",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "clientId",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_TestReservation_Results"
                                                                                             }
                                                                                         }

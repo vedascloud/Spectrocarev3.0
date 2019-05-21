@@ -80,7 +80,7 @@
             "Done": "送出",
             "Your password has been changed": "您的密码已更新",
             "Please enter a new password": "请输入新密码",
-            "Would you like to change the language 'CURRENT_LANGUAGE' to 'SELECTED_LANGUAGE_ENGLISH_NAME SELECTED_LANGUAGE_NATIVE_NAME'?": "您想要将语言(CURRENT_LANGUAGE)'转换为'SELECTED_LANGUAGE_ENGLISH_NAME SELECTED_LANGUAGE_NATIVE_NAME'?",
+            "Would you like to change the language 'CURRENT_LANGUAGE' to 'SELECTED_LANGUAGE_ENGLISH_NAME SELECTED_LANGUAGE_NATIVE_NAME'?": "您想要将语言'CURRENT_LANGUAGE' 转换为'SELECTED_LANGUAGE_ENGLISH_NAME SELECTED_LANGUAGE_NATIVE_NAME'?",
             "ok": "确定",
             "Arabic": "阿拉伯文",
             "Chinese (Traditional)": "中文(繁體)",
@@ -261,7 +261,7 @@
             "Are you sure you want to delete this Test Reservation?": "您确定要删除此预约吗？",
             "Are you sure you want to delete this Client?": "您确定要删除此笔客户资料吗？",
             "Are you sure you want to delete this Pet?": "您确定要删除此笔宠物资料吗？",
-            "Select an option": "请选择照片来源",
+            "Select an option": "请选择血型",
             "Last Updated": "上次更新",
             "No Reservation": "尚无预约",
             "All": "全部",
@@ -305,7 +305,7 @@
             "Download failed": "下载失败",
             "Configure File": "配置文件",
             "Downloading files": "正在下载文件",
-            "Select a client ": "选择客户",
+            "Select a client ": "选择受測客户",
             "Collect Test Sample": "收集测试样本",
             "Get Test Results": "取得测试结果",
             "Unpair Device": "解除绑定",
@@ -430,8 +430,9 @@
             "S.NO": "S.NO",
             "Location Services Disabled": "关闭位置服务",
             "Aborting": "测试终止中",            "Connection Failed": "连线失败",            "Select age": "选择年龄",            "Call to Doctor": "致电给医生",            "Pet  ID": "宠物ID",            "Request Failed. Are you want to retry": "请求失败，是否要重试?",
-            "START": "开始"
-
+            "START": "开始测试",
+            "Slightly push the strip holder into the device and press START. The test and analysis will start immediately.": "将试纸匣轻轻放置并推入设备的试纸槽并按开始，装置即会开始测试",
+           " Kindly choose suitable JSON file for your device": "选择适用于本装置的Json文件",           "Pickup From Files": "选择本地档案",           "Please select correct JSON file": "请选择正确的JSON文件"
 
         },
         "English": {
@@ -864,8 +865,9 @@
             "S.NO": "S.NO",
             "Location Services Disabled": "Location Services Disabled", 
             "Aborting": "Aborting",            "Connection Failed": "Connection Failed",            "Select age": "Select age",            "Call to Doctor": "Call to Doctor",            "Pet  ID": "Pet  ID",            "Request Failed. Are you want to retry": "Request Failed. Are you want to retry",
-            "START": "START"
-
+            "START": "START",
+            "Slightly push the strip holder into the device and press START. The test and analysis will start immediately.": "Slightly push the strip holder into the device and press START. The test and analysis will start immediately.",
+            " Kindly choose suitable JSON file for your device": "Kindly choose suitable JSON file for your device",            "Pickup From Files": "Pickup From Files",            "Please select correct JSON file": "Please select correct JSON file"
 
 
 
@@ -930,7 +932,7 @@
             "SKIP": "略過",
             "Step 2": "步驟2",
             "Analyzing": "分析中",
-            "Abort": "中斷",
+            "Abort": "終止測試",
             "Do you really want to stop analyzing?": "您確定要停止嗎 ?",
             "Test Results": "檢測結果",
             "Occult Blood": "潛血",
@@ -1131,7 +1133,7 @@
             "Are you sure you want to delete this Test Reservation?": "您確定要刪除此預約嗎？",
             "Are you sure you want to delete this Client?": "您確定要刪除此筆客戶資料嗎？",
             "Are you sure you want to delete this Pet?": "您確定要刪除此筆寵物資料嗎？",
-            "Select an option": "請選擇照片來源",
+            "Select an option": "請選擇血型",
             "Last Updated": "上次更新",
             "No Reservation": "尚無預約",
             "All": "全部",
@@ -1175,7 +1177,7 @@
             "Download failed": "下載失敗",
             "Configure File": "配置文件",
             "Downloading files": "正在下載文件",
-            "Select a client ": "選擇客戶",
+            "Select a client ": "選擇受測客戶",
             "Collect Test Sample": "收集測試樣本",
             "Get Test Results": "取得測試結果",
             "Unpair Device": "解除綁定",
@@ -1300,7 +1302,10 @@
             "S.NO": "S.NO",
             "Location Services Disabled": "關閉位置服務",
             "Aborting": "測試終止中",            "Connection Failed": "連線失敗",            "Select age": "選擇年齡",            "Call to Doctor": "致電給醫生",            "Pet  ID": "寵物ID",            "Request Failed. Are you want to retry": "請求失敗，是否要重試?",
-            "START": "開始"
+            "START": "開始測試",
+            "Slightly push the strip holder into the device and press START. The test and analysis will start immediately.": "將試紙匣輕輕放置並推入設備的試紙槽並按開始，裝置即會開始測試",
+            " Kindly choose suitable JSON file for your device": "選擇適用於本裝置的Json文件",            "Pickup From Files": "選擇本地檔案",             "Please select correct JSON file": "請選擇正確的JSON文件"
+                
 
 
 
@@ -1736,7 +1741,9 @@
             "S.NO": "S.NO",
             "Location Services Disabled": "Services de localisation désactivés",
             "Aborting": "Avorter",            "Connection Failed": "La connexion a échoué",             "Select age": "Sélectionnez l'âge",            "Call to Doctor": "Appel au docteur",             "Pet  ID": "Pet ID",             "Request Failed. Are you want to retry": "Demande échoué. Voulez-vous réessayer?",
-             "START": "Début"
+             "START": "Commencer les tests",
+             "Slightly push the strip holder into the device and press START. The test and analysis will start immediately.": "Poussez légèrement le support de bande dans l'appareil et appuyez sur START. Le test et l'analyse commenceront immédiatement.",
+            " Kindly choose suitable JSON file for your device": "Veuillez choisir le fichier JSON adapté à votre appareil",            "Pickup From Files": "Ramasser des fichiers",            "Please select correct JSON file": "Veuillez sélectionner le bon fichier JSON"
 
 
         },
@@ -2170,7 +2177,9 @@
             "S.NO": "S.NO",
             "Location Services Disabled": "Serviços de localização desativados",
             "Aborting": "Abortando",            "Connection Failed": "Conexão falhada",            "Select age": "Selecione a idade",            "Call to Doctor": "Ligue para o médico",            "Pet  ID": "Pet ID",            "Request Failed. Are you want to retry": "Pedido falhou. Você quer tentar novamente?",
-            "START": "Começar"
+            "START": "Comece a testar",
+            "Slightly push the strip holder into the device and press START. The test and analysis will start immediately.": "Empurre levemente o suporte da tira para dentro do dispositivo e pressione START. O teste e a análise começarão imediatamente.",
+            " Kindly choose suitable JSON file for your device": "Por favor, escolha o arquivo JSON adequado para o seu dispositivo",            "Pickup From Files": "Captura de arquivos",            "Please select correct JSON file": "Por favor, selecione o arquivo JSON correto"
 
 
         }

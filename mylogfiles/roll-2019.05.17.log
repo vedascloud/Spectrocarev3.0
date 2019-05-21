@@ -1,0 +1,56 @@
+09:30:33.814 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5cd01832a3ba7c376c47f3d8","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"5072","loc":[0,0],"register_time":"1555556400","register_type":"Linked","__v":0} accepted at 2019-05-17T04:00:33.814Z 
+09:40:35.615 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5cd01832a3ba7c376c47f3d8","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"5072","loc":[0,0],"register_time":"1555556400","register_type":"Linked","__v":0} accepted at 2019-05-17T04:10:35.614Z 
+09:40:35.696 INFO  device insertion statusMobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.
+{"errors":{"devices.mobile.0.deviceid":{"message":"Path `deviceid` is required.","name":"ValidatorError","properties":{"message":"Path `deviceid` is required.","type":"required","path":"deviceid"},"kind":"required","path":"deviceid"},"devices.mobile.0.deviceToken":{"message":"Path `deviceToken` is required.","name":"ValidatorError","properties":{"message":"Path `deviceToken` is required.","type":"required","path":"deviceToken"},"kind":"required","path":"deviceToken"}},"_message":"Mobile validation failed","message":"Mobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.","name":"ValidationError"}
+ValidationError: Mobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.
+    at new ValidationError (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\error\validation.js:30:11)
+    at model.Document.invalidate (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\document.js:2080:32)
+    at EmbeddedDocument.invalidate (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\types\embedded.js:290:29)
+    at p.doValidate.skipSchemaValidators (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\document.js:1943:17)
+    at E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\schematype.js:933:9
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9) accepted at 2019-05-17T04:10:35.696Z 
+09:41:38.226 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5cd01832a3ba7c376c47f3d8","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"5072","loc":[0,0],"register_time":"1555556400","register_type":"Linked","__v":0} accepted at 2019-05-17T04:11:38.225Z 
+09:41:38.321 INFO  device insertion statusMobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.
+{"errors":{"devices.mobile.0.deviceid":{"message":"Path `deviceid` is required.","name":"ValidatorError","properties":{"message":"Path `deviceid` is required.","type":"required","path":"deviceid"},"kind":"required","path":"deviceid"},"devices.mobile.0.deviceToken":{"message":"Path `deviceToken` is required.","name":"ValidatorError","properties":{"message":"Path `deviceToken` is required.","type":"required","path":"deviceToken"},"kind":"required","path":"deviceToken"}},"_message":"Mobile validation failed","message":"Mobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.","name":"ValidationError"}
+ValidationError: Mobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.
+    at new ValidationError (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\error\validation.js:30:11)
+    at model.Document.invalidate (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\document.js:2080:32)
+    at EmbeddedDocument.invalidate (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\types\embedded.js:290:29)
+    at p.doValidate.skipSchemaValidators (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\document.js:1943:17)
+    at E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\schematype.js:933:9
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9) accepted at 2019-05-17T04:11:38.321Z 
+10:11:59.848 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5cd01832a3ba7c376c47f3d8","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"5072","loc":[0,0],"register_time":"1555556400","register_type":"Linked","__v":0} accepted at 2019-05-17T04:41:59.848Z 
+10:11:59.951 INFO  device insertion statusMobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.
+{"errors":{"devices.mobile.0.deviceid":{"message":"Path `deviceid` is required.","name":"ValidatorError","properties":{"message":"Path `deviceid` is required.","type":"required","path":"deviceid"},"kind":"required","path":"deviceid"},"devices.mobile.0.deviceToken":{"message":"Path `deviceToken` is required.","name":"ValidatorError","properties":{"message":"Path `deviceToken` is required.","type":"required","path":"deviceToken"},"kind":"required","path":"deviceToken"}},"_message":"Mobile validation failed","message":"Mobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.","name":"ValidationError"}
+ValidationError: Mobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.
+    at new ValidationError (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\error\validation.js:30:11)
+    at model.Document.invalidate (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\document.js:2080:32)
+    at EmbeddedDocument.invalidate (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\types\embedded.js:290:29)
+    at p.doValidate.skipSchemaValidators (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\document.js:1943:17)
+    at E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\schematype.js:933:9
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9) accepted at 2019-05-17T04:41:59.951Z 
+10:14:03.014 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5cd01832a3ba7c376c47f3d8","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"5072","loc":[0,0],"register_time":"1555556400","register_type":"Linked","__v":0} accepted at 2019-05-17T04:44:03.013Z 
+10:14:03.129 INFO  device insertion statusMobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.
+{"errors":{"devices.mobile.0.deviceid":{"message":"Path `deviceid` is required.","name":"ValidatorError","properties":{"message":"Path `deviceid` is required.","type":"required","path":"deviceid"},"kind":"required","path":"deviceid"},"devices.mobile.0.deviceToken":{"message":"Path `deviceToken` is required.","name":"ValidatorError","properties":{"message":"Path `deviceToken` is required.","type":"required","path":"deviceToken"},"kind":"required","path":"deviceToken"}},"_message":"Mobile validation failed","message":"Mobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.","name":"ValidationError"}
+ValidationError: Mobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.
+    at new ValidationError (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\error\validation.js:30:11)
+    at model.Document.invalidate (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\document.js:2080:32)
+    at EmbeddedDocument.invalidate (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\types\embedded.js:290:29)
+    at p.doValidate.skipSchemaValidators (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\document.js:1943:17)
+    at E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\schematype.js:933:9
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9) accepted at 2019-05-17T04:44:03.129Z 
+10:14:39.596 INFO  user found {"verification_status":true,"prefer_language":"English","_id":"5cd01832a3ba7c376c47f3d8","username":"vinodkumar.ksv@gmail.com","password":"111111","otp":"5072","loc":[0,0],"register_time":"1555556400","register_type":"Linked","__v":0} accepted at 2019-05-17T04:44:39.596Z 
+10:14:39.677 INFO  device insertion statusMobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.
+{"errors":{"devices.mobile.0.deviceid":{"message":"Path `deviceid` is required.","name":"ValidatorError","properties":{"message":"Path `deviceid` is required.","type":"required","path":"deviceid"},"kind":"required","path":"deviceid"},"devices.mobile.0.deviceToken":{"message":"Path `deviceToken` is required.","name":"ValidatorError","properties":{"message":"Path `deviceToken` is required.","type":"required","path":"deviceToken"},"kind":"required","path":"deviceToken"}},"_message":"Mobile validation failed","message":"Mobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.","name":"ValidationError"}
+ValidationError: Mobile validation failed: devices.mobile.0.deviceid: Path `deviceid` is required., devices.mobile.0.deviceToken: Path `deviceToken` is required.
+    at new ValidationError (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\error\validation.js:30:11)
+    at model.Document.invalidate (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\document.js:2080:32)
+    at EmbeddedDocument.invalidate (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\types\embedded.js:290:29)
+    at p.doValidate.skipSchemaValidators (E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\document.js:1943:17)
+    at E:\VEDAS\Spec\Spectrum\Spectrocare_Version_3\node_modules\mongoose\lib\schematype.js:933:9
+    at _combinedTickCallback (internal/process/next_tick.js:131:7)
+    at process._tickCallback (internal/process/next_tick.js:180:9) accepted at 2019-05-17T04:44:39.677Z 
