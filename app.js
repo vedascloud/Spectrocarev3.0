@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors=require('cors');
 
 var registerRouter = require('./routes/Register');
 var verifyRouter = require('./routes/Verify');
@@ -25,6 +26,11 @@ var jsonfileRouter = require('./routes/Jsonfiles');
 var shareReportRouter = require('./routes/ShareReport');
 var fetchClientsRouter = require('./routes/MyClients');
 
+var sdkJsonfileRouter = require('./routes/sdkjsonfiles');
+var deleteDataRouter = require('./routes/DeleteAllData');
+var sdkJsonfilesforengggRouter = require('./routes/sdkjsonfilesforengg');
+
+
 
 var app = express();
 var server = require('http').Server(app);
@@ -34,15 +40,13 @@ var io = require('socket.io')(server);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.use(function(req, res, next){
-    res.io = io;
-    next();
-});
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(cors());
 
 app.use('/spectrocare/register',registerRouter);
 app.use('/spectrocare/verify',verifyRouter);
@@ -64,6 +68,11 @@ app.use('/spectrocare/bloodtest',bloodDataRouter);
 app.use('/spectrocare/jsonfiles',jsonfileRouter);
 app.use('/spectrocare/share',shareReportRouter);
 app.use('/spectrocare/myclients',fetchClientsRouter);
+
+app.use('/spectrocare/sdkjsonfiles',sdkJsonfileRouter);
+app.use('/spectrocare/deletedata',deleteDataRouter);
+app.use('/spectrocare/sdkjsonfilesforengg',sdkJsonfilesforengggRouter);
+
 
 
 // catch 404 and forward to error handler

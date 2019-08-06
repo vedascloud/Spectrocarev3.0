@@ -8,6 +8,12 @@ var UrineSchema = new Schema({
         index:true,
         required:true
     },
+    //It is from Client Collection
+    id : {
+        type:String,
+        index:true,
+        required:true
+    },
     testId:{
         type:String,
         required:true,
@@ -71,11 +77,11 @@ var UrineSchema = new Schema({
     isShared:{
         type:Boolean,
         default:false
-    },
-    takePhoto:{
+    }
+    /*takePhoto:{
         type:String,
         required:true
-    }
+    }*/
 
 });
 

@@ -35,6 +35,7 @@ var bloodDataController = {
                             console.log(suc);
                             console.log('form data fields...', fields);
                             var personDb = new bloodDB({
+                                id:fields.id,
                                 username:fields.username,
                                 testId:testId,
                                 clientType:fields.clientType,
@@ -49,11 +50,21 @@ var bloodDataController = {
 
                             personDb.save((success) => {
                                 console.log(success);
-                                callback({
-                                    response: '3',
-                                    test_id: testId,
-                                    message: 'Your personal information has been successfully stored.'
-                                });
+
+                                if (success){
+                                    callback({
+                                        response: '3',
+                                        test_id: testId,
+                                        message: 'Your personal information has been successfully stored.'
+                                    });
+                                }
+                                else {
+                                    callback({
+                                        response: '0',
+                                        message: 'Something went wrong'
+                                    });
+                                }
+
                             });
 
                         }

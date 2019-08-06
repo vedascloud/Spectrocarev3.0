@@ -14,7 +14,7 @@ router.post('/',(req,res) => {
         res.json({response:'0',message:'No content found to process your request'});
     }else {
 
-        urineDataController.insertUrinedata(req.body, req.files, req.headers, req, (result) => {
+        urineDataController.insertUrinedata(req.body, (result) => {
 
             res.send(result);
 

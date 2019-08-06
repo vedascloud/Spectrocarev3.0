@@ -8,6 +8,12 @@ var PetSchema = new Schema({
         index:true,
         required : true
     },
+    id : {
+        type:String,
+        index:true,
+        required:true,
+        unique:true
+    },
     clientId : {
         type : String,
         required : true
@@ -28,8 +34,11 @@ var PetSchema = new Schema({
         required : true
     },
     birthday : {
-        type : String,
-        required : true
+        type : String
+    },
+    age : {
+        type:String,
+        required:true
     },
     petType : {
         type : String,

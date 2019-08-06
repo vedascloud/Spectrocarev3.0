@@ -22,27 +22,30 @@ var Login = {
 
     loginAuthentication: (userParam, callback) => {
 
-        const username = userParam.username;
+        const username1 = userParam.username;
 
-        if (validator.isEmail(username)) {
+        console.log('username...',userParam.username);
+        console.log('password...',userParam.password);
+
+        if (validator.isEmail(username1)) {
 
             if (userParam.Linked === 'Linked') {
 
-                Hospital.findOne({username: new RegExp(username, 'i')}).exec()
+                Hospital.findOne({username: new RegExp(username1, 'i')}).exec()
                     .then((userFound) => {
 
                         if (userFound) {
 
                             if (userFound.password === userParam.password) {
 
-                                Hospital.updateOne({username: new RegExp(username, 'i')}, {$set: {register_type: "Linked"}}).exec()
+                                Hospital.updateOne({username: new RegExp(username1, 'i')}, {$set: {register_type: "Linked"}}).exec()
                                     .then((userUpdated) => {
 
-                                        HospitalInfo.findOne({username: new RegExp(username, 'i')}).exec()
+                                        HospitalInfo.findOne({username: new RegExp(username1, 'i')}).exec()
                                             .then((pinfo) => {
                                                 if (pinfo) {
 
-                                                    human.find({username: new RegExp(username, 'i')}).exec()
+                                                    human.find({username: new RegExp(username1, 'i')}).exec()
                                                         .then((humanclient) => {
 
                                                             if (humanclient) {
@@ -50,30 +53,30 @@ var Login = {
                                                                 human.aggregate([
                                                                     {
                                                                         $match: {
-                                                                            username: new RegExp(username, 'i')
+                                                                            username: new RegExp(username1, 'i')
                                                                         }
                                                                     },
                                                                     {
                                                                         $lookup: {
                                                                             from: "urineresults",
-                                                                            localField: "clientId",
-                                                                            foreignField: "client_Id",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_Urine_Test_Results"
                                                                         }
                                                                     },
                                                                     {
                                                                         $lookup: {
                                                                             from: "bloodresults",
-                                                                            localField: "clientId",
-                                                                            foreignField: "client_Id",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_Blood_Test_Results"
                                                                         }
                                                                     },
                                                                     {
                                                                         $lookup: {
                                                                             from: "testreservations",
-                                                                            localField: "clientId",
-                                                                            foreignField: "clientId",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_TestReservation_Results"
                                                                         }
                                                                     }
@@ -82,36 +85,36 @@ var Login = {
 
                                                                         if (hreservData) {
 
-                                                                            pet.find({username: new RegExp(username, 'i')}).exec()
+                                                                            pet.find({username: new RegExp(username1, 'i')}).exec()
                                                                                 .then((petclient) => {
 
                                                                                     pet.aggregate([
                                                                                         {
                                                                                             $match: {
-                                                                                                username: new RegExp(username, 'i')
+                                                                                                username: new RegExp(username1, 'i')
                                                                                             }
                                                                                         },
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "urineresults",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "client_Id",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_Urine_Test_Results"
                                                                                             }
                                                                                         },
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "bloodresults",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "client_Id",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_Blood_Test_Results"
                                                                                             }
                                                                                         },
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "testreservations",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "clientId",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_TestReservation_Results"
                                                                                             }
                                                                                         }
@@ -122,7 +125,7 @@ var Login = {
 
                                                                                                 if (userParam.from === 'web') {
 
-                                                                                                    notify.findOne({username: new RegExp(username, 'i')}).exec()
+                                                                                                    notify.findOne({username: new RegExp(username1, 'i')}).exec()
                                                                                                         .then((notifications) => {
 
                                                                                                             if (notifications) {
@@ -132,7 +135,7 @@ var Login = {
                                                                                                                         found = true;
                                                                                                                         notify.updateOne(
                                                                                                                             {
-                                                                                                                                'username': username,
+                                                                                                                                'username': username1,
                                                                                                                                 'devices.web.deviceid': userParam.deviceid
                                                                                                                             },
                                                                                                                             {
@@ -159,7 +162,7 @@ var Login = {
                                                                                                                     notify.updateOne(
                                                                                                                         {
                                                                                                                             _id: notifications._id,
-                                                                                                                            username: new RegExp(username, 'i')
+                                                                                                                            username: new RegExp(username1, 'i')
                                                                                                                         },
                                                                                                                         {
                                                                                                                             "$push": {
@@ -182,7 +185,7 @@ var Login = {
 
                                                                                                             } else {
                                                                                                                 var obj = new notify({
-                                                                                                                    username: username,
+                                                                                                                    username: username1,
                                                                                                                     devices: {
                                                                                                                         web: [{
                                                                                                                             deviceid: userParam.deviceid,
@@ -204,7 +207,7 @@ var Login = {
 
                                                                                                 } else {
 
-                                                                                                    notify.findOne({username: new RegExp(username, 'i')}).exec()
+                                                                                                    notify.findOne({username: new RegExp(username1, 'i')}).exec()
                                                                                                         .then((notifications) => {
 
                                                                                                             if (notifications) {
@@ -214,7 +217,7 @@ var Login = {
                                                                                                                         found = true;
                                                                                                                         notify.updateOne(
                                                                                                                             {
-                                                                                                                                'username': username,
+                                                                                                                                'username': username1,
                                                                                                                                 'devices.mobile.deviceid': userParam.deviceid
                                                                                                                             },
                                                                                                                             {
@@ -237,7 +240,7 @@ var Login = {
                                                                                                                     notify.updateOne(
                                                                                                                         {
                                                                                                                             _id: notifications._id,
-                                                                                                                            username: new RegExp(username, 'i')
+                                                                                                                            username: new RegExp(username1, 'i')
                                                                                                                         },
                                                                                                                         {
                                                                                                                             "$push": {
@@ -262,7 +265,7 @@ var Login = {
                                                                                                             } else {
 
                                                                                                                 var obj = new notify({
-                                                                                                                    username: username,
+                                                                                                                    username: username1,
                                                                                                                     devices: {
                                                                                                                         mobile: [{
                                                                                                                             deviceid: userParam.deviceid,
@@ -288,7 +291,8 @@ var Login = {
                                                                                                     hospital_data: [pinfo],
                                                                                                     Human_Data: hreservData,
                                                                                                     Pet_Data: preservData,
-                                                                                                    prefer_language: 'English'
+                                                                                                    prefer_language: userFound.prefer_language
+                                                                                                    /*prefer_language: 'English'*/
                                                                                                 };
                                                                                                 callback(r);
                                                                                             }
@@ -349,7 +353,7 @@ var Login = {
 
             } else {
 
-                Hospital.findOne({username: new RegExp(username, 'i')}).exec()
+                Hospital.findOne({username: new RegExp(username1, 'i')}).exec()
                     .then((userFound) => {
                         log.info('user found ', userFound, ' accepted at ', new Date().toJSON());
                         if (userFound) {
@@ -360,48 +364,48 @@ var Login = {
                                 };
                                 callback(res);
                             } else if (userFound.verification_status === false) {
-                                callback({response: '0', message: 'User not verified please verify your email'});
+                                callback({response: '0', message: 'User not verified. Please verify your email'});
                             } else {
                                 if (userFound.password === userParam.password) {
 
-                                    Hospital.updateOne({username: new RegExp(username, 'i')}, {$set: {register_type: "Linked"}}).exec()
+                                    Hospital.updateOne({username: new RegExp(username1, 'i')}, {$set: {register_type: "Linked"}}).exec()
                                         .then((userUpdated) => {
 
-                                            HospitalInfo.findOne({username: new RegExp(username, 'i')}).exec()
+                                            HospitalInfo.findOne({username: new RegExp(username1, 'i')}).exec()
                                                 .then((pinfo) => {
 
                                                     if (pinfo) {
 
-                                                        human.find({username: new RegExp(username, 'i')}).exec()
+                                                        human.find({username: new RegExp(username1, 'i')}).exec()
                                                             .then((humanclient) => {
 
                                                                 human.aggregate([
                                                                     {
                                                                         $match: {
-                                                                            username: new RegExp(username, 'i')
+                                                                            username: new RegExp(username1, 'i')
                                                                         }
                                                                     },
                                                                     {
                                                                         $lookup: {
                                                                             from: "urineresults",
-                                                                            localField: "clientId",
-                                                                            foreignField: "client_Id",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_Urine_Test_Results"
                                                                         }
                                                                     },
                                                                     {
                                                                         $lookup: {
                                                                             from: "bloodresults",
-                                                                            localField: "clientId",
-                                                                            foreignField: "client_Id",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_Blood_Test_Results"
                                                                         }
                                                                     },
                                                                     {
                                                                         $lookup: {
                                                                             from: "testreservations",
-                                                                            localField: "clientId",
-                                                                            foreignField: "clientId",
+                                                                            localField: "id",
+                                                                            foreignField: "id",
                                                                             as: "Human_TestReservation_Results"
                                                                         }
                                                                     }
@@ -410,36 +414,36 @@ var Login = {
 
                                                                         if (hreservData) {
 
-                                                                            pet.find({username: new RegExp(username, 'i')}).exec()
+                                                                            pet.find({username: new RegExp(username1, 'i')}).exec()
                                                                                 .then((petclient) => {
 
                                                                                     pet.aggregate([
                                                                                         {
                                                                                             $match: {
-                                                                                                username: new RegExp(username, 'i')
+                                                                                                username: new RegExp(username1, 'i')
                                                                                             }
                                                                                         },
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "urineresults",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "client_Id",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_Urine_Test_Results"
                                                                                             }
                                                                                         },
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "bloodresults",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "client_Id",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_Blood_Test_Results"
                                                                                             }
                                                                                         },
                                                                                         {
                                                                                             $lookup: {
                                                                                                 from: "testreservations",
-                                                                                                localField: "clientId",
-                                                                                                foreignField: "clientId",
+                                                                                                localField: "id",
+                                                                                                foreignField: "id",
                                                                                                 as: "Pet_TestReservation_Results"
                                                                                             }
                                                                                         }
@@ -450,7 +454,7 @@ var Login = {
 
                                                                                                 if (userParam.from === 'web') {
 
-                                                                                                    notify.findOne({username: new RegExp(username, 'i')}).exec()
+                                                                                                    notify.findOne({username: new RegExp(username1, 'i')}).exec()
                                                                                                         .then((notifications) => {
 
                                                                                                             if (notifications) {
@@ -460,7 +464,7 @@ var Login = {
                                                                                                                         found = true;
                                                                                                                         notify.updateOne(
                                                                                                                             {
-                                                                                                                                'username': username,
+                                                                                                                                'username': username1,
                                                                                                                                 'devices.web.deviceid': userParam.deviceid
                                                                                                                             },
                                                                                                                             {
@@ -487,7 +491,7 @@ var Login = {
                                                                                                                     notify.updateOne(
                                                                                                                         {
                                                                                                                             _id: notifications._id,
-                                                                                                                            username: new RegExp(username, 'i')
+                                                                                                                            username: new RegExp(username1, 'i')
                                                                                                                         },
                                                                                                                         {
                                                                                                                             "$push": {
@@ -510,7 +514,7 @@ var Login = {
 
                                                                                                             } else {
                                                                                                                 var obj = new notify({
-                                                                                                                    username: username,
+                                                                                                                    username: username1,
                                                                                                                     devices: {
                                                                                                                         web: [{
                                                                                                                             deviceid: userParam.deviceid,
@@ -532,7 +536,7 @@ var Login = {
 
                                                                                                 } else {
 
-                                                                                                    notify.findOne({username: new RegExp(username, 'i')}).exec()
+                                                                                                    notify.findOne({username: new RegExp(username1, 'i')}).exec()
                                                                                                         .then((notifications) => {
 
                                                                                                             if (notifications) {
@@ -542,7 +546,7 @@ var Login = {
                                                                                                                         found = true;
                                                                                                                         notify.updateOne(
                                                                                                                             {
-                                                                                                                                'username': username,
+                                                                                                                                'username': username1,
                                                                                                                                 'devices.mobile.deviceid': userParam.deviceid
                                                                                                                             },
                                                                                                                             {
@@ -565,7 +569,7 @@ var Login = {
                                                                                                                     notify.updateOne(
                                                                                                                         {
                                                                                                                             _id: notifications._id,
-                                                                                                                            username: new RegExp(username, 'i')
+                                                                                                                            username: new RegExp(username1, 'i')
                                                                                                                         },
                                                                                                                         {
                                                                                                                             "$push": {
@@ -590,7 +594,7 @@ var Login = {
                                                                                                             } else {
 
                                                                                                                 var obj = new notify({
-                                                                                                                    username: username,
+                                                                                                                    username: username1,
                                                                                                                     devices: {
                                                                                                                         mobile: [{
                                                                                                                             deviceid: userParam.deviceid,
@@ -616,7 +620,8 @@ var Login = {
                                                                                                     hospital_data: [pinfo],
                                                                                                     Human_Data: hreservData,
                                                                                                     Pet_Data: preservData,
-                                                                                                    prefer_language: 'English'
+                                                                                                    prefer_language: userFound.prefer_language
+                                                                                                    /*prefer_language: 'English'*/
                                                                                                 };
                                                                                                 callback(r);
                                                                                             }
@@ -652,7 +657,8 @@ var Login = {
                                                                     hospital_data: [],
                                                                     Human_Data: [],
                                                                     Pet_Data: [],
-                                                                    prefer_language: 'English' };
+                                                                    prefer_language: userFound.prefer_language
+                                                                    /*prefer_language: 'English'*/ };
                                                         callback(r);
                                                     }
                                                 })
@@ -679,7 +685,7 @@ var Login = {
             }
         }
         else {
-            callback({ response: '0', message: 'please pass a valid email address' });
+            callback({ response: '0', message: 'Please pass a valid email address' });
         }
     }
 };

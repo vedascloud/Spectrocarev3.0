@@ -7,6 +7,12 @@ var TestReservationSchema = new Schema({
         type : String,
         required : true
     },
+    //It is from Client Collection
+    id : {
+        type:String,
+        index:true,
+        required:true
+    },
     testReservNo : {
         type : String,
         required : true

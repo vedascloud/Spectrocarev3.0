@@ -47,8 +47,20 @@ var Personalinformation={
                             });
 
                             personDb.save((success) => {
-                                console.log(success);
-                                callback({response:'3',message:'Your personal information has been successfully stored.'});
+                                if (success) {
+                                    console.log(success);
+                                    callback({
+                                        response: '3',
+                                        message: 'Your personal information has been successfully stored.'
+                                    });
+                                }
+                                else {
+                                    callback({
+                                        response: '0',
+                                        message: 'something gone wrong!!!'
+                                    });
+                                }
+
                             });
 
                         }

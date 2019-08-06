@@ -8,6 +8,12 @@ var BloodSchema = new Schema({
         index:true,
         required:true
     },
+    //It is from Client Collection
+    id : {
+        type:String,
+        index:true,
+        required:true
+    },
     testId:{
         type:String,
         required:true,

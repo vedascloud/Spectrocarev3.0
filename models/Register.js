@@ -29,7 +29,7 @@ var Add= {
                             if(userFound.verification_status === true){
                                 var r = {
                                     response: '5',
-                                    message: 'The phone/email is already registered.'
+                                    message: 'You already have an account with us.'
                                 };
                                 callback(r);
                             }else {
