@@ -18,7 +18,7 @@
     "morgan": "~1.9.0",
     "multiline": "^2.0.0",
     "node-datetime": "^2.1.2",
-    "nodemailer": "^5.1.1",
+    "nodemailer": "^6.4.16",
     "pdfshift": "^1.0.4",
     "simple-node-logger": "^18.12.22",
     "socket.io": "^2.2.0",
