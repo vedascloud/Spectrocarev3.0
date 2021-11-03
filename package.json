@@ -22,6 +22,6 @@
     "pdfshift": "^1.0.4",
     "simple-node-logger": "^18.12.22",
     "socket.io": "^2.2.0",
-    "validator": "^10.11.0"
+    "validator": "^13.7.0"
   }
 }
